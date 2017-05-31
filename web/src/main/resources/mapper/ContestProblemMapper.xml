@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.ContestProblemDAO">
+
+    <!-- insert语句 -->
+    <insert id="insertContestProblem" parameterType="ContestProblem" keyProperty="problemId">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="problemId" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into contest_problem(
+        problem_id,
+        contest_id,
+        num)
+        values
+        (
+        #{problem_id},
+        #{contest_id},
+        #{num})
+    </insert>
+
+    <select id="selectProblem" parameterType="int" resultType="ContestProblem">
+        select * from contest_problem
+        where problem_id=#{problem_id}
+    </select>
+
+    <!-- delete语句 -->
+    <delete id="deleteContestProblem" parameterType="int">
+        delete from contest_problem
+        where problem_id=#{problem_id}
+    </delete>
+
+
+</mapper>

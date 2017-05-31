@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="oj:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lezm.war">
+      <element id="artifact" artifact-name="oj:war exploded" />
+    </root>
+  </artifact>
+</component>
