@@ -28,6 +28,17 @@ public class Contest extends BasicVo {
         this.password = password;
     }
 
+    public Contest(String contest_name, String description, String start_time, String end_time, int problem_num, boolean is_access, boolean is_open, String password) {
+        this.contest_name = contest_name;
+        this.description = description;
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.problem_num = problem_num;
+        this.is_access = is_access;
+        this.is_open = is_open;
+        this.password = password;
+    }
+
     public int getContest_id() {
         return contest_id;
     }

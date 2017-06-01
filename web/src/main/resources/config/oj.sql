@@ -61,7 +61,8 @@ DROP TABLE IF EXISTS `problem`;
 CREATE TABLE `problem` (
   `problem_id` int(10) unsigned NOT NULL auto_increment COMMENT '题目编号(主键)',
   `problem_type` int(10) unsigned NOT NULL default '0' COMMENT '题目类型(默认为0:普通题,否则为contest_id)',
-  `tag` varchar(200) NOT NULL default '' COMMENT '题目标签(类别)',
+  `algorithm` varchar(60) NOT NULL default '' COMMENT '算法',
+  `data_structure` varchar(60) NOT NULL default '' COMMENT '数据结构',
   `difficulty` varchar(40) NOT NULL default '' COMMENT '题目难度()',
   `title` varchar(200) NOT NULL default '' COMMENT '标题',
   `description` text COMMENT '题目描述',
@@ -69,8 +70,6 @@ CREATE TABLE `problem` (
   `add_time` datetime default NULL COMMENT '添加时间',
   `time_limit` int(10) unsigned NOT NULL default '0' COMMENT '限时(ms)',
   `memory_limit` int(10) unsigned NOT NULL default '0' COMMENT '空间限制',
-  `accept_sum` int(10) unsigned NOT NULL default '0' COMMENT '总ac次数',
-  `submit_sum` int(10) unsigned NOT NULL default '0' COMMENT '总提交次数',
   PRIMARY KEY  (`problem_id`),
   KEY `idx_tag` (`tag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

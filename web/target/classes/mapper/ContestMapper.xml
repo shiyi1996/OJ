@@ -5,9 +5,157 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.web.dao.ContestDAO">
 
-    <select id="selectContest" parameterType="int" resultType="Contest">
+    <!-- save语句 -->
+    <insert id="save" parameterType="Contest" keyProperty="contest_id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="contest_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into contest(
+        contest_name,
+        description,
+        start_time,
+        end_time,
+        problem_num,
+        is_access,
+        is_open,
+        password)
+        values
+        (
+        #{contest_name},
+        #{description},
+        #{start_time},
+        #{end_time},
+        #{problem_num},
+        #{is_access},
+        #{is_open},
+        #{password})
+    </insert>
+
+    <insert id="saveBatch" parameterType="java.util.List" keyProperty="contest_id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="contest_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into contest(contest_name,description,start_time,end_time,problem_num,is_access,is_open,password)
+        values
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.contest_name},#{item.description},#{item.start_time},#{item.end_time},#{item.problem_num},#{item.is_access},#{item.is_open},#{item.password})
+        </foreach>
+
+    </insert>
+
+    <!-- remove语句 -->
+    <delete id="remove" parameterType="int">
+        delete from contest
+        where contest_id=#{contest_id}
+    </delete>
+
+    <delete id="removeBatch" parameterType="int">
+        delete from contest
+        where contest_id IN
+        <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- update语句 -->
+    <update id="update" parameterType="Contest">
+        update contest
+        <set>
+            <if test="contest_name!=null and contest_name!='' ">
+                contest_name=#{contest_name},
+            </if>
+            <if test="description!=null and description!='' ">
+                description=#{description},
+            </if>
+            <if test="start_time!=null and start_time!='' ">
+                start_time=#{start_time},
+            </if>
+            <if test="end_time!=null and end_time!='' ">
+                end_time=#{end_time},
+            </if>
+            <if test="problem_num!=0">
+                problem_num=#{problem_num},
+            </if>
+            is_access=#{is_access},
+            is_open=#{is_open},
+            <if test="password!=null and password!='' ">
+                password=#{password}
+            </if>
+        </set>
+        where contest_id=#{contest_id}
+    </update>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index"  separator=";">
+            update contest
+            <set>
+                contest_name=#{item.contest_name},
+                description=#{item.description},
+                start_time=#{item.start_time},
+                end_time=#{item.end_time},
+                problem_num=#{item.problem_num},
+                is_access=#{item.is_access},
+                is_open=#{item.is_open},
+                password=#{item.password}
+            </set>
+            where contest_id=#{item.contest_id}
+        </foreach>
+    </update>
+
+    <!-- select语句 -->
+    <select id="getEntityById" parameterType="int" resultType="Contest">
         select * from contest
         where contest_id=#{contest_id}
+    </select>
+
+    <!--<select id="list" resultType="Contest">-->
+        <!--SELECT * from contest-->
+        <!--<where>-->
+            <!--<if test="contest_name!=null and contest_name!='' ">-->
+                <!--contest_name=#{contest_name},-->
+            <!--</if>-->
+            <!--<if test="description!=null and description!='' ">-->
+                <!--description=#{description},-->
+            <!--</if>-->
+            <!--<if test="start_time!=null and start_time!='' ">-->
+                <!--start_time=#{start_time},-->
+            <!--</if>-->
+            <!--<if test="end_time!=null and end_time!='' ">-->
+                <!--end_time=#{end_time},-->
+            <!--</if>-->
+            <!--<if test="problem_num!=0">-->
+                <!--AND problem_num=#{problem_num}-->
+            <!--</if>-->
+            <!--is_access=#{is_access},-->
+            <!--is_open=#{is_open},-->
+            <!--<if test="password!=null and password!='' ">-->
+                <!--password=#{password}-->
+            <!--</if>-->
+            <!---->
+            <!---->
+            <!---->
+            <!--<if test="param1.user_id!=0">-->
+                <!--AND blog_main.user_id = #{param1.user_id}-->
+            <!--</if>-->
+            <!--<if test="param1.title !=null and param1.title!='' ">-->
+                <!--AND blog_main.title LIKE CONCAT(CONCAT('%', #{param1.title}),'%')-->
+            <!--</if>-->
+            <!--<if test="param1.createdate !=null and param1.createdate!='' ">-->
+                <!--AND blog_main.createdate LIKE CONCAT(CONCAT('%', #{param1.createdate}),'%')-->
+            <!--</if>-->
+            <!--<if test="param1.heart_num!=0">-->
+                <!--AND blog_main.heart_num = #{param1.heart_num}-->
+            <!--</if>-->
+        <!--</where>-->
+        <!--limit #{param2},#{param3}-->
+    <!--</select>-->
+    <!-- count语句 -->
+    <select id="countAll" parameterType="int" resultType="int">
+        select count(*) from contest
     </select>
 
 </mapper>
