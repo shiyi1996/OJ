@@ -22,14 +22,14 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <!-- 自动扫描该包，使SpringMVC认为包下用了@service注解的类是逻辑器 -->
-    <context:component-scan base-package="com.web.serviceImpl">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
-    </context:component-scan>
-
     <!-- 自动扫描该包，使SpringMVC认为包下用了@repository注解的类是dao -->
     <context:component-scan base-package="com.web.dao">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@service注解的类是逻辑器 -->
+    <context:component-scan base-package="com.web.service">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 
     <!--HandlerMapping 无需配置，springmvc可以默认启动-->
@@ -39,7 +39,7 @@
     <mvc:resources mapping="/css/**" location="/WEB-INF/static/css/"/>
     <mvc:resources mapping="/js/**" location="/WEB-INF/static/js/"/>
     <mvc:resources mapping="/images/**" location="/WEB-INF/static/images/"/>
-    <mvc:resources mapping="/fonts/**" location="/WEB-INF/static/fonts/"/>
+    <mvc:resources mapping="/src-noconflict/**" location="/WEB-INF/static/src-noconflict/"/>
 
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
     <mvc:annotation-driven/>

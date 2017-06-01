@@ -154,7 +154,40 @@
         where problem_id=#{problem_id}
     </select>
 
+    <select id="listBatch" resultType="Problem">
+        SELECT * from problem
+        <where>
+            problem_type=#{param1.problem_type}
+            <if test="param1.algorithm!=null and param1.algorithm!='' ">
+                AND problem.algorithm=#{param1.algorithm}
+            </if>
+            <if test="param1.data_structure!=null and param1.data_structure!='' ">
+                AND problem.data_structure=#{param1.data_structure}
+            </if>
+            <if test="param1.difficulty!=null and param1.difficulty!='' ">
+                AND problem.difficulty=#{param1.difficulty}
+            </if>
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
     <!-- count语句 -->
+    <select id="count" parameterType="Problem" resultType="int">
+        select count(*) from problem
+        <where>
+            problem_type=#{problem_type}
+            <if test="algorithm!=null and algorithm!='' ">
+                AND problem.algorithm=#{algorithm}
+            </if>
+            <if test="data_structure!=null and data_structure!='' ">
+                AND problem.data_structure=#{data_structure}
+            </if>
+            <if test="difficulty!=null and difficulty!='' ">
+                AND problem.difficulty=#{difficulty}
+            </if>
+        </where>
+    </select>
+
     <select id="countAll" parameterType="int" resultType="int">
         select count(*) from problem
     </select>

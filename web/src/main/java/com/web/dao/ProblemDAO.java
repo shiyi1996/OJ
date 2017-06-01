@@ -12,4 +12,3 @@ import java.util.List;
 public interface ProblemDAO extends BasicDao {
 
 }
-
