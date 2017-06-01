@@ -70,7 +70,12 @@ CREATE TABLE `problem` (
   `add_time` datetime default NULL COMMENT '添加时间',
   `time_limit` int(10) unsigned NOT NULL default '0' COMMENT '限时(ms)',
   `memory_limit` int(10) unsigned NOT NULL default '0' COMMENT '空间限制',
+<<<<<<< HEAD
   PRIMARY KEY  (`problem_id`)
+=======
+  PRIMARY KEY  (`problem_id`),
+  KEY `idx_tag` (`tag`)
+>>>>>>> 0daf7a9a0c2e8a9e20a245c7f41a4dc51db12302
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
