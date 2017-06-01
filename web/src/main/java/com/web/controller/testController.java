@@ -26,9 +26,9 @@ public class testController {
     @RequestMapping("")
     public ModelAndView x()
     {
-        ContestProblem contestProblem=contestProblemDAO.selectProblem(3);
+//        ContestProblem contestProblem=contestProblemDAO.selectProblem(3);
         ModelAndView mav=new ModelAndView("home");
-        mav.addObject("value",contestProblem);
+//        mav.addObject("value",contestProblem);
         return mav;
     }
 
