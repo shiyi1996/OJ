@@ -26,8 +26,6 @@ public interface BasicDao {
     //查找
     public BasicVo getEntityById(int id);
 
-    public List<BasicVo> list(BasicVo basicVo);
-
     public List<BasicVo> listBatch(BasicVo basicVo, int start, int size);
 
     //统计个数
