@@ -1,6 +1,3 @@
-/**
- * Created by TongYiMing on 2017/6/1.
- */
 
 import com.web.dao.ContestDAO;
 import com.web.dao.ProblemDAO;
