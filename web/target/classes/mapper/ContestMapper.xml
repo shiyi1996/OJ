@@ -112,6 +112,8 @@
         where contest_id=#{contest_id}
     </select>
 
+<<<<<<< HEAD
+=======
     <!--<select id="list" resultType="Contest">-->
         <!--SELECT * from contest-->
         <!--<where>-->
@@ -153,6 +155,7 @@
         <!--</where>-->
         <!--limit #{param2},#{param3}-->
     <!--</select>-->
+>>>>>>> 0daf7a9a0c2e8a9e20a245c7f41a4dc51db12302
     <!-- count语句 -->
     <select id="countAll" parameterType="int" resultType="int">
         select count(*) from contest

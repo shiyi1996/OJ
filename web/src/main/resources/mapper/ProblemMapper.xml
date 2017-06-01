@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.ProblemDAO">
+
+    <!-- save语句 -->
+    <insert id="save" parameterType="Problem" >
+
+        <selectKey resultType="java.lang.Integer" keyProperty="problem_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into problem(
+        problem_id,
+        problem_type,
+        algorithm,
+        data_structure,
+        difficulty,
+        title,
+        description,
+        test_sum,
+        add_time,
+        time_limit,
+        memory_limit
+        )
+        values
+        (
+        #{problem_id},
+        #{problem_type},
+        #{algorithm},
+        #{data_structure},
+        #{difficulty},
+        #{title},
+        #{description},
+        #{test_sum},
+        #{add_time},
+        #{time_limit},
+        #{memory_limit}
+        )
+    </insert>
+
+    <insert id="saveBatch" parameterType="java.util.List" keyProperty="problem_id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="problem_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into problem(
+        problem_id,
+        problem_type,
+        algorithm,
+        data_structure,
+        difficulty,
+        title,
+        description,
+        test_sum,
+        add_time,
+        time_limit,
+        memory_limit)
+        values
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.problem_id},
+            #{item.problem_type},
+            #{item.algorithm},
+            #{item.data_structure},
+            #{item.difficulty},
+            #{item.title},
+            #{item.description},
+            #{item.test_sum},
+            #{item.add_time},
+            #{item.time_limit},
+            #{item.memory_limit}
+            )
+        </foreach>
+
+    </insert>
+
+    <!-- remove语句 -->
+    <delete id="remove" parameterType="int">
+        delete from problem
+        where problem_id=#{problem_id}
+    </delete>
+
+    <delete id="removeBatch" parameterType="int">
+        delete from problem
+        where problem_id IN
+        <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- update语句 -->
+    <update id="update" parameterType="Problem">
+        update problem
+        <set>
+            <if test="problem_type!=null and problem_type!='' ">
+                problem_type=#{problem_type},
+            </if>
+            <if test="algorithm!=null and algorithm!='' ">
+                algorithm=#{algorithm},
+            </if>
+            <if test="data_structure!=null and data_structure!='' ">
+                data_structure=#{data_structure},
+            </if>
+            <if test="difficulty!=null and difficulty!='' ">
+                difficulty=#{difficulty},
+            </if>
+            <if test="title!=null and title!='' ">
+                title=#{title},
+            </if>
+            <if test="description!=null and description!='' ">
+                description=#{description},
+            </if>
+            <if test="test_sum!=0">
+                test_sum=#{test_sum},
+            </if>
+            <if test="add_time!=null and add_time!='' ">
+                add_time=#{add_time}
+            </if>
+            <if test="time_limit!=0">
+                time_limit=#{time_limit},
+            </if>
+            <if test="memory_limit!=0">
+                memory_limit=#{memory_limit},
+            </if>
+        </set>
+        where problem_id=#{problem_id}
+    </update>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index"  separator=";">
+            update problem
+            <set>
+                problem_type=#{item.problem_type},
+                algorithm=#{item.algorithm},
+                data_structure=#{item.data_structure},
+                difficulty=#{item.difficulty},
+                title=#{item.title},
+                description=#{item.description},
+                test_sum=#{item.test_sum},
+                add_time=#{item.add_time},
+                time_limit=#{item.time_limit},
+                memory_limit=#{item.memory_limit}
+            </set>
+            where problem_id=#{item.problem_id}
+        </foreach>
+    </update>
+
+    <!-- select语句 -->
+    <select id="getEntityById" parameterType="int" resultType="Problem">
+        select * from problem
+        where problem_id=#{problem_id}
+    </select>
+
+    <!-- count语句 -->
+    <select id="countAll" parameterType="int" resultType="int">
+        select count(*) from problem
+    </select>
+
+
+</mapper>
