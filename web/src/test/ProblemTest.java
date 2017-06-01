@@ -1,6 +1,3 @@
-/**
- * Created by TongYiMing on 2017/6/1.
- */
 
 import com.web.dao.ContestDAO;
 import com.web.dao.ProblemDAO;
@@ -33,11 +30,11 @@ public class ProblemTest {
     @Test
     public void saveBatchTest() {
         Date date = new Date();
-        Problem problem = new Problem(0,"KMP","tree","easy","hahh","miaoshu",10,date,213,123);
-        Problem problem1 = new Problem(0,"KMP","tree","easy","hahh","miaoshu",10,date,213,123);
-        Problem problem2 = new Problem(0,"KMP","tree","easy","hahh","miaoshu",10,date,213,123);
-        Problem problem3 = new Problem(0,"KMP","tree","easy","hahh","miaoshu",10,date,213,123);
-        Problem problem4 = new Problem(0,"KMP","tree","easy","hahh","miaoshu",10,date,213,123);
+        Problem problem = new Problem(0,"KMP","tree","hard","a","miaoshu",10,date,213,123);
+        Problem problem1 = new Problem(0,"KMP","tree","easy","b","a",10,date,213,123);
+        Problem problem2 = new Problem(0,"KMP","tree","hard","c","b",10,date,213,123);
+        Problem problem3 = new Problem(0,"KMP","tree","hard","d","c",10,date,213,123);
+        Problem problem4 = new Problem(0,"KMP","tree","easy","e","d",10,date,213,123);
         List<BasicVo> problems = new ArrayList<BasicVo>();
         problems.add(problem);
         problems.add(problem1);
@@ -79,6 +76,32 @@ public class ProblemTest {
         problems.add(problem1);
         int pos = problemDAO.updateBatch(problems);
         System.out.println(pos);
+    }
+
+    @Test
+    public void listBatch()
+    {
+        Problem problem = new Problem();
+//        problem.setProblem_type(1);
+//        problem.setAlgorithm("DFS");
+//        problem.setData_structure("tree");
+//        problem.setDifficulty("easy");
+        List<BasicVo> problemList=problemDAO.listBatch(problem,0,3);
+        for(BasicVo b:problemList){
+            System.out.println(((Problem)b).getProblem_id());
+        }
+    }
+
+    @Test
+    public void count()
+    {
+        Problem problem = new Problem();
+        problem.setProblem_type(1);
+//        problem.setAlgorithm("DFS");
+//        problem.setData_structure("tree");
+        problem.setDifficulty("hard");
+        int count=problemDAO.count(problem);
+        System.out.println(count);
     }
 
     @Test
