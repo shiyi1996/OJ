@@ -1,7 +1,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.web.entity.BasicVo" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.web.entity.Problem" %><%--
+<%@ page import="com.web.entity.Problem" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: LuWenjing
   Date: 2017/6/1
@@ -54,32 +56,71 @@
             <ul class="list-nav">
                 <li>按算法分类
                     <ul>
-                        <li><a href="/p?algorithm=&difficulty=${difficulty}&structure=${structure}">所有</a></li>
-                        <li><a href="/p?algorithm=KMP&difficulty=${difficulty}&structure=${structure}">分治</a></li>
-                        <li><a href="/p?algorithm=贪心&difficulty=${difficulty}&structure=${structure}">贪心</a></li>
-                        <li><a href="/p?algorithm=链表&difficulty=${difficulty}&structure=${structure}">链表</a></li>
-                        <li><a href="/p?algorithm=搜索&difficulty=${difficulty}&structure=${structure}">搜索</a></li>
-                        <li><a href="/p?algorithm=字符串&difficulty=${difficulty}&structure=${structure}">字符串</a></li>
-                        <li><a href="/p?algorithm=动态规划&difficulty=${difficulty}&structure=${structure}">动态规划</a></li>
-                        <li><a href="/p?algorithm=图论&difficulty=${difficulty}&structure=${structure}">图论</a></li>
+                        <a href="/p?algorithm=&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="1"><span>所有</span></li></a>
+                        <a href="/p?algorithm=分治&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="2"><span>分治</span></li></a>
+                        <a href="/p?algorithm=贪心&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="3"><span>贪心</span></li></a>
+                        <a href="/p?algorithm=链表&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="4"><span>链表</span></li></a>
+                        <a href="/p?algorithm=搜索&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="5"><span>搜索</span></li></a>
+                        <a href="/p?algorithm=字符串&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="6"><span>字符串</span></li></a>
+                        <a href="/p?algorithm=动态规划&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="7"><span>动态规划</span></li></a>
+                        <a href="/p?algorithm=图论&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="8"><span>图论</span></li></a>
                     </ul>
                 </li>
+
                 <li>按难易程度分类
                     <ul>
-                        <li><a href="/p?algorithm=${algorithm}&difficulty=简单&structure=${structure}">简单</a></li>
-                        <li><a href="/p?algorithm=${algorithm}&difficulty=中等&structure=${structure}">中等</a></li></li>
-                        <li><a href="/p?algorithm=${algorithm}&difficulty=难&structure=${structure}">难</a></li>
-                        <li><a href="/p?algorithm=${algorithm}&difficulty=超难&structure=${structure}">超难</a></li>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=&structure=${structure eq 'nullthree'?'':structure}"><li id="9"><span>所有</span></li></a>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=简单&structure=${structure eq 'nullthree'?'':structure}"><li id="10"><span>简单</span></li></a>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=中等&structure=${structure eq 'nullthree'?'':structure}"><li id="11"><span>中等</span></li></a>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=难&structure=${structure eq 'nullthree'?'':structure}"><li id="12"><span>难</span></li></a>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=超难&structure=${structure eq 'nullthree'?'':structure}"><li id="13"><span>超难</span></li></a>
                     </ul>
                 </li>
                 <li>按数据结构分类
                     <ul>
-                        <li><a href="/p?algorithm=${algorithm}&difficulty=${difficulty}&structure=线性结构">线性结构</a></li>
-                        <li><a href="/p?algorithm=${algorithm}&difficulty=${difficulty}&structure=树结构">树结构</a></li>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure="><li id="14"><span>所有</span></li></a>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=线性结构"><li id="15"><span>线性结构</span></li></a>
+                        <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=树结构"><li id="16"><span>树结构</span></li></a>
                     </ul>
                 </li>
             </ul>
+            <script>
+                <%
+                    Map<String,Integer> map=new HashMap<String,Integer>();
+                    map.put("nullone",1);
+                    map.put("分治",2);
+                    map.put("贪心",3);
+                    map.put("链表",4);
+                    map.put("搜索",5);
+                    map.put("字符串",6);
+                    map.put("动态规划",7);
+                    map.put("图论",8);
+                    map.put("nulltwo", 9);
+                    map.put("简单", 10);
+                    map.put("中等", 11);
+                    map.put("难", 12);
+                    map.put("超难", 13);
+                    map.put("nullthree", 14);
+                    map.put("线性结构", 15);
+                    map.put("树结构", 16);
+                    String str1 = (String)request.getAttribute("algorithm");
+                    String str2 = (String)request.getAttribute("difficulty");
+                    String str3 = (String)request.getAttribute("structure");
+                    System.out.println("str1"+str1+"str2"+str2+"str3"+str3);
+                    int id1 = map.get(str1);
+                    int id2 = map.get(str2);
+                    int id3 = map.get(str3);
+                %>
+                document.getElementById(<%= id1 %> +'').innerHTML += '<span class="glyphicon glyphicon-ok" style="display:inline-block; float:right; padding:5px 0"></span>';
+                document.getElementById(<%= id2 %> +'').innerHTML += '<span class="glyphicon glyphicon-ok" style="display:inline-block; float:right; padding:5px 0"></span>';
+                document.getElementById(<%= id3 %> +'').innerHTML += '<span class="glyphicon glyphicon-ok" style="display:inline-block; float:right; padding:5px 0"></span>';
+
+                </script>
         </div>
+        <% String error = (String)request.getAttribute("error");
+            if (error == null)
+            {
+        %>
         <div class="ti-list">
             <table class="table table-hover table-strip table-responsive">
                 <thead>
@@ -99,7 +140,7 @@
                 %>
                     <tr>
                         <td><span class="status accepted"></span><%=problem.getProblem_id()%></td>
-                        <td><a href="#"><%=problem.getTitle()%></a></td>
+                        <td><a href="/p/<%=problem.getProblem_id()%>"><%=problem.getTitle()%></a></td>
                         <td><%=problem.getDifficulty()%></td>
                         <td>2345</td>
                         <td>22%</td>
@@ -111,73 +152,82 @@
             </table>
         </div>
         <div class="page">
-            <a href="/p?thenstart=${pagenow - 1<1?1:pagenow-1}&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><</a>
             <%
                 int pagemax = (Integer)request.getAttribute("pagemax");
                 int pagenow = (Integer)request.getAttribute("pagenow");
-        if (pagemax < 10){
+                if (pagemax > 1){%>
+                    <a href="/p?thenstart=${pagenow - 1<1?1:pagenow-1}&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><</a>
+
+            <%if (pagemax < 10){
         for (int i = 0; i < pagemax; i++){
             if (i + 1 == pagenow){
         %>
-            <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}" class="activity"><%= i + 1%></a>
+            <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}" class="activity"><%= i + 1%></a>
        <%
         }else
             {
        %>
-        <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%= i + 1%></a>
+        <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%= i + 1%></a>
        <%     }
             }
         }
-        else if (pagenow < 4)
+        else if (pagenow < 5)
         {
 
         for (int i = 0; i < 5; i++){
             if (i + 1 == pagenow){
         %>
-        <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}" class="activity"><%= i+1 %></a>
+        <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}" class="activity"><%= i+1 %></a>
         <%}else{%>
-            <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%= i + 1%></a>
+            <a href="/p?thenstart=<%=i+1 %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%= i + 1%></a>
         <%
             }
         }
         %>
         <a href="#">...</a>
-        <a href="/p?thenstart=<%= pagemax-2 %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%= pagemax-2%></a>
-        <a href="/p?thenstart=<%= pagemax-1 %>algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%= pagemax-1%></a>
-        <a href="/p?thenstart=<%= pagemax%>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%= pagemax %></a>
+        <a href="/p?thenstart=<%= pagemax-2 %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%= pagemax-2%></a>
+        <a href="/p?thenstart=<%= pagemax-1 %>algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%= pagemax-1%></a>
+        <a href="/p?thenstart=<%= pagemax%>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%= pagemax %></a>
 
-        <% }else if (pagenow >= 4 && pagenow < pagemax - 2){%>
-        <a href="/p?thenstart=1&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}">1</a>
-        <a href="#">...</a>'+
-        <a href="/p?thenstart=<%= pagenow-2 %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%=pagenow-2%></a>
-        <a href="/p?thenstart=<%= pagenow-1 %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%=pagenow-1%></a>
-        <a href="/p?thenstart=<%= pagenow %>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}" class="activity"><%=pagenow%></a>
-        <a href="/p?thenstart=<%= pagenow+1%>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%=pagenow + 1%></a>
-        <a href="/p?thenstart=<%= pagenow+2%>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%=pagenow + 2%></a>
+        <% }else if (pagenow >= 4 && pagenow <= pagemax - 4){%>
+        <a href="/p?thenstart=1&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}">1</a>
+        <a href="#">...</a>
+        <a href="/p?thenstart=<%= pagenow-2 %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%=pagenow-2%></a>
+        <a href="/p?thenstart=<%= pagenow-1 %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%=pagenow-1%></a>
+        <a href="/p?thenstart=<%= pagenow %>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}" class="activity"><%=pagenow%></a>
+        <a href="/p?thenstart=<%= pagenow+1%>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%=pagenow + 1%></a>
+        <a href="/p?thenstart=<%= pagenow+2%>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%=pagenow + 2%></a>
 
         <a href="#">...</a>
-        <a href="/p?thenstart=<%= pagemax%>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%=pagemax%></a>
+        <a href="/p?thenstart=<%= pagemax%>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%=pagemax%></a>
 
             <%}
-            else if (pagenow >= pagemax-2){%>
+            else if (pagenow > pagemax-4){%>
 
-            <a href="/p?thenstart=1&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}">1</a>
-            <a href="/p?thenstart=2&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}">2</a>
-            <a href="/p?thenstart=3&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}">3</a>
+            <a href="/p?thenstart=1&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}">1</a>
+            <a href="/p?thenstart=2&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}">2</a>
+            <a href="/p?thenstart=3&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}">3</a>
 
             <a href="#">...</a>
         <%for (int i = pagemax - 5; i < pagemax; i++){
         if (i + 1 == pagenow){
           %>
-       <a href="/p?thenstart=<%= i+1%>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}" class="activity"><%= i + 1%>/a>
+       <a href="/p?thenstart=<%= i+1%>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}" class="activity"><%= i + 1%></a>
        <% }else{%>
-           <a href="/p?thenstart=<%= i+1%>&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}"><%= i + 1%>/a>
+           <a href="/p?thenstart=<%= i+1%>&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><%= i + 1%></a>
         <%
                }
         }
         }%>
-        <a href="/p?thenstart=${pagenow + 1 > pagemax ? pagenow : pagenow + 1}&algorithm=${algorithm}&difficulty=${difficuty}&structure=${structure}">></a>
+        <a href="/p?thenstart=${pagenow + 1 > pagemax ? pagenow : pagenow + 1}&algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}">></a>
         </div>
+       <% }
+       }
+       else{%>
+        <div style="text-align: center; color: #bbb; margin-top:50px"><%= error%></div>
+        <%
+            }
+        %>
     </section>
 
     <footer>
