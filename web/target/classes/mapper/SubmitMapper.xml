@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.SubmitDAO">
+
+    <!-- save语句 -->
+    <insert id="save" parameterType="Submit" >
+
+        <selectKey resultType="java.lang.Integer" keyProperty="submit_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into submit(
+        submit_id,
+        problem_id,
+        user_id,
+        submit_time,
+        running_time,
+        running_memory,
+        result,
+        result_description,
+        language,
+        code,
+        accept_sum
+        )
+        values
+        (
+        #{submit_id},
+        #{problem_id},
+        #{user_id},
+        #{submit_time},
+        #{running_time},
+        #{running_memory},
+        #{result},
+        #{result_description},
+        #{language},
+        #{code},
+        #{accept_sum}
+        )
+    </insert>
+
+    <insert id="saveBatch" parameterType="java.util.List" keyProperty="submit_id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="submit_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into submit(
+        submit_id,
+        problem_id,
+        user_id,
+        submit_time,
+        running_time,
+        running_memory,
+        result,
+        result_description,
+        language,
+        code,
+        accept_sum)
+        values
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.submit_id},
+            #{item.problem_id},
+            #{item.user_id},
+            #{item.submit_time},
+            #{item.running_time},
+            #{item.running_memory},
+            #{item.result},
+            #{item.result_description},
+            #{item.language},
+            #{item.code},
+            #{item.accept_sum}
+            )
+        </foreach>
+
+    </insert>
+
+    <!-- remove语句 -->
+    <delete id="remove" parameterType="int">
+        delete from submit
+        where submit_id=#{submit_id}
+    </delete>
+
+    <delete id="removeBatch" parameterType="int">
+        delete from submit
+        where submit_id IN
+        <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- update语句 -->
+    <update id="update" parameterType="Submit">
+        update submit
+        <set>
+            <if test="submit_id!=0">
+                submit_id=#{submit_id},
+            </if>
+            <if test="problem_id!=0">
+                problem_id=#{problem_id},
+            </if>
+            <if test="user_id!=0">
+                user_id=#{user_id},
+            </if>
+            <if test="submit_time!=null and submit_time!='' ">
+                submit_time=#{submit_time},
+            </if>
+            <if test="running_time!=0">
+                running_time=#{running_time},
+            </if>
+            <if test="running_memory!=0">
+                running_memory=#{running_memory},
+            </if>
+            <if test="result!=0">
+                result=#{result},
+            </if>
+            <if test="result_description!=null and result_description!='' ">
+                result_description=#{result_description},
+            </if>
+            <if test="language!=0">
+                language=#{language},
+            </if>
+            <if test="code!=null and code!='' ">
+                code=#{code},
+            </if>
+            <if test="accept_sum!=0">
+                accept_sum=#{accept_sum},
+            </if>
+
+
+        </set>
+        where submit_id=#{submit_id}
+    </update>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index"  separator=";">
+            update submit
+            <set>
+
+                problem_id=#{item.problem_id},
+                user_id=#{item.user_id},
+                submit_time=#{item.submit_time},
+                running_time=#{item.running_time},
+                running_memory=#{item.running_memory},
+                result=#{item.result},
+                result_description=#{item.result_description},
+                language=#{item.language},
+                code=#{item.code},
+                accept_sum=#{item.accept_sum}
+            </set>
+            where submit_id=#{item.submit_id}
+        </foreach>
+    </update>
+
+    <!-- select语句 -->
+    <select id="getEntityById" parameterType="int" resultType="Problem">
+        select * from submit
+        where submit_id=#{submit_id}
+    </select>
+
+    <!-- count语句 -->
+    <select id="countAll" parameterType="int" resultType="int">
+        select count(*) from submit
+    </select>
+
+
+</mapper>
