@@ -48,10 +48,10 @@
 
     <section class="mainbody">
         <div class="timu-header">
-            <div class="timu-title">舒适路线</div>
+            <div class="timu-title">${problem.title}</div>
             <div class="timu-footer">
-                <div>时间限制：2s</div>
-                <div>难易程度：简单</div>
+                <div>时间限制：${problem.time_limit}s</div>
+                <div>难易程度：${problem.difficulty}</div>
                 <div>通过人数：2330人</div>
             </div>
         </div>
@@ -68,58 +68,34 @@
                     <div class="tab-pane fade in active" id="desc">
                         <div class="timu-des">
                             <div class="des-header">题目描述</div>
-                            <div class="des-content">Z小镇是一个景色宜人的地方，吸引来自各地的观光客来此旅游观光。Z小镇是一个景色宜人的地方，吸引来自各地的观光客来此旅游观光。
+                            <div class="des-content">${problem.description}
                             </div>
                         </div>
                         <div class="timu-des">
                             <div class="des-header">输入描述</div>
-                            <div class="des-content">第一行包含两个正整数，N和M。
-                                接下来的M行每行包含三个正整数：x，y和v（1≤x,y≤N，0 最后一行包含两个正整数s，t，表示想知道从景点s到景点t最大最小速度比最小的路径。s和t不可能相同。	</div>
+                            <div class="des-content">${problem.input_description}</div>
                         </div>
 
                         <div class="timu-des">
                             <div class="des-header">输出描述</div>
-                            <div class="des-content">第一行包含两个正整数，N和M。
-                                接下来的M行每行包含三个正整数：x，y和v（1≤x,y≤N，0 最后一行包含两个正整数s，t，表示想知道从景点s到景点t最大最小速度比最小的路径。s和t不可能相同。	</div>
+                            <div class="des-content">${problem.output_description}</div>
                         </div>
                         <div class="timu-des">
                             <div class="des-header">样例输入</div>
                             <div class="des-content">
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br><br>
-
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br>
+                                ${problem.input_test}
                             </div>
                         </div>
                         <div class="timu-des">
                             <div class="des-header">样例输出</div>
                             <div class="des-content">
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br><br>
-
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br>
+                                ${problem.output_test}
                             </div>
                         </div>
                         <div class="timu-des">
                             <div class="des-header">数据范围及提示</div>
                             <div class="des-content">
-                                N(1<\N≤500)<br><br>
-                                M（0<\M≤5000）<br><br>
-                                Vi在int范围内<br><br>
+                                ${problem.data_area}
                             </div>
                         </div>
                     </div>

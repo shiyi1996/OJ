@@ -24,4 +24,8 @@ public class ProblemService {
     public int getProblemNum(Problem problem){
         return problemDAO.count(problem);
     }
+
+    public Problem getProblemById(int id) {
+        return (Problem) problemDAO.getEntityById(id);
+    }
 }

@@ -40,13 +40,22 @@ nav{
 	padding: 0;
 }
 
-.list-nav li ul li{
+.list-nav li ul a{
+	text-decoration: none;
+}
+
+.list-nav li ul a li{
 	line-height: 30px;
 }
 
-.list-nav li ul li:hover{
+.list-nav li ul a li span{
+	display: inline-block;
+}
+
+.list-nav li ul a li:hover{
 	background: #D3F6D1;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 tr td a{

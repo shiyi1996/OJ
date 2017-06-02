@@ -1,6 +1,6 @@
 var editor = ace.edit("editor");
     editor.setTheme("ace/theme/xcode"); //设置背景色为高亮
-    editor.session.setMode("ace/mode/c_cpp");  //设置默认语言为c/c++
+    editor.session.setMode("ace/mode/java");  //设置默认语言为c/c++
     editor.getSession().setTabSize(4);  //设置默认缩进大小
 
 function choiceLang(select){
