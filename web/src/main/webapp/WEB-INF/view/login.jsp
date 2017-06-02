@@ -33,8 +33,8 @@
         </ul>
     </div>
     <div class="nav-login">
-        <div class="login"><a href="#">登录</a></div>
-        <div class="register"><a href="#">注册</a></div>
+        <div class="login"><a href="/login">登录</a></div>
+        <div class="register"><a href="/register">注册</a></div>
     </div>
     <div class="nav-user">
         <div class="user-img">
@@ -49,10 +49,9 @@
 
     <section class="mainbody">
         <div class="form-container">
-            <form action="#" method="post">
+            <form action="/login" method="post">
                 <div>
-                    <a class="h3 choice" style="border-bottom: red 2px solid;" href="#">登录</a>
-                    <a class="h3 choice" style="color: #ccc" href="#">注册</a>
+                    <a class="h3 choice" style="border-bottom: red 2px solid;" href="/login">登录</a>
                 </div>
                 <div>
                     <input type="text" name="username" placeholder="用户名或邮箱" id="username" class="form-control">
@@ -61,12 +60,14 @@
                     <input type="password" name="userpass" placeholder="密码" id="userpass" class="form-control">
                 </div>
                 <div>
-                    <input type="submit" name="submit" value="注册" id="submit" class="btn btn-primary">
+                    <input type="submit" name="submit" value="登录" id="submit" class="btn btn-primary">
                 </div>
                 <div><a href="#">忘记密码？</a></div>
-                <div class="errormess">错误信息</div>
+                <%--<div class="errormess">错误信息</div>--%>
+                <p>${error}</p>
             </form>
         </div>
+
     </section>
 
 </article>
