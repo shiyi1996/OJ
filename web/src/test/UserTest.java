@@ -84,8 +84,8 @@ public class UserTest {
     {
         List<BasicVo> lists = new ArrayList<BasicVo>();
         User user = new User();
-        user.setAge(12);
-        lists = userDAO.listBatch(user, 0,15);
+        user.setUsername("shiyi");
+        lists = userDAO.listBatch(user, 0,1);
         System.out.println(lists.size());
     }
 

@@ -22,26 +22,8 @@
 </head>
 <body>
 
-<nav>
-    <div class="nav-title"><a href="index.html">XuptOJ</a></div>
-    <div class="nav-list">
-        <ul>
-            <a href="#"><li>首页</li></a>
-            <a href="#"><li>题库</li></a>
-            <a href="#"><li>论坛</li></a>
-            <a href="#"><li>关于</li></a>
-        </ul>
-    </div>
-    <div class="nav-login">
-        <div class="login"><a href="/login">登录</a></div>
-        <div class="register"><a href="/register">注册</a></div>
-    </div>
-    <div class="nav-user">
-        <div class="user-img">
-            <a href="#"><img src="images/1147.jpg" /></a>
-        </div>
-    </div>
-</nav>
+<!--导入导航栏-->
+<%@include file="nav.jsp"%>
 
 <div class="shadow"></div>
 
@@ -51,7 +33,6 @@
         <div class="form-container">
             <form action="/register" method="post">
                 <div>
-                    <a class="h3 choice" style="color:#ccc" href="/login/">登录</a>
                     <a class="h3 choice" style="border-bottom: red 2px solid;" href="/register">注册</a>
                 </div>
                 <div>

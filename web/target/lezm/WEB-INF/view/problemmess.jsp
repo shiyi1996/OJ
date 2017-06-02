@@ -23,26 +23,8 @@
 </head>
 <body>
 
-<nav>
-    <div class="nav-title"><a href="#">HighOJ</a></div>
-    <div class="nav-list">
-        <ul>
-            <a href="#"><li>首页</li></a>
-            <a href="#"><li>题库</li></a>
-            <a href="#"><li>论坛</li></a>
-            <a href="#"><li>关于</li></a>
-        </ul>
-    </div>
-    <div class="nav-login">
-        <div class="login"><a href="#">登录</a></div>
-        <div class="register"><a href="#">注册</a></div>
-    </div>
-    <div class="nav-user">
-        <div class="user-img">
-            <a href="#"><img src="#" /></a>
-        </div>
-    </div>
-</nav>
+<!--导入导航栏-->
+<%@include file="nav.jsp"%>
 
 <article>
 
@@ -73,53 +55,29 @@
                         </div>
                         <div class="timu-des">
                             <div class="des-header">输入描述</div>
-                            <div class="des-content">第一行包含两个正整数，N和M。
-                                接下来的M行每行包含三个正整数：x，y和v（1≤x,y≤N，0 最后一行包含两个正整数s，t，表示想知道从景点s到景点t最大最小速度比最小的路径。s和t不可能相同。	</div>
+                            <div class="des-content">${problem.input_description}</div>
                         </div>
 
                         <div class="timu-des">
                             <div class="des-header">输出描述</div>
-                            <div class="des-content">第一行包含两个正整数，N和M。
-                                接下来的M行每行包含三个正整数：x，y和v（1≤x,y≤N，0 最后一行包含两个正整数s，t，表示想知道从景点s到景点t最大最小速度比最小的路径。s和t不可能相同。	</div>
+                            <div class="des-content">${problem.output_description}</div>
                         </div>
                         <div class="timu-des">
                             <div class="des-header">样例输入</div>
                             <div class="des-content">
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br><br>
-
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br>
+                                ${problem.input_test}
                             </div>
                         </div>
                         <div class="timu-des">
                             <div class="des-header">样例输出</div>
                             <div class="des-content">
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br><br>
-
-                                样例1<br>
-                                4 2<br>
-                                1 2 1<br>
-                                3 4 2<br>
-                                1 4<br>
+                                ${problem.output_test}
                             </div>
                         </div>
                         <div class="timu-des">
                             <div class="des-header">数据范围及提示</div>
                             <div class="des-content">
-                                N(1<\N≤500)<br><br>
-                                M（0<\M≤5000）<br><br>
-                                Vi在int范围内<br><br>
+                                ${problem.data_area}
                             </div>
                         </div>
                     </div>
@@ -197,7 +155,7 @@
                         <p style="margin:0 5px;" onclick="expand('spanid')"><span class="glyphicon glyphicon-resize-full" id="spanid"></span></p>
                     </div>
                 </form>
-                <pre id="editor"></pre>
+                <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
                 <button class="btn btn-primary" onclick="submit()">提交</button>
             </div>

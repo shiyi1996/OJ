@@ -13,28 +13,34 @@
         </selectKey>
 
         insert into problem(
-        problem_id,
         problem_type,
         algorithm,
         data_structure,
         difficulty,
         title,
         description,
-        test_sum,
+        input_description,
+        output_description,
+        input_test,
+        output_test,
+        data_area,
         add_time,
         time_limit,
         memory_limit
         )
         values
         (
-        #{problem_id},
         #{problem_type},
         #{algorithm},
         #{data_structure},
         #{difficulty},
         #{title},
         #{description},
-        #{test_sum},
+        #{input_description},
+        #{output_description},
+        #{input_test},
+        #{output_test},
+        #{data_area},
         #{add_time},
         #{time_limit},
         #{memory_limit}
@@ -48,27 +54,33 @@
         </selectKey>
 
         insert into problem(
-        problem_id,
         problem_type,
         algorithm,
         data_structure,
         difficulty,
         title,
         description,
-        test_sum,
+        input_description,
+        output_description,
+        input_test,
+        output_test,
+        data_area,
         add_time,
         time_limit,
         memory_limit)
         values
         <foreach collection="list" index="index" item="item" separator=",">
-            (#{item.problem_id},
-            #{item.problem_type},
+            (#{item.problem_type},
             #{item.algorithm},
             #{item.data_structure},
             #{item.difficulty},
             #{item.title},
             #{item.description},
-            #{item.test_sum},
+            #{item.input_description},
+            #{item.output_description},
+            #{item.input_test},
+            #{item.output_test},
+            #{item.data_area},
             #{item.add_time},
             #{item.time_limit},
             #{item.memory_limit}
@@ -113,11 +125,23 @@
             <if test="description!=null and description!='' ">
                 description=#{description},
             </if>
-            <if test="test_sum!=0">
-                test_sum=#{test_sum},
+            <if test="input_description!=null and input_description!='' ">
+                input_description=#{input_description},
+            </if>
+            <if test="output_description!=null and output_description!='' ">
+                output_description=#{output_description},
+            </if>
+            <if test="input_test!=null and input_test!='' ">
+                input_test=#{input_test},
+            </if>
+            <if test="output_test!=null and output_test!='' ">
+                output_test=#{output_test},
+            </if>
+            <if test="data_area!=null and data_area!='' ">
+                data_area=#{data_area},
             </if>
             <if test="add_time!=null and add_time!='' ">
-                add_time=#{add_time}
+                add_time=#{add_time},
             </if>
             <if test="time_limit!=0">
                 time_limit=#{time_limit},
@@ -139,7 +163,11 @@
                 difficulty=#{item.difficulty},
                 title=#{item.title},
                 description=#{item.description},
-                test_sum=#{item.test_sum},
+                input_description=#{item.input_description},
+                output_description=#{item.output_description},
+                input_test=#{item.input_test},
+                output_test=#{item.output_test},
+                data_area=#{item.data_area},
                 add_time=#{item.add_time},
                 time_limit=#{item.time_limit},
                 memory_limit=#{item.memory_limit}

@@ -68,8 +68,10 @@ public class UserService {
     {
         boolean flag = false;
         User user = new User();
-        user.setEmail(username);
+        user.setUsername(username);
+
         List<BasicVo> lists = userDAO.listBatch(user,0,1);
+
         if(lists.size()!=0)
         {
             flag = true;

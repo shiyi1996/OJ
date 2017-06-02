@@ -1,0 +1,36 @@
+table{
+    width: 96%;
+    margin: 20px 2%;
+}
+
+table thead tr{
+    height:20px;
+}
+
+table thead tr th{
+    font-size:0.9rem;
+    text-align: center;
+    padding: 5px 10px;
+    border:1px #ccc solid;
+}
+
+table tbody tr{
+    border:1px #ccc solid;
+}
+
+table tbody tr td{
+    font-size:0.9rem;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+.run-status{
+    padding: 2.5px;
+    border-radius: 10%;
+}
+
+.search-container{
+    background: #74B49B;
+    padding: 10px;
+    border-radius: 5px;
+}

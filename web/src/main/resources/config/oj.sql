@@ -47,7 +47,8 @@ DROP TABLE IF EXISTS `contest_problem`;
 CREATE TABLE `contest_problem` (
   `problem_id` int(10) unsigned NOT NULL default '0' COMMENT '题目ID',
   `contest_id` int(10) unsigned default NULL COMMENT '竞赛ID',
-  `num` int(10) unsigned NOT NULL default '0' COMMENT '竞赛中的题目编号'
+  `num` int(10) unsigned NOT NULL default '0' COMMENT '竞赛中的题目编号',
+  PRIMARY KEY (`problem_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -66,7 +67,11 @@ CREATE TABLE `problem` (
   `difficulty` varchar(40) NOT NULL default '' COMMENT '题目难度()',
   `title` varchar(200) NOT NULL default '' COMMENT '标题',
   `description` text COMMENT '题目描述',
-  `test_sum` int(11) unsigned NOT NULL default '0' COMMENT '测试数据的个数',
+  `input_description` text COMMENT '输入描述',
+  `output_description` text COMMENT '输出描述',
+  `input_test` text COMMENT '样例输出',
+  `output_test` text COMMENT '样例输出',
+  `data_area` text COMMENT 'hint',
   `add_time` datetime default NULL COMMENT '添加时间',
   `time_limit` int(10) unsigned NOT NULL default '0' COMMENT '限时(ms)',
   `memory_limit` int(10) unsigned NOT NULL default '0' COMMENT '空间限制',
