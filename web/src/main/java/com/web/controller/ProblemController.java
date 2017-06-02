@@ -23,7 +23,7 @@ public class ProblemController {
     public ModelAndView listProblem(HttpServletRequest request)
     {
         int thenstart=1;
-        int num=5;
+        int num=2;
         Problem problem = new Problem();
         ModelAndView mdv = new ModelAndView("problem");
 
@@ -34,19 +34,34 @@ public class ProblemController {
         if(request.getParameter("algorithm")!=null && request.getParameter("algorithm")!="")
         {
             algorithm = request.getParameter("algorithm");
+            try {
+                algorithm = new String(algorithm.getBytes("iso-8859-1"), "UTF-8");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             problem.setAlgorithm(algorithm);
         }
 
         if(request.getParameter("difficulty")!=null && request.getParameter("difficulty")!="")
         {
             difficulty = request.getParameter("difficulty");
+            try {
+                difficulty = new String(difficulty.getBytes("iso-8859-1"), "UTF-8");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             problem.setDifficulty(difficulty);
         }
 
         if(request.getParameter("structure")!=null && request.getParameter("structure")!="")
         {
             structure = request.getParameter("structure");
-            problem.setAlgorithm(structure);
+            try {
+                structure = new String(structure.getBytes("iso-8859-1"), "UTF-8");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            problem.setData_structure(structure);
         }
 
         if(request.getParameter("thenstart")!=null
@@ -55,17 +70,32 @@ public class ProblemController {
             thenstart = Integer.parseInt(request.getParameter("thenstart"));
         }
 
-        List<BasicVo> basicVoList = problemService.listProblem(problem, (thenstart-1)*num, num);
-        mdv.addObject("problemList", basicVoList);
-
         int problemNum = problemService.getProblemNum(problem);
         int pageNum = (problemNum%num==0)?problemNum/num:problemNum/num+1;
-        mdv.addObject("algorithm",algorithm);
-        mdv.addObject("difficulty",difficulty);
-        mdv.addObject("structure",structure);
-        mdv.addObject("pagemax", pageNum);
-        mdv.addObject("pagenow", thenstart);
-
+        if (pageNum==0){
+            mdv.addObject("error", "暂无题目");
+        }else{
+            if (thenstart > pageNum)
+                thenstart = pageNum;
+            else if (thenstart < 1)
+                thenstart = 1;
+            List<BasicVo> basicVoList = problemService.listProblem(problem, (thenstart-1)*num, num);
+            mdv.addObject("problemList", basicVoList);
+            mdv.addObject("pagemax", pageNum);
+            mdv.addObject("pagenow", thenstart);
+        }
+        if(algorithm!=null && algorithm!="")
+            mdv.addObject("algorithm",algorithm);
+        else
+            mdv.addObject("algorithm","nullone");
+        if(difficulty!=null && difficulty!="")
+            mdv.addObject("difficulty",difficulty);
+        else
+            mdv.addObject("difficulty","nulltwo");
+        if(structure!=null && structure!="")
+            mdv.addObject("structure",structure);
+        else
+            mdv.addObject("structure","nullthree");
         return mdv;
     }
 
@@ -74,6 +104,11 @@ public class ProblemController {
     {
 
         ModelAndView mdv = new ModelAndView("problemmess");
+        Problem problem = null;
+        if(problemId > 0){
+            problem = problemService.getProblemById(problemId);
+        }
+        mdv.addObject("problem",problem);
         return mdv;
     }
 

@@ -48,10 +48,10 @@
 
     <section class="mainbody">
         <div class="timu-header">
-            <div class="timu-title">舒适路线</div>
+            <div class="timu-title">${problem.title}</div>
             <div class="timu-footer">
-                <div>时间限制：2s</div>
-                <div>难易程度：简单</div>
+                <div>时间限制：${problem.time_limit}s</div>
+                <div>难易程度：${problem.difficulty}</div>
                 <div>通过人数：2330人</div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                     <div class="tab-pane fade in active" id="desc">
                         <div class="timu-des">
                             <div class="des-header">题目描述</div>
-                            <div class="des-content">Z小镇是一个景色宜人的地方，吸引来自各地的观光客来此旅游观光。Z小镇是一个景色宜人的地方，吸引来自各地的观光客来此旅游观光。
+                            <div class="des-content">${problem.description}
                             </div>
                         </div>
                         <div class="timu-des">
