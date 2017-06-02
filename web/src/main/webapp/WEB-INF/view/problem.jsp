@@ -28,26 +28,8 @@
 </head>
 <body>
 
-<nav>
-    <div class="nav-title"><a href="index.html">HighOJ</a></div>
-    <div class="nav-list">
-        <ul>
-            <a href="#"><li>首页</li></a>
-            <a href="#"><li>题库</li></a>
-            <a href="#"><li>论坛</li></a>
-            <a href="#"><li>关于</li></a>
-        </ul>
-    </div>
-    <div class="nav-login">
-        <div class="login"><a href="#">登录</a></div>
-        <div class="register"><a href="#">注册</a></div>
-    </div>
-    <div class="nav-user">
-        <div class="user-img">
-            <a href="#"><img src="images/1147.jpg" /></a>
-        </div>
-    </div>
-</nav>
+<!--导入导航栏-->
+<%@include file="nav.jsp"%>
 
 <article>
 

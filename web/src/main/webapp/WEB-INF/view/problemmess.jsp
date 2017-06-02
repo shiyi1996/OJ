@@ -23,26 +23,8 @@
 </head>
 <body>
 
-<nav>
-    <div class="nav-title"><a href="#">HighOJ</a></div>
-    <div class="nav-list">
-        <ul>
-            <a href="#"><li>首页</li></a>
-            <a href="#"><li>题库</li></a>
-            <a href="#"><li>论坛</li></a>
-            <a href="#"><li>关于</li></a>
-        </ul>
-    </div>
-    <div class="nav-login">
-        <div class="login"><a href="#">登录</a></div>
-        <div class="register"><a href="#">注册</a></div>
-    </div>
-    <div class="nav-user">
-        <div class="user-img">
-            <a href="#"><img src="#" /></a>
-        </div>
-    </div>
-</nav>
+<!--导入导航栏-->
+<%@include file="nav.jsp"%>
 
 <article>
 
@@ -197,7 +179,7 @@
                         <p style="margin:0 5px;" onclick="expand('spanid')"><span class="glyphicon glyphicon-resize-full" id="spanid"></span></p>
                     </div>
                 </form>
-                <pre id="editor"></pre>
+                <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
                 <button class="btn btn-primary" onclick="submit()">提交</button>
             </div>

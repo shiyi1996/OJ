@@ -14,11 +14,10 @@ nav{
 
 .list-nav{
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
 	background: #74B49B;
-	padding: 10px 0;
 	border-radius: 5px;
+	padding: 10px 0;
+	justify-content: space-around;
 }
 
 .list-nav li{
@@ -42,6 +41,8 @@ nav{
 
 .list-nav li ul li{
 	line-height: 30px;
+	padding-left:10px;
+	width: 100%;
 }
 
 .list-nav li ul li:hover{
@@ -91,7 +92,7 @@ tr td a:hover {
 	height: 10px;
 	border-radius: 50%;
 	background: green;
-	margin-right: 5px; 
+	margin-right: 5px;
 }
 
 .accepted{
@@ -107,7 +108,23 @@ tr td a:hover {
 }
 
 .running{
-	background: #4FC1E9;
+	background: red;
+}
+
+@media (max-width: 768px){
+	.list-nav li ul{
+		width: 20%;
+	}
+
+	.mainbody{
+		/*padding-top:100px;*/
+		padding: 0 1%;
+	}
+
+	.classify-nav{
+		margin-top:100px;
+		width:100%;
+	}
 }
 
 
