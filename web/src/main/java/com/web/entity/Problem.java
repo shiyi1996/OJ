@@ -18,14 +18,13 @@ public class Problem extends BasicVo {
     private String input_test;          //样例输出
     private String output_test;         //样例输出
     private String data_area;           //测试数据的范围
-    private int test_sum=0;               //测试数据的个数
     private String add_time;            //添加时间
     private int time_limit=0;             //限时(ms)
     private int memory_limit=0;           //空间限制
 
     public Problem() {}
 
-    public Problem(int problem_id, int problem_type, String algorithm, String data_structure, String difficulty, String title, String description, String input_description, String output_description, String input_test, String output_test, String data_area, int test_sum, String add_time, int time_limit, int memory_limit) {
+    public Problem(int problem_id, int problem_type, String algorithm, String data_structure, String difficulty, String title, String description, String input_description, String output_description, String input_test, String output_test, String data_area, String add_time, int time_limit, int memory_limit) {
         this.problem_id = problem_id;
         this.problem_type = problem_type;
         this.algorithm = algorithm;
@@ -38,7 +37,6 @@ public class Problem extends BasicVo {
         this.input_test = input_test;
         this.output_test = output_test;
         this.data_area = data_area;
-        this.test_sum = test_sum;
         this.add_time = add_time;
         this.time_limit = time_limit;
         this.memory_limit = memory_limit;
@@ -138,14 +136,6 @@ public class Problem extends BasicVo {
 
     public void setData_area(String data_area) {
         this.data_area = data_area;
-    }
-
-    public int getTest_sum() {
-        return test_sum;
-    }
-
-    public void setTest_sum(int test_sum) {
-        this.test_sum = test_sum;
     }
 
     public String getAdd_time() {

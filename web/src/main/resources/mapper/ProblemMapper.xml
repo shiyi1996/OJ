@@ -24,7 +24,6 @@
         input_test,
         output_test,
         data_area,
-        test_sum,
         add_time,
         time_limit,
         memory_limit
@@ -42,7 +41,6 @@
         #{input_test},
         #{output_test},
         #{data_area},
-        #{test_sum},
         #{add_time},
         #{time_limit},
         #{memory_limit}
@@ -67,7 +65,6 @@
         input_test,
         output_test,
         data_area,
-        test_sum,
         add_time,
         time_limit,
         memory_limit)
@@ -84,7 +81,6 @@
             #{item.input_test},
             #{item.output_test},
             #{item.data_area},
-            #{item.test_sum},
             #{item.add_time},
             #{item.time_limit},
             #{item.memory_limit}
@@ -144,9 +140,6 @@
             <if test="data_area!=null and data_area!='' ">
                 data_area=#{data_area},
             </if>
-            <if test="test_sum!=0">
-                test_sum=#{test_sum},
-            </if>
             <if test="add_time!=null and add_time!='' ">
                 add_time=#{add_time},
             </if>
@@ -175,7 +168,6 @@
                 input_test=#{item.input_test},
                 output_test=#{item.output_test},
                 data_area=#{item.data_area},
-                test_sum=#{item.test_sum},
                 add_time=#{item.add_time},
                 time_limit=#{item.time_limit},
                 memory_limit=#{item.memory_limit}

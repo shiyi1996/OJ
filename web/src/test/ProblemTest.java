@@ -28,18 +28,18 @@ public class ProblemTest {
                 "样例1\\n4 2\\n1 2 1\\n3 4 2\\n1 4\\n样例1\\n4 2\\n1 2 1\\n3 4 2\\n1 4",
                 "样例1\\n4 2\\n1 2 1\\n3 4 2\\n1 4\\n样例1\\n4 2\\n1 2 1\\n3 4 2\\n1 4",
                 "N(1<\\N≤500)\\nM（0<\\M≤5000\\nVi在int范围内",
-                10,"2000-02-20 20:20:20",213,123);
+                "2000-02-20 20:20:20",213,123);
         int pos = problemDAO.save(problem);
         System.out.println(pos);
     }
     @Test
     public void saveBatchTest() {
         Date date = new Date();
-        Problem problem = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee",10,"2000-02-20 20:20:20",213,123);
-        Problem problem1 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee",10,"2000-02-20 20:20:20",213,123);
-        Problem problem2 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee",10,"2000-02-20 20:20:20",213,123);
-        Problem problem3 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee",10,"2000-02-20 20:20:20",213,123);
-        Problem problem4 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee",10,"2000-02-20 20:20:20",213,123);
+        Problem problem = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
+        Problem problem1 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
+        Problem problem2 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
+        Problem problem3 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
+        Problem problem4 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
         List<BasicVo> problems = new ArrayList<BasicVo>();
         problems.add(problem);
         problems.add(problem1);
@@ -66,7 +66,7 @@ public class ProblemTest {
 
     @Test
     public void updateTest(){
-        Problem problem = new Problem(3,0,"a","a","a","a","a","a","a","a","a","a",100,"2000-02-20 20:20:20",100,22);
+        Problem problem = new Problem(3,0,"a","a","a","a","a","a","a","a","a","a","2000-02-20 20:20:20",100,22);
         int pos = problemDAO.update(problem);
         System.out.println(pos);
     }
@@ -74,8 +74,8 @@ public class ProblemTest {
     @Test
     public void updateBatch(){
         List<BasicVo> problems = new ArrayList<BasicVo>();
-        Problem problem = new Problem(4,0,"a","a","a","a","a","a","a","a","a","a",11,"2000-02-20 20:20:20",11,11);
-        Problem problem1 = new Problem(5,0,"a","a","a","a","a","a","a","a","a","a",11,"2000-02-20 20:20:20",11,11);
+        Problem problem = new Problem(4,0,"a","a","a","a","a","a","a","a","a","a","2000-02-20 20:20:20",11,11);
+        Problem problem1 = new Problem(5,0,"a","a","a","a","a","a","a","a","a","a","2000-02-20 20:20:20",11,11);
         problems.add(problem);
         problems.add(problem1);
         int pos = problemDAO.updateBatch(problems);

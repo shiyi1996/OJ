@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.UserDAO">
+
+    <!-- save语句 -->
+    <insert id="save" parameterType="User" >
+
+        <selectKey resultType="java.lang.Integer" keyProperty="user_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into user(
+        user_id,
+        username,
+        nickname,
+        email,
+        password,
+        picture,
+        age,
+        sex,
+        school
+        )
+        values
+        (
+        #{user_id},
+        #{username},
+        #{nickname},
+        #{email},
+        #{password},
+        #{picture},
+        #{age},
+        #{sex},
+        #{school}
+        )
+    </insert>
+
+    <insert id="saveBatch" parameterType="java.util.List" keyProperty="user_id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="user_id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into user(
+        user_id,
+        username,
+        nickname,
+        email,
+        password,
+        picture,
+        age,
+        sex,
+        school
+        )
+        values
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.user_id},
+            #{item.username},
+            #{item.nickname},
+            #{item.email},
+            #{item.password},
+            #{item.picture},
+            #{item.age},
+            #{item.sex},
+            #{item.school}
+            )
+        </foreach>
+
+    </insert>
+
+    <!-- remove语句 -->
+    <delete id="remove" parameterType="int">
+        delete from user
+        where user_id=#{user_id}
+    </delete>
+
+    <delete id="removeBatch" parameterType="int">
+        delete from user
+        where user_id IN
+        <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- update语句 -->
+    <update id="update" parameterType="User">
+        update user
+        <set>
+
+            <if test="nickname!=null and nickname!='' ">
+                nickname=#{nickname},
+            </if>
+            <if test="email!=null and email!='' ">
+                email=#{email},
+            </if>
+            <if test="password!=null and password!='' ">
+                password=#{password},
+            </if>
+            <if test="picture!=null and picture!='' ">
+                picture=#{picture},
+            </if>
+            <if test="age!=0">
+                age=#{age},
+            </if>
+            <if test="sex!=0">
+                sex=#{sex},
+            </if>
+            <if test="school!=null and school!='' ">
+                school=#{school},
+            </if>
+        </set>
+        where user_id=#{user_id}
+    </update>
+
+
+
+    <!-- select语句 -->
+    <select id="getEntityById" parameterType="int" resultType="User">
+        select * from user
+        where user_id=#{user_id}
+    </select>
+
+    <select id="listBatch" resultType="User">
+        SELECT * from user
+        <where>
+            <if test="param1.username !=null and param1.username!='' ">
+                AND user.username = #{param1.username}
+            </if>
+            <if test="param1.nickname !=null and param1.nickname!='' ">
+                AND user.nickname = #{param1.nickname}
+            </if>
+            <if test="param1.email !=null and param1.email!='' ">
+                AND user.email = #{param1.email}
+            </if>
+            <if test="param1.password !=null and param1.password!='' ">
+                AND user.password = #{param1.password}
+            </if>
+            <if test="param1.picture !=null and param1.picture!='' ">
+                AND user.picture = #{param1.picture}
+            </if>
+            <if test="param1.age!=0">
+                AND user.age = #{param1.age}
+            </if>
+            <if test="param1.sex!=0">
+                AND user.sex = #{param1.sex}
+            </if>
+            <if test="param1.school !=null and param1.school!='' ">
+                AND user.school = #{param1.school}
+            </if>
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
+    <!-- count语句 -->
+    <select id="countAll" parameterType="int" resultType="int">
+        select count(*) from user
+    </select>
+
+
+</mapper>
