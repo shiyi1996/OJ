@@ -33,7 +33,6 @@
         <div class="form-container">
             <form action="/register" method="post">
                 <div>
-                    <a class="h3 choice" style="color:#ccc" href="/login/">登录</a>
                     <a class="h3 choice" style="border-bottom: red 2px solid;" href="/register">注册</a>
                 </div>
                 <div>
