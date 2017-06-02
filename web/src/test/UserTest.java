@@ -71,22 +71,22 @@ public class UserTest {
         System.out.println(pos);
     }
 
-    @Test
-    public void updateBatch(){
-        List<BasicVo> users = new ArrayList<BasicVo>();
-        User user1 = new User(4,"as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
-        User user2 = new User(6,"as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
-        users.add(user1);
-        users.add(user2);
-        int pos = userDAO.updateBatch(users);
-        System.out.println(pos);
-    }
 
     @Test
     public void get()
     {
         User user=(User) userDAO.getEntityById(4);
         System.out.println(user.getAge() + "" + user.getSex());
+    }
+
+    @Test
+    public void getListTest()
+    {
+        List<BasicVo> lists = new ArrayList<BasicVo>();
+        User user = new User();
+        user.setAge(12);
+        lists = userDAO.listBatch(user, 0,15);
+        System.out.println(lists.size());
     }
 
     @Test

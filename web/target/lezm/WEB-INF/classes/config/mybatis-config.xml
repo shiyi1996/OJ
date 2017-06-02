@@ -9,6 +9,7 @@
         <typeAlias alias="Contest" type="com.web.entity.Contest"/>
         <typeAlias alias="Problem" type="com.web.entity.Problem"/>
         <typeAlias alias="Submit" type="com.web.entity.Submit"/>
+        <typeAlias alias="User" type="com.web.entity.User"/>
     </typeAliases>
 
 

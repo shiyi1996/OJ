@@ -7,10 +7,10 @@ public class User extends BasicVo {
 
     private int user_id; //用户ID(主键)
     private String username; //用户名
-    private String nickname; //昵称
+    private String nickname = "123456"; //昵称
     private String email; //邮箱
     private String password; //密码
-    private String picture; //用户头像
+    private String picture = "1.jpg"; //用户头像
     private int age; //年龄
     private int sex;//性别
     private String school; //学校
