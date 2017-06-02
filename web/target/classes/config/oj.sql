@@ -102,3 +102,18 @@ CREATE TABLE `submit` (
 -- ----------------------------
 -- Records of submit
 -- ----------------------------
+
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `user_id` int(10) unsigned NOT NULL auto_increment COMMENT '用户ID(主键)',
+  `username` varchar(50) NOT NULL default '' COMMENT '用户名',
+  `nickname` varchar(50) NOT NULL default '' COMMENT '昵称',
+  `email` varchar(50) NOT NULL default '' COMMENT '邮箱',
+  `password` varchar(50) NOT NULL default '' COMMENT '密码',
+  `picture` varchar(40) NOT NULL default '1.jpg' COMMENT '用户头像',
+  `age` int(10) default NULL COMMENT '年龄',
+  `sex` int(10) default NULL COMMENT '性别',
+  `school` varchar(50)  default '' COMMENT '学校',
+  PRIMARY KEY  (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
