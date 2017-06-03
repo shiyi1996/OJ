@@ -23,7 +23,7 @@ public class ProblemController {
     public ModelAndView listProblem(HttpServletRequest request)
     {
         int thenstart=1;
-        int num=2;
+        int num=6;
         Problem problem = new Problem();
         ModelAndView mdv = new ModelAndView("problem");
 

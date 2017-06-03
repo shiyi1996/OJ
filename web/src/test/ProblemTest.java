@@ -23,25 +23,26 @@ public class ProblemTest {
     @Test
     public void saveTest() {
         Date date = new Date();
-        Problem problem = new Problem(0,0,"贪心","树结构","超难","测试","miaoshu","第一行包含两个正整数，N和M。 接下来的M行每行包含三个正整数：x，y和v（1≤x,y≤N，0 最后一行包含两个正整数s，t，表示想知道从景点s到景点t最大最小速度比最小的路径。s和t不可能相同。",
-                "第一行包含两个正整数，N和M。 接下来的M行每行包含三个正整数：x，y和v（1≤x,y≤N，0 最后一行包含两个正整数s，t，表示想知道从景点s到景点t最大最小速度比最小的路径。s和t不可能相同。",
-                "样例1\n4 2\n1 2 1\n3 4 2\n1 4\n样例1\n4 2\n1 2 1\n3 4 2\n1 4",
-                "样例1\n4 2\n1 2 1\n3 4 2\n1 4\n样例1\n4 2\n1 2 1\n3 4 2\n1 4",
-                "N(1<N≤500)\nM（0<M≤5000\nVi在int范围内",
-                "2000-02-20 20:20:20",213,123);
+        Problem problem = new Problem(0,0,"贪心","树结构","简单","字符串统计","Bat是一个淘气的小朋友，有一天他得到了一个字符串，他想统计一下字符串中的小写字母(‘a’-’z’)的个数，快来帮帮他吧。","输入一个字符串",
+                "输出一个整数，代表小写字母的个数。",
+                "AabcBB",
+                "3",
+                "字符串中不包含空格、字符串长度<10000",
+                "2017-06-03 20:00:00",1,2);
         int pos = problemDAO.save(problem);
         System.out.println(pos);
     }
+
     @Test
     public void saveBatchTest() {
         Date date = new Date();
-        Problem problem = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
+        //Problem problem = ('1', '0', '贪心', '树结构', '难', '彩色丝带', 'Bat有一个彩色的丝带，它可以表示为一个只包含小写字母字符串，每个字母代表一个颜色。现在他想把丝带分成几部分，保证每个部分没有重复的颜色。请你告诉他划分彩带一共有多少种不同的方式。', '输入一个字符串，表示彩色的丝带。(字符串只包含小写字母，字符串长度<10^5)', '输出一个数字n，表示对答案取模后的数字。', 'abbc', '4', '由于数字会非常大，输出的答案对 1000000007 取余.', '2017-06-03 20:00:00', '1', 2);
         Problem problem1 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
         Problem problem2 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
         Problem problem3 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
         Problem problem4 = new Problem(0,0,"KMP","tree","hard","a","miaoshu","sdadd","ssss","ddddd","ffffff","eeeeee","2000-02-20 20:20:20",213,123);
         List<BasicVo> problems = new ArrayList<BasicVo>();
-        problems.add(problem);
+        //problems.add(problem);
         problems.add(problem1);
         problems.add(problem2);
         problems.add(problem3);
