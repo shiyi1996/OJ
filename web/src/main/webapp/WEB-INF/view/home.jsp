@@ -38,23 +38,23 @@
         </div>
     </section>
     <section class="mainbody-second">
-        <a href="#dir1" class="item item1"><div>题库</div></a>
+        <a href="/p" class="item item1"><div>题库</div></a>
         <a href="#dir2" class="item item2"><div>天梯</div></a>
         <a href="#dir3" class="item item3"><div>论坛</div></a>
     </section>
     <section class="mainbody-third">
         <div class="row-dir" id="dir1">
-            <div><img src="images/9.jpg" /></div>
+            <div><img src="/images/9.jpg" /></div>
             <div><p>每次因为看见别人写的新东西，自己就也想做一个，不知道是不是一个好习惯哎。微信小程序已经出来很久了，</p></div>
         </div>
         <hr>
         <div class="row-dir" id="dir2">
             <div><p>每次因为看见别人写的新东西，自己就也想做一个，不知道是不是一个好习惯哎。微信小程序已经出来很久了，</p></div>
-            <div><img src="images/9.jpg" /></div>
+            <div><img src="/images/9.jpg" /></div>
         </div>
         <hr>
         <div class="row-dir" id="dir3">
-            <div><img src="images/9.jpg" /></div>
+            <div><img src="/images/9.jpg" /></div>
             <div><p>每次因为看见别人写的新东西，自己就也想做一个，不知道是不是一个好习惯哎。微信小程序已经出来很久了，</p></div>
         </div>
     </section>

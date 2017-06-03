@@ -3,9 +3,19 @@ var editor = ace.edit("editor");
     editor.session.setMode("ace/mode/java");  //设置默认语言为c/c++
     editor.getSession().setTabSize(4);  //设置默认缩进大小
 
+var id;
+
 function choiceLang(select){
 	editor.session.setMode(select.value);  //设置语言
+	if (select.value == "ace/mode/c_cpp"){
+		id = 1;
+	}else if (select.value == "ace/mode/java"){
+		id = 2;
+	}else{
+		id = 3;
+	}
 }
+
 
 function choiceBack(select){
 	editor.setTheme(select.value); 
@@ -31,8 +41,27 @@ function expand(thisid){
 	flag = !flag;
 }
 
-function submit(){
-	console.log(editor.getValue());  //获得编辑器的代码
+function submit(problemid){
+	var req=null;
+	if (window.XMLHttpRequest){
+		req = new XMLHttpRequest();
+	}else{
+		req = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if(req!=null){
+		req.open('post','/record/addSubmit',true);
+		req.setRequestHeader("Content-Type",
+			"application/x-www-form-urlencoded");
+		req.onreadystatechange = function () {
+			if(req.readyState==4){
+				var result = req.responseText;
+				alert(result);
+			}
+		}
+		var code=editor.getValue();
+		var data={"problemId":problemid,"language":id,"code":code};
+		req.send('data='+JSON.stringify(data));
+	}
 }
 
 

@@ -1,15 +1,11 @@
 package com.web.service;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
-import com.web.dao.BasicDao;
 import com.web.dao.UserDAO;
 import com.web.entity.BasicVo;
 import com.web.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
