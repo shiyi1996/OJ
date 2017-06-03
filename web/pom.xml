@@ -47,6 +47,13 @@
       <version>2.4</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/javax.servlet.jsp.jstl-api -->
     <dependency>
       <groupId>javax.servlet.jsp.jstl</groupId>
