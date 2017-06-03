@@ -30,16 +30,13 @@ public class LoginController {
         String username = request.getParameter("username");
         String password = request.getParameter("userpass");
         HttpSession session=request.getSession();
-        System.out.println(username+" "+password);
         if(username!=null && username!="" && password!=null && password!="")
         {
             int flag = userService.login(username,username,password);
-            System.out.println(flag);
             switch(flag)
             {
                 case 0:
-
-                    session.setAttribute("user",userService.getIdByUsername(username));
+                    session.setAttribute("user",userService.getUserByUsername(username));
                     mav = new ModelAndView("redirect:/p");
                     break;
 
