@@ -157,7 +157,7 @@
                 </form>
                 <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
-                <button class="btn btn-primary" onclick="submit()">提交</button>
+                <button class="btn btn-primary" onclick="submit(${problem.problem_id})">提交</button>
             </div>
         </div>
     </section>

@@ -14,7 +14,7 @@
 
 <nav>
     <div class="nav-title">
-        <a href="#">XuptOJ</a>
+        <a href="/">XuptOJ</a>
         <button class="navbar-toggle collapsed" onclick="showlist()">
             <span class="sr-only">切换导航</span>
             <span class="icon-bar" style="background: #fff;"></span>
@@ -24,8 +24,8 @@
     </div>
     <div class="nav-list">
         <ul>
-            <a href="#"><li>首页</li></a>
-            <a href="#"><li>题库</li></a>
+            <a href="/"><li>首页</li></a>
+            <a href="/p"><li>题库</li></a>
             <a href="#"><li>论坛</li></a>
             <a href="#"><li>关于</li></a>
         </ul>

@@ -7,34 +7,21 @@ import java.util.Date;
  */
 public class Submit extends BasicVo {
 
-    private int submit_id; //提交记录ID(主键)
-    private int problem_id; //题目编号
-    private int user_id; //提交用户ID
-    private Date submit_time; //提交时间
-    private int running_time; //耗时(ms)
-    private int running_memory; //所占空间
-    private int result; //结果(pending,judging,Accept,ComplieError,RuntimeErroe)
-    private String result_description; //结果描述
-    private int language; //提交语言
-    private String code; //提交代码
-    private int accept_sum; //通过用例数
+    private int submit_id;              //提交记录ID(主键)
+    private int problem_id;             //题目编号
+    private int user_id;                //提交用户ID
+    private String submit_time;         //提交时间
+    private int running_time;           //耗时(ms)
+    private int running_memory;         //所占空间
+    private int result;                 //结果(submit=0,pending,judging,Accept,ComplieError,RuntimeErroe)
+    private String result_description;  //结果描述
+    private int language;               //提交语言(1:c/c++;2:java;3:javascript)
+    private String code;                //提交代码
+    private int accept_sum;             //通过用例数
 
     public Submit() {}
 
-    public Submit(int problem_id, int user_id, Date submit_time, int running_time, int running_memory, int result, String result_description, int language, String code, int accept_sum) {
-        this.problem_id = problem_id;
-        this.user_id = user_id;
-        this.submit_time = submit_time;
-        this.running_time = running_time;
-        this.running_memory = running_memory;
-        this.result = result;
-        this.result_description = result_description;
-        this.language = language;
-        this.code = code;
-        this.accept_sum = accept_sum;
-    }
-
-    public Submit(int submit_id, int problem_id, int user_id, Date submit_time, int running_time, int running_memory, int result, String result_description, int language, String code, int accept_sum) {
+    public Submit(int submit_id, int problem_id, int user_id, String submit_time, int running_time, int running_memory, int result, String result_description, int language, String code, int accept_sum) {
         this.submit_id = submit_id;
         this.problem_id = problem_id;
         this.user_id = user_id;
@@ -72,11 +59,11 @@ public class Submit extends BasicVo {
         this.user_id = user_id;
     }
 
-    public Date getSubmit_time() {
+    public String getSubmit_time() {
         return submit_time;
     }
 
-    public void setSubmit_time(Date submit_time) {
+    public void setSubmit_time(String submit_time) {
         this.submit_time = submit_time;
     }
 
