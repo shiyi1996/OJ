@@ -7,7 +7,7 @@ html, body{
 }
 
 .nav-background{
-	background-color: #295E6A;
+	background-color: #1891AC;
 }
 
 nav{
@@ -27,12 +27,12 @@ nav{
 	width:20%;
 	font-size: 2rem;
 	font-weight: bold;
-	color: #fff;
 }
 
 .nav-title a{
 	text-decoration: none;
 	transition: 1s ease-in-out;
+	color: #F2F7FF;
 }
 
 .nav-title a:hover{
@@ -55,6 +55,7 @@ nav{
 	display: block;
 	text-decoration: none;
 	width:10%;
+	color: #F2F7FF;
 }
 
 .nav-list ul a li{
@@ -81,6 +82,7 @@ nav{
 
 .nav-login div a{
 	text-decoration: none;
+	color: #F2F7FF;
 }
 
 .nav-login div:hover{

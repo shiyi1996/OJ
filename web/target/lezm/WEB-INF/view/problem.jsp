@@ -1,15 +1,17 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.web.entity.BasicVo" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.web.entity.Problem" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.Map" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: LuWenjing
   Date: 2017/6/1
   Time: 12:52
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.web.entity.BasicVo" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.web.entity.Problem" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Map" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -36,7 +38,7 @@
     <section class="mainbody">
         <div class="classify-nav">
             <ul class="list-nav">
-                <li>按算法分类
+                <li>按算法分类&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
                     <ul>
                         <a href="/p?algorithm=&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="1"><span>所有</span></li></a>
                         <a href="/p?algorithm=分治&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="2"><span>分治</span></li></a>
@@ -49,7 +51,7 @@
                     </ul>
                 </li>
 
-                <li>按难易程度分类
+                <li>按难易程度分类&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
                     <ul>
                         <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=&structure=${structure eq 'nullthree'?'':structure}"><li id="9"><span>所有</span></li></a>
                         <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=简单&structure=${structure eq 'nullthree'?'':structure}"><li id="10"><span>简单</span></li></a>
@@ -58,7 +60,7 @@
                         <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=超难&structure=${structure eq 'nullthree'?'':structure}"><li id="13"><span>超难</span></li></a>
                     </ul>
                 </li>
-                <li>按数据结构分类
+                <li>按数据结构分类&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
                     <ul>
                         <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure="><li id="14"><span>所有</span></li></a>
                         <a href="/p?algorithm=${algorithm eq 'nullone'?'':algorithm}&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=线性结构"><li id="15"><span>线性结构</span></li></a>
@@ -104,7 +106,7 @@
             {
         %>
         <div class="ti-list">
-            <table class="table table-hover table-strip table-responsive">
+            <table class="table table-strip table-responsive table-border">
                 <thead>
                 <tr>
                     <th>题目编号</th>
@@ -123,9 +125,15 @@
                     <tr>
                         <td><span class="status accepted"></span><%=problem.getProblem_id()%></td>
                         <td><a href="/p/<%=problem.getProblem_id()%>"><%=problem.getTitle()%></a></td>
-                        <td><%=problem.getDifficulty()%></td>
+                        <td><span class="easy-hard"><%=problem.getDifficulty()%></span></td>
                         <td>2345</td>
-                        <td>22%</td>
+                        <td>
+                            <div class="progress" style="width:80%; margin: 0">
+                                <div class="progress-bar progress-bar-info" role="progressbar"
+                                     style="width: 30%;">30%
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 <%
                     }
@@ -216,7 +224,7 @@
         <div>
             <hr>
             <div>
-                <p>© Copyright HighOJ</p>
+                <p>© Copyright XuptOJ</p>
                 <p>2011-2015 京ICP备12034000号-2 京公网安备11010802011553号</p>
                 <p>Lovingly made by WPH95</p>
             </div>
@@ -228,7 +236,7 @@
 
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="/js/problem.js"></script>
 
 <script type="text/javascript">
 
