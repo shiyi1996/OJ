@@ -1,5 +1,5 @@
 nav{
-	background: #205D67;
+	background: #1891AC;
 }
 
 .mainbody{
@@ -14,10 +14,11 @@ nav{
 
 .list-nav{
 	display: flex;
-	background: #74B49B;
+	background: #5bc0de;
 	border-radius: 5px;
 	padding: 10px 0;
 	justify-content: space-around;
+	color: #fff;
 }
 
 .list-nav li{
@@ -31,32 +32,36 @@ nav{
 .list-nav li ul{
 	position: absolute;
 	display: none;
-	background: #A7D7C5;
+	background: #fff;
 	border:1px #A7D7C5 solid;
 	border-radius: 5px;
 	width: 10%;
 	margin: 0;
 	padding: 0;
+	color:#205D67;
+	font-size: 0.9rem
 }
 
-.list-nav li ul a{
-	text-decoration: none;
-}
-
-.list-nav li ul a li{
+.list-nav li ul li{
 	line-height: 30px;
 	padding-left:10px;
 	width: 100%;
 }
 
-.list-nav li ul a li span{
-	display: inline-block;
+.list-nav li ul li:hover{
+	background: #f7f7f7;
+	cursor: pointer;
 }
 
-.list-nav li ul a li:hover{
-	background: #D3F6D1;
-	cursor: pointer;
-	text-decoration: none;
+.table-border{
+	margin-top:30px;
+	border-bottom:1px #ccc solid;
+	border-top:1px #ccc solid;
+	font-size: 0.9rem;
+}
+
+.table-border thead tr th{
+	border:1px #ccc solid;
 }
 
 tr td a{
@@ -69,7 +74,29 @@ tr td a:hover {
 }
 
 .table-strip tbody tr:nth-child(odd){
-	background: #D3F6D1
+	background: #F7F7FF
+}
+
+.easy-hard{
+	padding: 5px 20%;
+	border-radius: 5px;
+	color: #fff
+}
+
+.easy{
+	background: #FFDD67;
+}
+
+.middle{
+	background:#FFD480;
+}
+
+.hard{
+	background: #FCA180;
+}
+
+.very-hard{
+	background: #F56262;
 }
 
 .page{
@@ -88,11 +115,15 @@ tr td a:hover {
 	padding: 1% 1.2%;
 	border-radius: 30%;
 	text-decoration: none;
-	color: #205D67;
 }
 
 .activity{
-	background: #74B49B;
+	background: #5bc0de;
+	color: #fff;
+}
+
+.activity:hover{
+	color: #fff;
 }
 
 .status{
