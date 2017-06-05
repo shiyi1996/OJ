@@ -1,6 +1,5 @@
 package com.web.controller;
 
-import com.web.entity.BasicVo;
 import com.web.entity.Submit;
 import com.web.entity.User;
 import com.web.service.SubmitService;
@@ -36,17 +35,15 @@ public class RecordController {
     @ResponseBody
     public Submit addSubmit(HttpServletRequest request)
     {
-        List<BasicVo> basicVoList = null;
+        Submit submit = null;
         if(request.getParameter("data") != null && request.getParameter("data") != "") {
             int user_id =((User)request.getSession().getAttribute("user")).getUser_id();
             String mess = request.getParameter("data");
             JSONObject jsonObject=new JSONObject(mess);
-            int flag=submitService.addSubmit(jsonObject.getInt("problemId"),user_id,jsonObject.getInt("language"),jsonObject.getString("code"));
-            basicVoList =submitService.getSubmit(jsonObject.getInt("problemId"),user_id);
+            int id = submitService.addSubmit(jsonObject.getInt("problemId"),user_id,jsonObject.getInt("language"),jsonObject.getString("code"));
+            if(id != -1)
+                submit = submitService.getSubmitById(id);
         }
-        if(basicVoList != null)
-            return (Submit) basicVoList.get(0);
-        else
-            return null;
+        return submit;
     }
 }

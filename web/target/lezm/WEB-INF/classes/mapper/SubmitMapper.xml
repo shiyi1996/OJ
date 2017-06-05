@@ -160,7 +160,7 @@
     </select>
 
     <!-- select语句 -->
-    <select id="getEntityById" parameterType="int" resultType="Problem">
+    <select id="getEntityById" parameterType="int" resultType="Submit">
         select * from submit
         where submit_id=#{submit_id}
     </select>
