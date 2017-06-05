@@ -1,0 +1,89 @@
+
+/*发表框样式*/
+.write-dialog{
+    width:100%;
+    margin: 40px auto;
+    color: #5a5a5a;
+}
+
+.content-title{
+    width: 100%;
+}
+
+.blogtitle{
+    width:100%;
+    height:30px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/*.qqface{*/
+    /*background: #7098da;*/
+    /*color: #fff;*/
+    /*border-top-left-radius: 5px;*/
+    /*border-top-right-radius: 5px;*/
+/*}*/
+
+#write-mess{
+    width:100%;
+    font-size: 14px;
+    margin: 0;
+}
+
+.btngroup{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-padding{
+    padding: 10px;
+}
+
+.addphotos{
+    margin-top: -6px;
+    height:auto;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.file-style
+{
+    width:215px;
+    height:230px;
+    border:1px #ccc solid;
+    background:#F7F7F7;
+}
+
+.photo-margin{
+    margin:26px;
+}
+
+.close{
+    position:absolute;
+    margin-left:195px;
+}
+
+#addphoto{
+    width:100%;
+    height:230px;
+    opacity:0;
+    cursor:pointer;
+    z-index:999;
+    margin-top:-138px
+}
+
+@media(max-width: 768px) {
+    .file-style{
+        margin: 5px auto;
+    }
+
+    .write-dialog{
+        width:95%;
+    }
+}

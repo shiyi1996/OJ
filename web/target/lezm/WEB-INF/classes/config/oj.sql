@@ -122,3 +122,40 @@ CREATE TABLE `user` (
   `school` varchar(50)  default '' COMMENT '学校',
   PRIMARY KEY  (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `blog_main`;
+CREATE TABLE `blog_main` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `user_id` int(11) default NULL COMMENT '用户ID',
+  `title` varchar(50) default NULL COMMENT '标题',
+  `content` text default NULL COMMENT '内容',
+  `createdate` datetime default NULL COMMENT '发布时间',
+  `heart_num` int default 0 COMMENT '爱心数量',
+  PRIMARY KEY  (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `title` (`title`),
+  KEY `createdate` (`createdate`),
+  KEY `heart_num` (`heart_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='动态表';
+
+
+
+DROP TABLE IF EXISTS `blog_leave`;
+CREATE TABLE `blog_leave` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `floor_id` int(11) default NULL COMMENT '楼号(层数)',
+  `leave_id` int(11) default NULL COMMENT '留言用户ID',
+  `receive_id` int(11) default NULL COMMENT '被留言用户ID',
+  `main_id` int(11) default NULL COMMENT '动态ID',
+  `leave_content` text default NULL COMMENT '留言内容',
+  `createdate` datetime default NULL COMMENT '发布时间',
+  `heart_num` int default 0 COMMENT '爱心数量',
+  PRIMARY KEY  (`id`),
+  KEY `floor_id` (`floor_id`),
+  KEY `leave_id` (`leave_id`),
+  KEY `receive_id` (`receive_id`),
+  KEY `main_id` (`main_id`),
+  KEY `createdate` (`createdate`),
+  KEY `heart_num` (`heart_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='博客留言表';
