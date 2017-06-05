@@ -134,30 +134,32 @@
             </div>
             <div class="code">
                 <form role="form">
-                    <div style="display: flex;padding:5px;justify-content: flex-end;align-items: center;">
-                        <select class="form-control" style="width:15%;margin:0 5px;" onchange="choiceLang(this)">
+                    <div class="editor-header">
+                        <select class="form-control form-control-plus" onchange="choiceLang(this)">
                             <option value="ace/mode/c_cpp">语言</option>
                             <option value="ace/mode/c_cpp" selected="selected">C/C++语言</option>
                             <option value="ace/mode/java">JAVA语言</option>
                             <option value="ace/mode/javascript">JavaScript语言</option>
                         </select>
-                        <select class="form-control" style="width:15%;margin:0 5px;" onchange="choiceBack(this)">
+                        <select class="form-control form-control-plus" onchange="choiceBack(this)">
                             <option>环境配色</option>
                             <option value="ace/theme/xcode" selected="selected">高亮</option>
                             <option value="ace/theme/monokai">暗色</option>
                         </select>
-                        <select class="form-control" style="width:15%;margin:0 5px;" onchange="choiceSJ(this)">
+                        <select class="form-control"  onchange="choiceSJ(this)">
                             <option value="4">代码缩进</option>
                             <option>2</option>
                             <option selected="selected">4</option>
                             <option>8</option>
                         </select>
-                        <p style="margin:0 5px;" onclick="expand('spanid')"><span class="glyphicon glyphicon-resize-full" id="spanid"></span></p>
+                        <div class="flex-btn" onclick="expand('spanid')">
+                            <span class="glyphicon glyphicon-resize-full" id="spanid"></span>
+                        </div>
                     </div>
                 </form>
                 <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
-                <button class="btn btn-primary" onclick="submit()">提交</button>
+                <button class="btn btn-primary" onclick="submit(${problem.problem_id})">提交</button>
             </div>
         </div>
     </section>

@@ -29,29 +29,35 @@ public class SubmitTest {
     @Test
     public void saveTest() {
 
-        Submit submit = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        int pos = submitDAO.save(submit);
-        System.out.println(pos);
+        Submit submit = new Submit();
+        submit.setProblem_id(1);
+        submit.setUser_id(1);
+        submit.setLanguage(1);
+        submit.setResult_description("zanwu");
+        submit.setCode("a");
+
+        int res = submitDAO.save(submit);
+        System.out.println(res);
     }
     @Test
     public void saveBatchTest() {
 
-        Submit submit1 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        Submit submit2 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        Submit submit3 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        Submit submit4 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        Submit submit5 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        Submit submit6 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        List<BasicVo> submits = new ArrayList<BasicVo>();
-        submits.add(submit1);
-        submits.add(submit2);
-        submits.add(submit3);
-        submits.add(submit4);
-        submits.add(submit5);
-        submits.add(submit6);
-
-        int pos = submitDAO.saveBatch(submits);
-        System.out.println(pos);
+//        Submit submit1 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        Submit submit2 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        Submit submit3 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        Submit submit4 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        Submit submit5 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        Submit submit6 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        List<BasicVo> submits = new ArrayList<BasicVo>();
+//        submits.add(submit1);
+//        submits.add(submit2);
+//        submits.add(submit3);
+//        submits.add(submit4);
+//        submits.add(submit5);
+//        submits.add(submit6);
+//
+//        int pos = submitDAO.saveBatch(submits);
+//        System.out.println(pos);
     }
 
     @Test
@@ -69,20 +75,20 @@ public class SubmitTest {
 
     @Test
     public void updateTest(){
-        Submit submit1 = new Submit(1,12313,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        int pos = submitDAO.update(submit1);
-        System.out.println(pos);
+//        Submit submit1 = new Submit(1,12313,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        int pos = submitDAO.update(submit1);
+//        System.out.println(pos);
     }
 
     @Test
     public void updateBatch(){
-        List<BasicVo> submits = new ArrayList<BasicVo>();
-        Submit submit1 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        Submit submit2 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
-        submits.add(submit1);
-        submits.add(submit2);
-        int pos = submitDAO.updateBatch(submits);
-        System.out.println(pos);
+//        List<BasicVo> submits = new ArrayList<BasicVo>();
+//        Submit submit1 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        Submit submit2 = new Submit(1,2,new Date(),12,23,1,"fsasdasd",1,"adasdasdas",21);
+//        submits.add(submit1);
+//        submits.add(submit2);
+//        int pos = submitDAO.updateBatch(submits);
+//        System.out.println(pos);
     }
 
     @Test

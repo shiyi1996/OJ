@@ -149,7 +149,7 @@ public class BlogController {
     {
         ModelAndView mav=null;
         if(request.getParameter("mainid")!=null && request.getParameter("mainid")!="") {
-            int leave_id = (Integer) request.getSession().getAttribute("user");
+            int leave_id = ((User)request.getSession().getAttribute("user")).getUser_id();
             int receive_id = -1;
             int main_id =Integer.parseInt(request.getParameter("mainid"));
             String leave_content = request.getParameter("write-mess");
@@ -174,7 +174,7 @@ public class BlogController {
     {
         String result=null;
         if(request.getParameter("data") != null && request.getParameter("data") != "") {
-            int id = (Integer) request.getSession().getAttribute("user");
+            int id = ((User)request.getSession().getAttribute("user")).getUser_id();
             int mainid=Integer.parseInt(request.getParameter("mainid"));
             String mess = request.getParameter("data");
             JSONObject jsonObject=new JSONObject(mess);

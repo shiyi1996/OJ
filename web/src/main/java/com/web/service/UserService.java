@@ -1,15 +1,11 @@
 package com.web.service;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
-import com.web.dao.BasicDao;
 import com.web.dao.UserDAO;
 import com.web.entity.BasicVo;
 import com.web.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -94,27 +90,22 @@ public class UserService {
         return id;
     }
 
-    public int getIdByUsername(String username)
+    public User getUserByUsername(String username)
     {
-        int id = -1;
+        User user =null;
         if(username!=null && username!="")
         {
-            try {
-                username = new String( username.getBytes("iso-8859-1"),"utf-8");
-                User user = new User();
-                user.setUsername(username);
-                List<BasicVo> users=userDAO.listBatch(user,0,1);
+            user = new User();
+            user.setUsername(username);
+            List<BasicVo> users=userDAO.listBatch(user,0,1);
 
-                if(users.size()!=0)
-                {
-                    User user0 = (User)users.get(0);
-                    id = user0.getUser_id();
-                }
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+            if(users.size()!=0)
+            {
+                user = (User)users.get(0);
             }
+
         }
-        return id;
+        return user;
 
     }
     public User getUserMessByUserId(int userid)

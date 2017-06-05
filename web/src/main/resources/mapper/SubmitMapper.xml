@@ -13,7 +13,6 @@
         </selectKey>
 
         insert into submit(
-        submit_id,
         problem_id,
         user_id,
         submit_time,
@@ -27,7 +26,6 @@
         )
         values
         (
-        #{submit_id},
         #{problem_id},
         #{user_id},
         #{submit_time},
@@ -48,7 +46,6 @@
         </selectKey>
 
         insert into submit(
-        submit_id,
         problem_id,
         user_id,
         submit_time,
@@ -61,8 +58,7 @@
         accept_sum)
         values
         <foreach collection="list" index="index" item="item" separator=",">
-            (#{item.submit_id},
-            #{item.problem_id},
+            (#{item.problem_id},
             #{item.user_id},
             #{item.submit_time},
             #{item.running_time},
@@ -95,9 +91,6 @@
     <update id="update" parameterType="Submit">
         update submit
         <set>
-            <if test="submit_id!=0">
-                submit_id=#{submit_id},
-            </if>
             <if test="problem_id!=0">
                 problem_id=#{problem_id},
             </if>
@@ -138,7 +131,6 @@
         <foreach collection="list" item="item" index="index"  separator=";">
             update submit
             <set>
-
                 problem_id=#{item.problem_id},
                 user_id=#{item.user_id},
                 submit_time=#{item.submit_time},

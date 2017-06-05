@@ -5,13 +5,16 @@
   Time: 19:01
   To change this template use File | Settings | File Templates.
 --%>
+
+<!--输出,条件,迭代标签库-->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <script src="/js/nav.js"></script>
 
 <nav>
     <div class="nav-title">
-        <a href="#">XuptOJ</a>
+        <a href="/">XuptOJ</a>
         <button class="navbar-toggle collapsed" onclick="showlist()">
             <span class="sr-only">切换导航</span>
             <span class="icon-bar" style="background: #fff;"></span>
@@ -24,16 +27,23 @@
             <a href="#"><li>首页</li></a>
             <a href="#"><li>题库</li></a>
             <a href="/blog"><li>论坛</li></a>
+
             <a href="#"><li>关于</li></a>
         </ul>
     </div>
-    <div class="nav-login">
-        <div class="login"><a href="/login">登录</a></div>
-        <div class="register"><a href="/register">注册</a></div>
-    </div>
-    <div class="nav-user" style="display: none">
-        <div class="user-img">
-            <a href="#"><img src="/images/4.jpg" /></a>
-        </div>
-    </div>
+    <c:choose>
+        <c:when test="${empty user}">
+            <div class="nav-login">
+                <div class="login"><a href="/login">登录</a></div>
+                <div class="register"><a href="/register">注册</a></div>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="nav-user">
+                <div class="user-img">
+                    <a href="#"><img src="/images/${user.picture}" /></a>
+                </div>
+            </div>
+        </c:otherwise>
+    </c:choose>
 </nav>
