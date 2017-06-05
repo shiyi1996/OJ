@@ -1,5 +1,5 @@
 nav{
-	background: #205D67;
+	background: #1891AC;
 }
 .mainbody{
 	width:100%;
@@ -9,7 +9,7 @@ nav{
 .timu-header{
 	width:100%;
 	padding: 2.5px 1%;
-	background:#D3F6D1;
+	background: #f7f7f7;
 }
 
 .timu-title{
@@ -44,22 +44,23 @@ nav{
 
 
 .timu-des{
-	margin: 2%;
+	margin: 3% 2%;
 	border:1px #ccc solid;
 	border-radius: 5px;
 }
 
 .des-header{
-	background: #D3F6D1;
+	background: #86C1D4;
 	padding: 5px 1%;
 	font-size: 0.9rem;
-	color: #000;
+	color: #fff;
 	font-weight:600;
 }
 
 .des-content{
 	padding: 2% 1%;
 	font-size: 0.85rem;
+	line-height: 30px;
 }
 
 table{
@@ -120,12 +121,18 @@ table tbody tr td{
 }
 
 .code{
-	background: #ccc;
 	width: 58%;
 	margin: 0 1%;
+	background: #e8e8e8;
 	border-radius: 5px;
 }
 
+.editor-header{
+	display: flex;
+	padding:5px;
+	justify-content: flex-end;
+	align-items: center;
+}
 
 #editor {
 	width:100%;
@@ -147,6 +154,14 @@ table tbody tr td{
 
 .running{
 	background: red;
+}
+
+.flex-btn{
+	margin:0 5px; cursor: pointer;
+}
+
+.form-control-plus{
+	width:15%;margin:0 5px;
 }
 
 @media (max-width: 768px){
