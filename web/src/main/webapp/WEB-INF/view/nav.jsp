@@ -24,9 +24,10 @@
     </div>
     <div class="nav-list">
         <ul>
-            <a href="/"><li>首页</li></a>
-            <a href="/p"><li>题库</li></a>
-            <a href="#"><li>论坛</li></a>
+            <a href="#"><li>首页</li></a>
+            <a href="#"><li>题库</li></a>
+            <a href="/blog"><li>论坛</li></a>
+
             <a href="#"><li>关于</li></a>
         </ul>
     </div>

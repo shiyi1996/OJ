@@ -108,7 +108,38 @@ public class UserService {
         return user;
 
     }
+    public User getUserMessByUserId(int userid)
+    {
+        User user=null;
+        if(userid>0)
+        {
+            User usermess=new User();
+            usermess.setUser_id(userid);
+            if((userDAO.listBatch(usermess,0,1)).size()!=0) {
+                user=(User) userDAO.listBatch(usermess, 0, 1).get(0);
+            }
+        }
+        return user;
+    }
 
+    public User getUserMessByUserName(String username)
+    {
+        User user=null;
+        try {
+            username = new String(username.getBytes("iso-8859-1"), "utf-8");
+            if(username!=null && username!="")
+            {
+                User usermess=new User();
+                usermess.setUsername(username);
+                if((userDAO.listBatch(usermess,0,1)).size()!=0) {
+                    user=(User)userDAO.listBatch(usermess, 0, 1).get(0);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return user;
+    }
     public int register(String username,String useremail, String userpass)
     {
         User user = new User();

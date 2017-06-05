@@ -177,7 +177,11 @@
                             <option value="ace/theme/xcode" selected="selected">高亮</option>
                             <option value="ace/theme/monokai">暗色</option>
                         </select>
+<<<<<<< HEAD
+                        <select class="form-control"  onchange="choiceSJ(this)">
+=======
                         <select class="form-control form-control-plus"  onchange="choiceSJ(this)">
+>>>>>>> e058fee050a4b3afe294e31fa38b43e70e915623
                             <option value="4">代码缩进</option>
                             <option>2</option>
                             <option selected="selected">4</option>

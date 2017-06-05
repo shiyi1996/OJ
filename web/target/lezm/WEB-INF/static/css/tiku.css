@@ -42,6 +42,9 @@ nav{
 	font-size: 0.9rem
 }
 
+<<<<<<< HEAD
+.list-nav li ul li{
+=======
 .list-nav li ul a{
 	text-decoration: none;
 	color:#205D67;
@@ -53,12 +56,17 @@ nav{
 }
 
 .list-nav li ul a li{
+>>>>>>> e058fee050a4b3afe294e31fa38b43e70e915623
 	line-height: 30px;
 	padding-left:10px;
 	width: 100%;
 }
 
+<<<<<<< HEAD
+.list-nav li ul li:hover{
+=======
 .list-nav li ul a li:hover{
+>>>>>>> e058fee050a4b3afe294e31fa38b43e70e915623
 	background: #f7f7f7;
 	cursor: pointer;
 }

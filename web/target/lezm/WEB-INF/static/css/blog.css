@@ -1,0 +1,207 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #5a5a5a;
+    background:#F7F7F7;
+}
+
+/*博客首页标题*/
+.xunqin-blog-header{
+    width:100%;
+    height:240px;
+    margin:0 auto;
+    background-image: url("/images/t6.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    -webkit-background-size:cover;
+    color: #fff;
+    padding:3% 0px 0px 3%;
+}
+
+
+.xunqin-blog-header div{
+    height:auto;
+    width: auto;
+    margin-left:90%;
+    margin-top:150px;
+}
+
+.main-container{
+    background: #fff;
+    width:70%;
+    margin:0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 0 0 20px #ccc;
+    margin-bottom: 100px;
+}
+
+/*文章内容样式*/
+.blog-content{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.blog-item{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.blog-item-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.usericon-div{
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.usericon-a{
+    text-decoration: none;
+}
+
+.usericon-img{
+    width: 50px;
+    height: 50px;
+    margin: 0;
+}
+
+.petname-love-time{
+    color: #bdc3c7;
+    padding-top: 15px;
+}
+
+.petname{
+    color: #5a5a5a;
+    text-decoration: none;
+}
+
+.love-grade{
+
+}
+
+.love-heart{
+    width: 20px;
+    height: 20px;
+}
+
+.publish-time{
+    font-size: 1.3rem;
+}
+
+.blog-content-main{
+    margin:10px 10px 0px 0px;
+    padding-left:20px;
+    padding-right: 20px;
+}
+
+.blog-header-user span{
+    font-size:2.5rem;
+    color:#000;
+}
+
+.blog-content-user{
+    width: 100%;
+    height: 150px;
+}
+
+.blog-text{
+    position: relative;
+    width:100%;
+    line-height: 30px;
+    height:100%;
+    overflow: hidden;
+    font-size: 1.5rem;
+}
+
+.blog-footer{
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+.blog-footer a{
+    text-decoration: none;
+    color:#bdc3c7;
+}
+
+.blog-footer a:hover{
+    text-decoration: none;
+    color: #bdc3c7;
+}
+
+/*查看更多*/
+.load-more{
+    width: 100%;
+    height:30px;
+    padding: 5px;
+    text-align: center;
+    background: #7098da;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.aside-btn{
+    position: fixed;
+    margin-left:81%;
+    margin-top:15%;
+    width:4%;
+    height:30%;
+}
+
+.aside-btn div{
+    height:28%;
+    width:100%;
+    margin:4%;
+}
+
+.aside-btn div img{
+    height:96%;
+    width: 96%;
+}
+
+
+@media(max-width: 768px) {
+    .main-container{
+        width:100%;
+        margin-top: -50px;
+        padding: 0;
+    }
+
+    .blog-text{
+        width:100%;
+    }
+
+    .aside-btn{
+        display: none;
+    }
+
+    .xunqin-blog-header{
+        margin-top: 0;
+        width:100%;
+    }
+
+    .xunqin-blog-header div{
+        width:auto;
+        height:auto;
+        margin-left:80%;
+        margin-top:150px;
+        padding: 0;
+    }
+
+    .xunqin-blog-header div span{
+        display: none;
+    }
+
+    .xunqin-blog-header div a{
+        width:100%;
+    }
+
+    .blog-content{
+        width: 90%;
+    }
+}
+
+
