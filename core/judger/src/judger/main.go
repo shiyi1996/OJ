@@ -43,14 +43,27 @@ func solve(sub *db.Submit) {
 		return
 	}
 
+	mess := check(sub)
+	if len(mess) != 0{
+		//错误
+		db.Update(sub.Submit_id, 4, string(mess))
+	}
 
+	db.Update(sub.Submit_id, 5, "")
 }
 
-func check(sub *db.Submit){
+func check(sub *db.Submit) []byte{
 	pre_outfile := "/Users/shiyi/" + strconv.Itoa(sub.Submit_id) + ".out"
 	now_outfile := strconv.Itoa(sub.Submit_id) + ".out"
 
+	cmd := exec.Command("diff", now_outfile, pre_outfile)
+	fmt.Println(cmd.Args)
+	out, err := cmd.CombinedOutput()
+	if err != nil{
+		log.Fatal(err)
+	}
 
+	return out
 }
 
 func compile(sub *db.Submit) (string, error){
