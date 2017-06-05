@@ -67,6 +67,16 @@ public class SubmitTest {
     }
 
     @Test
+    public void list(){
+        Submit submit = new Submit();
+        submit.setProblem_id(3);
+        List<BasicVo> listBatch = submitDAO.listBatch(submit,0,6);
+        for(BasicVo basicVo:listBatch) {
+            System.out.println(((Submit)basicVo).getSubmit_id());
+        }
+    }
+
+    @Test
     public void removeBatchTest(){
         int a[] = {2,3};
         int pos = submitDAO.removeBatch(a);
