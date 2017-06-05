@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: Administrator
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8.0_45
 
+=======
+Manifest-Version: 1.0
+Built-By: shiyi
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_131
+
+>>>>>>> 03e6d3188111dcf41de9a0c41098c38347dab207
