@@ -4,6 +4,7 @@ import com.web.dao.SubmitDAO;
 import com.web.entity.BasicVo;
 import com.web.entity.Submit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.parsing.Problem;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -20,7 +21,6 @@ public class SubmitService {
     private SubmitDAO submitDAO;
 
     public int addSubmit(int problem_id,int user_id,int language,String code){
-        int res = -1;
         if(problem_id>0 && user_id>0 && language>0 && code!=null) {
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat formats = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -34,9 +34,11 @@ public class SubmitService {
             submit.setResult_description("暂无");
             submit.setCode(code);
 
-            res = submitDAO.save(submit);
+            submitDAO.save(submit);
+            if(submit.getSubmit_id()>0)
+                return submit.getSubmit_id();
         }
-        return res;
+        return -1;
     }
 
     public List<BasicVo> getSubmit(int problem_id, int user_id){
@@ -46,8 +48,16 @@ public class SubmitService {
             submit.setProblem_id(problem_id);
             submit.setUser_id(user_id);
 
-            submitList = submitDAO.listBatch(submit,0,3);
+            submitList = submitDAO.listBatch(submit,0,5);
         }
         return submitList;
+    }
+
+    public Submit getSubmitById(int id){
+        Submit submit = null;
+        if(id > 0){
+            submit = (Submit) submitDAO.getEntityById(id);
+        }
+        return submit;
     }
 }

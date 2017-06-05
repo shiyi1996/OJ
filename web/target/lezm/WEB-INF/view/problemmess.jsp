@@ -112,7 +112,7 @@
                                     <th>提交时间</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tablebody">
                             <%
                                     for(BasicVo basicVo:basicVoArrayList){
                                         Submit submit=(Submit) basicVo;
@@ -190,7 +190,7 @@
                 </form>
                 <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
-                <button class="btn btn-primary" onclick="submit(${problem.problem_id}, ${user})">提交</button>
+                <button class="btn btn-primary" onclick="submit(${problem.problem_id}, ${empty sessionScope.user}, '${problem.title}')">提交</button>
             </div>
         </div>
     </section>

@@ -36,8 +36,8 @@ public class SubmitTest {
         submit.setResult_description("zanwu");
         submit.setCode("a");
 
-        int res = submitDAO.save(submit);
-        System.out.println(res);
+        submitDAO.save(submit);
+        System.out.println(submit.getSubmit_id());
     }
     @Test
     public void saveBatchTest() {
@@ -104,8 +104,8 @@ public class SubmitTest {
     @Test
     public void get()
     {
-        Submit submit=(Submit) submitDAO.getEntityById(4);
-        System.out.println(submit.getLanguage()+" "+submit.getCode());
+        Submit submit=(Submit) submitDAO.getEntityById(15);
+        System.out.println(submit.getCode());
     }
 
     @Test
