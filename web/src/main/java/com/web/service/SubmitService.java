@@ -46,7 +46,7 @@ public class SubmitService {
             submit.setProblem_id(problem_id);
             submit.setUser_id(user_id);
 
-            submitList = submitDAO.listBatch(submit,0,3);
+            submitList = submitDAO.listBatch(submit,0,1);
         }
         return submitList;
     }
