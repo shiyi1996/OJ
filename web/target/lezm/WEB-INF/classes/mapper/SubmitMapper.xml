@@ -146,6 +146,19 @@
         </foreach>
     </update>
 
+    <select id="listBatch" resultType="Submit">
+        SELECT * from submit
+        <where>
+            <if test="param1.problem_id!=0">
+                AND submit.problem_id=#{param1.problem_id}
+            </if>
+            <if test="param1.user_id!=0">
+                AND submit.user_id=#{param1.user_id}
+            </if>
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
     <!-- select语句 -->
     <select id="getEntityById" parameterType="int" resultType="Problem">
         select * from submit

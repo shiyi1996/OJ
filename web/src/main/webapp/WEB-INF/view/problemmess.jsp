@@ -1,4 +1,8 @@
-<%--
+<%@ page import="com.web.entity.BasicVo" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.web.entity.Submit" %>
+<%@ page import="com.web.entity.Problem" %><%--
   Created by IntelliJ IDEA.
   User: LuWenjing
   Date: 2017/6/1
@@ -21,6 +25,7 @@
     <![endif]-->
 
 </head>
+
 <body>
 
 <!--导入导航栏-->
@@ -43,8 +48,14 @@
                     <li class="active">
                         <a href="#desc" data-toggle="tab">题目描述</a>
                     </li>
+                    <% if (session.getAttribute("user") != null)
+                    {
+                    %>
                     <li><a href="#record" data-toggle="tab">提交记录</a></li>
                     <li><a href="#evaluating" data-toggle="tab">评测</a></li>
+                    <%
+                        }
+                    %>
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade in active" id="desc">
@@ -81,37 +92,54 @@
                             </div>
                         </div>
                     </div>
+                    <% if (session.getAttribute("user") != null)
+                    {
+                    %>
                     <div class="tab-pane fade" id="record">
-                        <table>
-                            <thead>
+                            <%
+                                Problem problem = (Problem)request.getAttribute("problem");
+                                List<BasicVo> basicVoArrayList=(ArrayList<BasicVo>) request.getAttribute("submit");
+                                if(basicVoArrayList != null && basicVoArrayList.size() != 0){
+                            %>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>题目</th>
+                                    <th>运行状态</th>
+                                    <th>通过用例数</th>
+                                    <th>耗时</th>
+                                    <th>语言</th>
+                                    <th>提交时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <%
+                                    for(BasicVo basicVo:basicVoArrayList){
+                                        Submit submit=(Submit) basicVo;
+                            %>
                             <tr>
-                                <th>题目</th>
-                                <th>运行状态</th>
-                                <th>得分</th>
-                                <th>耗时</th>
-                                <th>语言</th>
-                                <th>提交时间</th>
+                                <td><a href="#"><%= problem.getTitle() %></a></td>
+                                <td><label class="status"><%= submit.getResult()%></label></td>
+                                <td><%= submit.getAccept_sum() %></td>
+                                <td><%= submit.getRunning_time() %>ms</td>
+                                <td><%= submit.getLanguage() %></td>
+                                <td><%= submit.getSubmit_time() %></td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><a href="#">A+B问题</a></td>
-                                <td><label style="background: green;color:#fff;border-radius: 2px;padding: 5px">答案错误</label></td>
-                                <td>0</td>
-                                <td>3s</td>
-                                <td>Java</td>
-                                <td>2017-01-09&nbsp;12:23:09</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">A+B问题</a></td>
-                                <td><label style="background: green;color:#fff;border-radius: 2px;padding: 5px">答案错误</label></td>
-                                <td>0</td>
-                                <td>3s</td>
-                                <td>Java</td>
-                                <td>2017-01-09&nbsp;12:23:09</td>
-                            </tr>
+                            <%
+                                    }
+                            %>
+
                             </tbody>
                         </table>
+                            <%
+                                }else{
+
+                            %>
+                        <div style="color: #bbb; text-align: center;padding-top: 50px">暂无提交记录</div>
+                        <%
+                                }
+                        %>
+
                     </div>
                     <div class="tab-pane fade" id="evaluating">
                         <div class="status-change">
@@ -130,6 +158,9 @@
                             <div id="data-time">总耗时：1ms</div>
                         </div>
                     </div>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <div class="code">
@@ -146,7 +177,7 @@
                             <option value="ace/theme/xcode" selected="selected">高亮</option>
                             <option value="ace/theme/monokai">暗色</option>
                         </select>
-                        <select class="form-control"  onchange="choiceSJ(this)">
+                        <select class="form-control form-control-plus"  onchange="choiceSJ(this)">
                             <option value="4">代码缩进</option>
                             <option>2</option>
                             <option selected="selected">4</option>
@@ -159,7 +190,7 @@
                 </form>
                 <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
-                <button class="btn btn-primary" onclick="submit(${problem.problem_id})">提交</button>
+                <button class="btn btn-primary" onclick="submit(${problem.problem_id}, ${user})">提交</button>
             </div>
         </div>
     </section>

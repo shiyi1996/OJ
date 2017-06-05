@@ -2,7 +2,9 @@ package com.web.controller;
 
 import com.web.entity.BasicVo;
 import com.web.entity.Problem;
+import com.web.entity.User;
 import com.web.service.ProblemService;
+import com.web.service.SubmitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,9 @@ public class ProblemController {
 
     @Autowired
     private ProblemService problemService;
+
+    @Autowired
+    private SubmitService submitService;
 
     @RequestMapping("")
     public ModelAndView listProblem(HttpServletRequest request)
@@ -100,14 +105,20 @@ public class ProblemController {
     }
 
     @RequestMapping("{problemId}")
-    public ModelAndView showOneLostMess(@PathVariable int problemId)
+    public ModelAndView showOneLostMess(@PathVariable int problemId,HttpServletRequest request)
     {
 
         ModelAndView mdv = new ModelAndView("problemmess");
         Problem problem = null;
+        List<BasicVo> list = null;
         if(problemId > 0){
             problem = problemService.getProblemById(problemId);
+            if(request.getSession().getAttribute("user")!=null) {
+                int user_id = ((User) request.getSession().getAttribute("user")).getUser_id();
+                list = submitService.getSubmit(problemId, user_id);
+            }
         }
+        mdv.addObject("submit",list);
         mdv.addObject("problem",problem);
         return mdv;
     }
