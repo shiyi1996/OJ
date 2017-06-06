@@ -21,6 +21,7 @@ public class SubmitService {
     private SubmitDAO submitDAO;
 
     public int addSubmit(int problem_id,int user_id,int language,String code){
+        int res = -1;
         if(problem_id>0 && user_id>0 && language>0 && code!=null) {
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat formats = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -34,11 +35,9 @@ public class SubmitService {
             submit.setResult_description("暂无");
             submit.setCode(code);
 
-            submitDAO.save(submit);
-            if(submit.getSubmit_id()>0)
-                return submit.getSubmit_id();
+            res = submitDAO.save(submit);
         }
-        return -1;
+        return res;
     }
 
     public List<BasicVo> getSubmit(int problem_id, int user_id){

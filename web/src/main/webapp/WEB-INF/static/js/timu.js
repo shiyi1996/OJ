@@ -1,5 +1,3 @@
-var answerstatus = ['submit failed', 'pending', 'judging', 'Accept', 'ComplieError', 'RuntimeError'];
-var lang = ['C/C++', 'Java', 'JavaScript'];
 var id = 1;
 
 var editor = ace.edit("editor");
@@ -12,7 +10,7 @@ function activeChange(){
 	var mytab = $('#myTab').children();
 	var tabpane = document.querySelectorAll('.tab-pane');
 	for (var i = 0; i < mytab.length; i++) {
-		if (i != 2){
+		if (i != 1){
 			$(mytab[i]).removeClass('active');
 			$(tabpane[i]).removeClass('active');
 			$(tabpane[i]).removeClass('in');
@@ -78,7 +76,7 @@ function getRequest(){
 	return req;
 }
 
-function submit(problemid, flag, title){
+function submit(problemid, flag){
 	if (flag == false) {
 		var req = getRequest();
 		if (req != null) {
@@ -88,15 +86,15 @@ function submit(problemid, flag, title){
 			req.onreadystatechange = function () {
 				if (req.readyState == 4) {
 					var result = req.responseText;
-					if (result != null) {
+					if (result == 'true') {
 						activeChange();
 						animation();
-						insertRecord(JSON.parse(result), title);
 					} else {
-						alert(result);
+						alert("失败，请尝试重新提交");
 					}
 				}
 			}
+
 			var code = editor.getValue();
 			var data = {"problemId": problemid, "language": id, "code": code};
 
@@ -106,50 +104,6 @@ function submit(problemid, flag, title){
 		window.location.href = '/login';
 	}
 }
-
-function insertRecord(record, title){
-	var tablebody = document.getElementById('tablebody');
-	var data = '<tr>'+
-		'<td><a href="#">'+ title +'</a></td>'+
-		'<td><label class=\"status-answer running'+ record.result + '\"' +'>' +answerstatus[record.result]+'</label></td>'+
-		'<td>'+ record.accept_sum +'</td>'+
-		'<td>'+ record.running_time+'</td>'+
-		'<td>'+ lang[record.language - 1]+'</td>'+
-		'<td>'+ record.submit_time +'</td>'+
-		'</tr>';
-	tablebody.innerHTML += data;
-}
-
-
-// function submit(problemid, flag){
-// 	if (flag == false) {
-// 		var req = getRequest();
-// 		if (req != null) {
-// 			req.open('post', '/record/addSubmit', true);
-// 			req.setRequestHeader("Content-Type",
-// 				"application/x-www-form-urlencoded");
-// 			req.onreadystatechange = function () {
-// 				if (req.readyState == 4) {
-// 					var result = req.responseText;
-// 					alert(result);
-// 					if (result == 'succeed') {
-// 						activeChange();
-// 						animation();
-// 					} else {
-// 						alert(result);
-// 					}
-// 				}
-// 			}
-//
-// 			var code = editor.getValue();
-// 			var data = {"problemId": problemid, "language": id, "code": code};
-//
-// 			req.send('data=' + JSON.stringify(data));
-// 		}
-// 	}else{
-// 		window.location.href = '/login';
-// 	}
-// }
 
 window.onload = function(){
 	replaceBr();
