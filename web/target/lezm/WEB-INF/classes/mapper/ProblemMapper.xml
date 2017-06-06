@@ -186,6 +186,9 @@
         SELECT * from problem
         <where>
             problem_type=#{param1.problem_type}
+            <if test="param1.title!=null and param1.title!='' ">
+                AND problem.title LIKE CONCAT(#{param1.title},'%')
+            </if>
             <if test="param1.algorithm!=null and param1.algorithm!='' ">
                 AND problem.algorithm=#{param1.algorithm}
             </if>

@@ -4,7 +4,6 @@ import com.web.dao.SubmitDAO;
 import com.web.entity.BasicVo;
 import com.web.entity.Submit;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.parsing.Problem;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -40,23 +39,14 @@ public class SubmitService {
         return res;
     }
 
-    public List<BasicVo> getSubmit(int problem_id, int user_id){
+    public List<BasicVo> getSubmit(int language,int result){
         List<BasicVo> submitList = null;
-        if(problem_id>0 && user_id>0){
+        if(language >= 0 && result >= 0){
             Submit submit = new Submit();
-            submit.setProblem_id(problem_id);
-            submit.setUser_id(user_id);
-
-            submitList = submitDAO.listBatch(submit,0,5);
+            submit.setLanguage(language);
+            submit.setResult(result);
+            submitList = submitDAO.listBatch(submit,0,6);
         }
         return submitList;
-    }
-
-    public Submit getSubmitById(int id){
-        Submit submit = null;
-        if(id > 0){
-            submit = (Submit) submitDAO.getEntityById(id);
-        }
-        return submit;
     }
 }

@@ -21,6 +21,16 @@ public class ProblemService {
         return problemDAO.listBatch(problem,start,size);
     }
 
+    public List<BasicVo> listProblemBytitle(String problem_name, int start, int size){
+        List<BasicVo> problemList = null;
+        if(problem_name != null){
+            Problem problem = new Problem();
+            problem.setTitle(problem_name);
+            problemList = problemDAO.listBatch(problem,start,size);
+        }
+        return problemList;
+    }
+
     public int getProblemNum(Problem problem){
         return problemDAO.count(problem);
     }
