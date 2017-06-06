@@ -21,16 +21,143 @@ table tbody tr{
 table tbody tr td{
     font-size:0.9rem;
     text-align: center;
-    padding: 5px 10px;
+    padding: 2px 10px;
 }
 
-.run-status{
-    padding: 2.5px;
-    border-radius: 10%;
+nav{
+    background: #1891AC;
+}
+
+.mainwarp{
+    width:100%;
+    padding: 0 2%;
+    padding-top:100px;
+    display: flex;
+}
+
+.allrecord{
+    width: 70%;
+}
+
+.ti-list, .classify-nav{
+    width:100%;
 }
 
 .search-container{
-    background: #74B49B;
-    padding: 10px;
+    background: #5bc0de;
+    padding: 5px;
     border-radius: 5px;
 }
+
+.run-status{
+    padding: 2px 5%;
+    border-radius: 5px;
+    color: #fff
+}
+
+/*submit failed, pending,judging,Accept,ComplieError,RuntimeError*/
+
+/*submit failed红色*/
+.submit-failed{
+    background: #BE3144;
+}
+
+
+/*pending灰色*/
+.pending{
+    background: #bbb;
+}
+
+/*judging蓝色*/
+.judging{
+    background: #4797B1;
+}
+
+/*accepted绿色*/
+.accepted{
+    background: rgb(39, 194, 76);
+}
+
+/*ComplieError黄色*/
+.complie{
+    background: #FC8A15;
+}
+
+/*RuntimeError粉红*/
+.runtime{
+    background: #FF847C;
+}
+
+.page{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    margin-top:50px;
+}
+
+.page a{
+    display: block;
+    margin: 0.5%;
+    border: 1px #ccc solid;
+    padding: 1% 2%;
+    border-radius: 30%;
+    text-decoration: none;
+}
+
+.activity{
+    background: #5bc0de;
+    color: #fff;
+}
+
+.chart{
+    width: 30%;
+}
+
+.chart > div{
+    margin: 10%;
+    line-height: 30px;
+    text-align: center;
+}
+
+.ac-num{
+    color: rgb(39, 194, 76);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.allsub-num{
+    color:#4797B1;
+    font-weight: bold;
+    font-size: 1.5rem
+}
+
+.ac-rate{
+    color: #FF847C;
+    font-weight: bold;
+    font-size: 1.5rem
+}
+
+
+@media (max-width: 768px){
+    .mainwarp{
+        width:80%;
+        padding-top:100px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .allrecord{
+        width:100%;
+    }
+
+    .chart{
+        display: none;
+    }
+
+    .search-container{
+        display: none;
+    }
+}
+
