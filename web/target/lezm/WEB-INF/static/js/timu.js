@@ -151,7 +151,7 @@ function insertRecord(record, title){
 // 	}
 // }
 
-window.onload = function(){
+window.onload = (function(){
 	replaceBr();
 })();
 
