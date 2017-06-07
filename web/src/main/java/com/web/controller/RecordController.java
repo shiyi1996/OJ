@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -37,8 +38,7 @@ public class RecordController {
 
     @RequestMapping(value="addSubmit", method = RequestMethod.POST)
     @ResponseBody
-    public String addSubmit(HttpServletRequest request) throws IOException {
-        String res = "false";
+    public int addSubmit(HttpServletRequest request) throws IOException {
         StringBuilder sb = new StringBuilder();
 
         BufferedReader br = request.getReader();
@@ -49,21 +49,33 @@ public class RecordController {
         }
 
         String mess = sb.toString();
+        int id = -1;
 
         if(mess != null && mess != "") {
 
             int user_id =((User)request.getSession().getAttribute("user")).getUser_id();
 
             JSONObject jsonObject=new JSONObject(mess);
-            int id = submitService.addSubmit(
+            id = submitService.addSubmit(
                     jsonObject.getInt("problemId"),
                     user_id,
                     jsonObject.getInt("language"),
                     URLDecoder.decode(jsonObject.getString("code"), "UTF-8"));
-            if(id != -1) {
-                res = "true";
-            }
+
         }
-        return res;
+        return id;
+    }
+
+    @RequestMapping("submitStatus")
+    @ResponseBody
+    public Submit submitStatus(HttpServletRequest request){
+        Submit submit = null;
+        System.out.println(request.getParameter("id"));
+        if(request.getParameter("id")!=null && request.getParameter("id")!=""){
+            int id = Integer.parseInt(request.getParameter("id"));
+            System.out.println("idddddddd:"+id);
+            submit = submitService.getSubmitById(id);
+        }
+        return submit;
     }
 }

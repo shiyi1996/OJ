@@ -1,9 +1,11 @@
 var id = 1;
 var editor = ace.edit("editor");
+var spinner;
 window.onload = (function () {
 	editor.setTheme("ace/theme/xcode"); //设置背景色为高亮
 	editor.session.setMode("ace/mode/c_cpp");  //设置默认语言为c/c++
 	editor.getSession().setTabSize(4);  //设置默认缩进大小
+	replaceBr();
 })();
 
 //动态切换选项卡
@@ -76,84 +78,114 @@ function getRequest(){
 	return req;
 }
 
-function submit(problemid, flag){
-	if (flag == false) {
-		var req = getRequest();
-		if (req != null) {
-			req.open('post', '/record/addSubmit', true);
-			req.setRequestHeader("Content-Type",
-				"text/plain"
-			);
-			req.onreadystatechange = function () {
-				if (req.readyState == 4) {
-					var result = req.responseText;
-					if (result == 'true') {
-						activeChange();
-						animation();
-					} else {
-						alert("失败，请尝试重新提交");
+function init(){
+	activeChange(); //跳到提交状态显示页面；
+	animation() //加载转圈动画
+	progressChange(0, 0, ""); //显示等待上传
+	document.getElementById('run-errormess').innerHTML = "";
+}
+
+function getStatus(submitId) {
+    var req = getRequest();
+    if (req != null) {
+        req.open('post', '/record/submitStatus', true);
+        req.setRequestHeader("Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                var mess = req.responseText;
+                if (mess != null && mess != "") {
+                	mess = JSON.parse(mess);
+					var planid;
+					switch (mess.result){
+						case 0:
+							planid = 10;
+							break;
+						case 1:
+							planid = 25;
+							break;
+                        case 2:
+                        	planid = 40;
+                        	break;
+                        case 3:
+                        	plaind = 60;
+                        	break;
+						default:
+                        	planid = 100;
+                        	break;
 					}
-				}
-			}
+                    progressChange(mess.result+1, planid, mess.result_description, mess.running_time)
+                } else {
+                    alert("失败，请尝试重新提交");
+                }
+            }
+        }
+        req.send('id=' + submitId);
+    }
+}
 
-			var code = encodeURIComponent(editor.getValue());
-			var data = {"problemId": problemid, "language": id, 'code':code};
 
-			req.send(JSON.stringify(data));
+var timer;
 
+function startAnimal(submitId) {
+    timer = setInterval(function () {
+        getStatus(submitId);
+    }, 300);
+}
+
+function submit(problemid) {
+	init(); //初始化函数
+    var req = getRequest();
+    if (req != null) {
+        req.open('post', '/record/addSubmit', true);
+        req.setRequestHeader("Content-Type",
+            "text/plain"
+        );
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                var result = req.responseText;
+                if (result != -1) {
+                	progressChange(0, 10, "")
+					startAnimal(result);
+                } else {
+                    alert("失败，请尝试重新提交");
+                }
+            }
+        };
+        var code = encodeURIComponent(editor.getValue());
+        var data = {"problemId": problemid, "language": id, 'code': code};
+		
+		req.send(JSON.stringify(data));
+    }
+}
+
+function progressChange(statusid, planid, desc, usetime){
+    //进度条的变化
+    var arr = ['正在上传Uploading','等待测试Pending','开始测试Judging','正在编译Compiling','正在评测Running','编译错误CompilieError','时间超限TimeLimit','错误WrongAnwser','测试通过Accepted'];
+    var colors = ['black', '#bbb', '#FC8A15', '#4FC1E9', '#4FC1E9', '#4FC1E9','orange', 'red', 'rgb(39, 194, 76)'];
+    var progress = document.getElementById('progress');
+    var status = document.getElementById('status');
+
+    if (desc != ''){
+        spinner.stop();
+        $(progress).addClass('progress-bar-danger');
+        progress.style.width = '100%';
+        progress.innerHTML = '100%';
+        document.getElementById('run-errormess').innerHTML = desc;
+        clearInterval(timer)
+    }else{
+        progress.style.width = planid + '%';
+        progress.innerHTML = planid + '%';
+        if (planid == 100){
+            spinner.stop();
+			document.getElementById('usetime').innerHTML = usetime;
+            clearInterval(timer)
 		}
-	}else{
-		window.location.href = '/login';
 	}
+    status.innerHTML = arr[statusid];
+    status.style.color = colors[statusid];
 }
-
-function insertRecord(record, title){
-	var tablebody = document.getElementById('tablebody');
-	var data = '<tr>'+
-		'<td><a href="#">'+ title +'</a></td>'+
-		'<td><label class=\"status-answer running'+ record.result + '\"' +'>' +answerstatus[record.result]+'</label></td>'+
-		'<td>'+ record.accept_sum +'</td>'+
-		'<td>'+ record.running_time+'</td>'+
-		'<td>'+ lang[record.language - 1]+'</td>'+
-		'<td>'+ record.submit_time +'</td>'+
-		'</tr>';
-	tablebody.innerHTML += data;
-}
-
-
-// function submit(problemid, flag){
-// 	if (flag == false) {
-// 		var req = getRequest();
-// 		if (req != null) {
-// 			req.open('post', '/record/addSubmit', true);
-// 			req.setRequestHeader("Content-Type",
-// 				"application/x-www-form-urlencoded");
-// 			req.onreadystatechange = function () {
-// 				if (req.readyState == 4) {
-// 					var result = req.responseText;
-// 					alert(result);
-// 					if (result == 'succeed') {
-// 						activeChange();
-// 						animation();
-// 					} else {
-// 						alert(result);
-// 					}
-// 				}
-// 			}
-//
-// 			var code = editor.getValue();
-// 			var data = {"problemId": problemid, "language": id, "code": code};
-//
-// 			req.send('data=' + JSON.stringify(data));
-// 		}
-// 	}else{
-// 		window.location.href = '/login';
-// 	}
-// }
-
-window.onload = (function(){
-	replaceBr();
-})();
 
 //动画
 function animation(){
@@ -178,25 +210,10 @@ function animation(){
 
 	};
 	var target = document.getElementById('foo');
-	var spinner = new Spinner(opts).spin(target);
-
-	//进度条的变化
-	var arr = ['正在上传Uploading','等待测试Pending','正在编译Compiling','正在评测Running','测试通过Accepted'];
-	var colors = ['black', '#bbb', '#FC8A15', '#4FC1E9', 'rgb(39, 194, 76)'];
-	var progress = document.getElementById('progress');
-	var status = document.getElementById('status');
-	for (var i = 0; i < 5; i++){
-		(function (j){
-			setTimeout(function (){
-				progress.style.width = 20 * (j + 1) + '%';
-				status.innerHTML = arr[j];
-				status.style.color = colors[j];
-			}, 1000 * j);
-		})(i);
-	}
-
-	//5s后停止旋转
-	setTimeout(function (){
-		spinner.stop();
-	}, 5000);
+	spinner = new Spinner(opts).spin(target);
 }
+
+
+
+
+

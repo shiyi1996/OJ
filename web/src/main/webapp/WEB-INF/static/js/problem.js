@@ -19,10 +19,7 @@ function changeColor(){
 //给输入框添加事件
 document.getElementById("proname").addEventListener('keyup', function (){
     var name = this.value;
-    if (name != ''){
-        // search(name);
-        console.log(name);
-    }
+    search(name);
 }, true);
 
 function getRequest(){
@@ -37,31 +34,31 @@ function getRequest(){
 
 function search(proname){
     var req = getRequest();
-    req.open('post', '#', true);
+    req.open('post', '/p/findProblem', true);
     req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
     req.onreadystatechange = function (){
         if (req.readyState == 4){
-            var problemlist = req. responseText;
-            insertProblem(problemlist);
-        }else{
-            var list = document.getElementById('list');
-            list.innerHTML = 'error';
+            console.log(req. responseText);
+            var problemlist = JSON.parse(req. responseText);
+
+            insertProblem(problemlist.mess);
         }
     };
-    req.send(proname);
+    req.send("data="+proname);
 }
 
 function insertProblem(problemlist){
-    if (problemlist != null) {
+    if (problemlist != null && problemlist.length != 0) {
         var table = document.getElementById('table');
         if (table) {
             var tbody = document.getElementById('tbody');
             var str = '';
             problemlist.forEach(function (problem) {
                 str += '<tr>'+
-                    '<td><span class="status accepted">'+ problem.getProblem_id()+'</span></td>'+
-                    '<td><a href="/p/' + '\=' + problem.getProblem_id()+ '\"></a></td>'+
-                    '<td><span class="easy-hard">' +problem.getDifficulty()+ '</span></td>'+
+                    '<td><span class="status accepted"></span>'+ problem.problem_id+'</td>'+
+                    '<td><a href="/p/'+ problem.id+ '\">'+problem.title+'</a></td>'+
+                    '<td><span class="easy-hard">' +problem.difficulty+ '</span></td>'+
                     '<td>2345</td>'+
                     '<td>'+
                     '<div class="progress" style="width:80%; margin: 0">'+
@@ -88,9 +85,9 @@ function insertProblem(problemlist){
                 '<tbody id="tbody">';
             problemlist.forEach(function (problem) {
                 str += '<tr>'+
-                    '<td><span class="status accepted">'+ problem.getProblem_id()+'</span></td>'+
-                    '<td><a href="/p/'+ problem.getProblem_id()+ '\"></a></td>'+
-                    '<td><span class="easy-hard">' +problem.getDifficulty()+ '</span></td>'+
+                    '<td><span class="status accepted"></span>'+ problem.problem_id+'</td>'+
+                    '<td><a href="/p/'+ problem.problem_id + '\">'+problem.title+'</a></td>'+
+                    '<td><span class="easy-hard">' +problem.difficulty+ '</span></td>'+
                     '<td>2345</td>'+
                     '<td>'+
                     '<div class="progress" style="width:80%; margin: 0">'+
@@ -104,6 +101,7 @@ function insertProblem(problemlist){
             str += ' </tbody></table>';
             list.innerHTML = str;
         }
+        changeColor();
     }else{
         var list = document.getElementById('list');
         list.innerHTML = '<div style="text-align: center; color: #bbb; margin-top:50px">暂无该题目</div>';
