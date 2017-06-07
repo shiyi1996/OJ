@@ -4,6 +4,6 @@
     <title>index</title>
 </head>
 <body>
-<jsp:forward page="/WEB-INF/view/recordlist.jsp" />
+<jsp:forward page="/WEB-INF/view/usermess.jsp" />
 </body>
 </html>

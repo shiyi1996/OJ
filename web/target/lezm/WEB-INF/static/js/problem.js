@@ -20,7 +20,8 @@ function changeColor(){
 document.getElementById("proname").addEventListener('keyup', function (){
     var name = this.value;
     if (name != ''){
-        search(name);
+        // search(name);
+        console.log(name);
     }
 }, true);
 

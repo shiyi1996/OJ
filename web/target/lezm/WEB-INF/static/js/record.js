@@ -136,3 +136,10 @@ function changeColor(){
         }
     }
 }
+
+function topUser(){
+    var usertop = document.querySelectorAll('.top');
+    usertop[0].style.color = '#F56262';
+    usertop[1].style.color = '#FCA180';
+    usertop[2].style.color = '#FFD480';
+}

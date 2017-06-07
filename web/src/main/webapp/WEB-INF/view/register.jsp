@@ -31,24 +31,23 @@
 
     <section class="mainbody">
         <div class="form-container">
-            <form action="/register" method="post">
+            <form action="/register" method="post" onsubmit="return checkAllRegister()">
                 <div>
                     <a class="h3 choice" style="border-bottom: red 2px solid;" href="/register">注册</a>
                 </div>
                 <div>
-                    <input type="text" name="username" placeholder="用户名" id="username" class="form-control">
+                    <input type="text" name="username" placeholder="用户名" id="username" class="form-control" onblur="checkName()">
                 </div>
                 <div>
-                    <input type="text" name="useremail" placeholder="邮箱" id="useremail" class="form-control">
+                    <input type="text" name="useremail" placeholder="邮箱" id="useremail" class="form-control" onblur="checkEmail()">
                 </div>
                 <div>
-                    <input type="password" name="userpass" placeholder="密码" id="userpass" class="form-control">
+                    <input type="password" name="userpass" placeholder="密码" id="userpass" class="form-control" onblur="checkPass()">
                 </div>
                 <div>
                     <input type="submit" name="submit" value="注册" id="submit" class="btn btn-primary">
                 </div>
-                <%--<div class="errormess">错误信息</div>--%>
-                <p>${error}</p>
+                <div class="errormess" id="error">${error}</div>
             </form>
         </div>
 
@@ -59,6 +58,7 @@
 
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/login.js"></script>
 
 <script type="text/javascript">
 
