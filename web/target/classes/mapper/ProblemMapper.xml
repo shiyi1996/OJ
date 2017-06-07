@@ -207,6 +207,9 @@
         select count(*) from problem
         <where>
             problem_type=#{problem_type}
+            <if test="title!=null and title!='' ">
+                AND problem.title LIKE CONCAT(#{title},'%')
+            </if>
             <if test="algorithm!=null and algorithm!='' ">
                 AND problem.algorithm=#{algorithm}
             </if>
