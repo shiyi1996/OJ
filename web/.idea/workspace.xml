@@ -25,8 +25,112 @@
       <file leaf-file-name="top.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/top.jsp">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="417">
               <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+=======
+            <state relative-caret-position="2875">
+              <caret line="115" column="37" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oj.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config/oj.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="48" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="168" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="timu.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/static/js/timu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="721">
+              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProblemMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProblemMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5250">
+              <caret line="210" column="48" selection-start-line="210" selection-start-column="48" selection-end-line="210" selection-end-column="48" />
+              <folding>
+                <marker date="1496811123044" expanded="true" signature="2374:2432" ph="delete from " />
+                <marker date="1496811123044" expanded="true" signature="2783:4575" ph="update probl... " />
+                <marker date="1496811123044" expanded="true" signature="4741:5529" ph="update probl... " />
+                <marker date="1496811123044" expanded="true" signature="5667:5727" ph="select * fro... problem" />
+                <marker date="1496811123044" expanded="true" signature="5800:6557" ph="SELECT * fro... problem" />
+                <marker date="1496811123044" expanded="true" signature="7394:7422" ph="select count... problem" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jdbc.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config/jdbc.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+              <folding>
+                <marker date="1496818573634" expanded="true" signature="59:90520" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="767:824" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="941:990" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="1029:1673" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="1071:1673" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="88048:88090" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="88048:88108" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="88048:88121" ph="..." />
+                <marker date="1496818573634" expanded="true" signature="88048:88136" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lookblog.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/lookblog.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5750">
+              <caret line="230" column="44" selection-start-line="229" selection-start-column="0" selection-end-line="230" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="record.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/static/js/record.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+              <folding>
+                <element signature="n#!!doc;n#showChart#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="record.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/static/css/record.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -208,11 +312,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< Updated upstream
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
+=======
+              <option name="myItemId" value="resources" />
+>>>>>>> Stashed changes
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -234,6 +342,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< Updated upstream
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -243,6 +352,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="view" />
+=======
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+>>>>>>> Stashed changes
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -263,6 +379,7 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< Updated upstream
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -289,6 +406,8 @@
               <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+=======
+>>>>>>> Stashed changes
           </PATH>
         </subPane>
       </pane>
@@ -326,6 +445,7 @@
       </list>
     </option>
   </component>
+<<<<<<< Updated upstream
   <component name="RunManager" selected="Tomcat Server.index.jsp (1)">
     <configuration default="false" name="SubmitTest.countSubmitnum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -369,6 +489,9 @@
       <patterns />
       <method />
     </configuration>
+=======
+  <component name="RunManager" selected="Tomcat Server.index.jsp (2)">
+>>>>>>> Stashed changes
     <configuration default="false" name="index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.0.37" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index.jsp" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -446,6 +569,79 @@
       <method />
     </configuration>
     <configuration default="false" name="index.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.0.37" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index.jsp" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="oj:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_web" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="59097" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="oj:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="false" name="index.jsp (2)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.0.37" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index.jsp" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -1069,6 +1265,7 @@
         </option>
       </method>
     </configuration>
+<<<<<<< Updated upstream
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.SubmitTest.countSubmitnum" />
@@ -1084,6 +1281,19 @@
         <item index="2" class="java.lang.String" itemvalue="Tomcat Server.index.jsp" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.SubmitTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.SubmitTest.countSubmitnum" />
+=======
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.index.jsp" />
+      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.index.jsp (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.index.jsp (2)" />
+    </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Tomcat Server.index.jsp (2)" />
+        <item index="1" class="java.lang.String" itemvalue="Tomcat Server.index.jsp (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Tomcat Server.index.jsp" />
+>>>>>>> Stashed changes
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -1133,8 +1343,12 @@
       <workItem from="1496793754366" duration="592000" />
       <workItem from="1496815825001" duration="899000" />
       <workItem from="1496817013065" duration="550000" />
+<<<<<<< Updated upstream
       <workItem from="1496817665508" duration="522000" />
       <workItem from="1496819089789" duration="13787000" />
+=======
+      <workItem from="1496817665508" duration="910000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -1171,11 +1385,15 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="22250000" />
+=======
+    <option name="totallyTimeSpent" value="8851000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1284,8 +1502,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="0">
           <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+=======
+        <state relative-caret-position="300">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding>
+            <marker date="1496818573634" expanded="true" signature="59:90520" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="767:824" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="941:990" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1029:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1071:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88090" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88108" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88121" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88136" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/lookblog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5750">
+          <caret line="230" column="44" selection-start-line="229" selection-start-column="0" selection-end-line="230" selection-end-column="44" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
@@ -1363,9 +1604,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/target/lezm/code/1_1496811204065.cpp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+=======
+        <state relative-caret-position="22449">
+          <caret line="1069" column="17" selection-start-line="1069" selection-start-column="17" selection-end-line="1069" selection-end-column="17" />
+          <folding>
+            <marker date="1496818573634" expanded="true" signature="59:90520" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="767:824" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="941:990" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1029:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1071:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88090" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88108" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88121" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88136" ph="..." />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1486,9 +1743,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring-MVC.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="-1200">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+=======
+        <state relative-caret-position="336">
+          <caret line="16" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="1279" selection-end-column="0" />
+          <folding>
+            <marker date="1496818573634" expanded="true" signature="59:90520" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="767:824" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="941:990" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1029:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1071:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88090" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88108" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88121" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88136" ph="..." />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1513,7 +1786,19 @@
         <state relative-caret-position="375">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
+<<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
+=======
+            <marker date="1496818573634" expanded="true" signature="59:90520" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="767:824" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="941:990" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1029:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1071:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88090" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88108" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88121" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88136" ph="..." />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -1621,6 +1906,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/test/SubmitTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
@@ -1630,10 +1916,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SubmitMapper.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="566">
           <caret line="179" column="57" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
           <folding>
+<<<<<<< Updated upstream
             <marker date="1496846474820" expanded="true" signature="1923:1978" ph="delete from " />
             <marker date="1496846474820" expanded="true" signature="2326:3459" ph="update submi... " />
             <marker date="1496846474820" expanded="true" signature="3625:4190" ph="update submi... " />
@@ -1642,6 +1932,17 @@
             <marker date="1496846474820" expanded="true" signature="5113:5140" ph="select count... submit" />
             <marker date="1496846474820" expanded="true" signature="5235:5262" ph="SELECT count... submit" />
             <marker date="1496846474820" expanded="true" signature="5235:5284" ph="SELECT count... submit" />
+=======
+            <marker date="1496818573634" expanded="true" signature="59:90520" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="767:824" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="941:990" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1029:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="1071:1673" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88090" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88108" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88121" ph="..." />
+            <marker date="1496818573634" expanded="true" signature="88048:88136" ph="..." />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -1699,8 +2000,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/top.jsp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="417">
           <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+=======
+        <state relative-caret-position="721">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+>>>>>>> Stashed changes
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
           <folding />
         </state>
       </provider>
