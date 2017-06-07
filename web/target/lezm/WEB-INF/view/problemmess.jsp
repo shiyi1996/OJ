@@ -51,7 +51,6 @@
                     <% if (session.getAttribute("user") != null)
                     {
                     %>
-                    <li><a href="#record" data-toggle="tab">提交记录</a></li>
                     <li><a href="#evaluating" data-toggle="tab">评测</a></li>
                     <%
                         }
@@ -95,52 +94,6 @@
                     <% if (session.getAttribute("user") != null)
                     {
                     %>
-                    <div class="tab-pane fade" id="record">
-                            <%
-                                Problem problem = (Problem)request.getAttribute("problem");
-                                List<BasicVo> basicVoArrayList=(ArrayList<BasicVo>) request.getAttribute("submit");
-                                if(basicVoArrayList != null && basicVoArrayList.size() != 0){
-                            %>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>题目</th>
-                                    <th>运行状态</th>
-                                    <th>通过用例数</th>
-                                    <th>耗时</th>
-                                    <th>语言</th>
-                                    <th>提交时间</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tablebody">
-                            <%
-                                    for(BasicVo basicVo:basicVoArrayList){
-                                        Submit submit=(Submit) basicVo;
-                            %>
-                            <tr>
-                                <td><a href="#"><%= problem.getTitle() %></a></td>
-                                <td><label class="status"><%= submit.getResult()%></label></td>
-                                <td><%= submit.getAccept_sum() %></td>
-                                <td><%= submit.getRunning_time() %>ms</td>
-                                <td><%= submit.getLanguage() %></td>
-                                <td><%= submit.getSubmit_time() %></td>
-                            </tr>
-                            <%
-                                    }
-                            %>
-
-                            </tbody>
-                        </table>
-                            <%
-                                }else{
-
-                            %>
-                        <div style="color: #bbb; text-align: center;padding-top: 50px">暂无提交记录</div>
-                        <%
-                                }
-                        %>
-
-                    </div>
                     <div class="tab-pane fade" id="evaluating">
                         <div class="status-change">
                             <div><span id="status"></span></div>
@@ -190,7 +143,7 @@
                 </form>
                 <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
-                <button class="btn btn-primary" onclick="submit(${problem.problem_id}, ${empty sessionScope.user}, '${problem.title}')">提交</button>
+                <button class="btn btn-primary" onclick="submit(${problem.problem_id}, ${empty sessionScope.user})">提交</button>
             </div>
         </div>
     </section>

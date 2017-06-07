@@ -25,25 +25,23 @@ public class RecordController {
     @RequestMapping("")
     public ModelAndView listProblem(HttpServletRequest request)
     {
-        String s = request.getParameter("code");
-        System.out.println("code:"+s);
         ModelAndView mav = new ModelAndView("record");
         return mav;
     }
 
     @RequestMapping("addSubmit")
     @ResponseBody
-    public Submit addSubmit(HttpServletRequest request)
+    public String addSubmit(HttpServletRequest request)
     {
-        Submit submit = null;
+        String res = "false";
         if(request.getParameter("data") != null && request.getParameter("data") != "") {
             int user_id =((User)request.getSession().getAttribute("user")).getUser_id();
             String mess = request.getParameter("data");
             JSONObject jsonObject=new JSONObject(mess);
             int id = submitService.addSubmit(jsonObject.getInt("problemId"),user_id,jsonObject.getInt("language"),jsonObject.getString("code"));
             if(id != -1)
-                submit = submitService.getSubmitById(id);
+                res = "true";
         }
-        return submit;
+        return res;
     }
 }
