@@ -33,14 +33,8 @@
             <div class="search-container">
                 <form class="form-inline" role="form">
                     <div class="form-group">
-                        <div class="col-md-3 col-sm-10">
-                            <input type="text" class="form-control" id="proname" placeholder="请输入题目名称">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <div class="col-md-3 col-sm-12">
-                            <select class="form-control" name="lang" id="lang">
+                            <select class="form-control" name="lang" id="lang" onchange="selectLang(this)">
                                 <option value="0">程序语言</option>
                                 <option value="1">C/C++语言</option>
                                 <option value="2">JAVA语言</option>
@@ -50,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-3 col-sm-12">
-                            <select class="form-control" name="teststatus" id="teststatus">
+                            <select class="form-control" name="teststatus" id="teststatus" onchange="selectStatus(this)">
                                 <option value="0">测评状态</option>
                                 <option value="1">Accepted</option>
                                 <option value="2">Wrong Answer</option>
@@ -61,13 +55,13 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-3 col-sm-12">
-                            <input type="submit" name="submit" class="btn btn-primary" value="筛选">
+                            <input type="button" name="submit" id="submit" class="btn btn-primary" value="筛选">
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="ti-list">
-                <table>
+            <div class="ti-list" id="list">
+                <table id="table">
                     <thead>
                     <tr>
                         <th>题目编号</th>
@@ -79,7 +73,7 @@
                         <th>提交时间</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody">
                     <tr>
                         <td>002</td>
                         <td><a href="#">A+B问题</a></td>
@@ -164,7 +158,7 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/Chart.js/2.6.0/Chart.min.js"></script>
+<script type="text/javascript" src="/js/Chart.min.js"></script>
 <script type="text/javascript" src="/js/excanvas.js"></script>
 <script type="text/javascript" src="/js/record.js"></script>
 

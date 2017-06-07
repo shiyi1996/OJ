@@ -71,11 +71,8 @@ html,body{
     font-size: 1.3rem;
 }
 
-.publish-date{
-    margin:30px 0px 0px 30px;
-}
-
-.reply-btn{
+.publish-date, .reply-btn{
+    font-size: 0.9rem;
     margin:30px 0px 0px 30px;
 }
 

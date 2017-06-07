@@ -1,11 +1,12 @@
 var answerstatus = ['submit failed', 'pending', 'judging', 'Accept', 'ComplieError', 'RuntimeError'];
 var lang = ['C/C++', 'Java', 'JavaScript'];
 var id = 1;
-
 var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/xcode"); //设置背景色为高亮
-    editor.session.setMode("ace/mode/java");  //设置默认语言为c/c++
-    editor.getSession().setTabSize(4);  //设置默认缩进大小
+window.onload = (function () {
+	editor.setTheme("ace/theme/xcode"); //设置背景色为高亮
+	editor.session.setMode("ace/mode/c_cpp");  //设置默认语言为c/c++
+	editor.getSession().setTabSize(4);  //设置默认缩进大小
+})();
 
 //动态切换选项卡
 function activeChange(){
@@ -49,7 +50,6 @@ function choiceBack(select){
 }
 
 function choiceSJ(select){
-	
 	editor.getSession().setTabSize(select.value);
 }
 
@@ -151,10 +151,9 @@ function insertRecord(record, title){
 // 	}
 // }
 
-window.onload = function(){
+window.onload = (function(){
 	replaceBr();
-
-}
+})();
 
 //动画
 function animation(){
