@@ -176,5 +176,9 @@
         select count(*) from submit
     </select>
 
+    <select id="countSubmitNum"  parameterType="int" resultType="int">
+        SELECT count(*) from submit where user_id = #{id}
+    </select>
+
 
 </mapper>

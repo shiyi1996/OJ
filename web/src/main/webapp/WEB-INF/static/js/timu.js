@@ -134,6 +134,57 @@ function startAnimal(submitId) {
     }, 300);
 }
 
+<<<<<<< HEAD
+
+function insertRecord(record, title){
+	var tablebody = document.getElementById('tablebody');
+	var data = '<tr>'+
+		'<td><a href="#">'+ title +'</a></td>'+
+		'<td><label class=\"status-answer running'+ record.result + '\"' +'>' +answerstatus[record.result]+'</label></td>'+
+		'<td>'+ record.accept_sum +'</td>'+
+		'<td>'+ record.running_time+'</td>'+
+		'<td>'+ lang[record.language - 1]+'</td>'+
+		'<td>'+ record.submit_time +'</td>'+
+		'</tr>';
+	tablebody.innerHTML += data;
+}
+
+
+
+// function submit(problemid, flag){
+// 	if (flag == false) {
+// 		var req = getRequest();
+// 		if (req != null) {
+// 			req.open('post', '/record/addSubmit', true);
+// 			req.setRequestHeader("Content-Type",
+// 				"application/x-www-form-urlencoded");
+// 			req.onreadystatechange = function () {
+// 				if (req.readyState == 4) {
+// 					var result = req.responseText;
+// 					alert(result);
+// 					if (result == 'succeed') {
+// 						activeChange();
+// 						animation();
+// 					} else {
+// 						alert(result);
+// 					}
+// 				}
+// 			}
+//
+// 			var code = editor.getValue();
+// 			var data = {"problemId": problemid, "language": id, "code": code};
+//
+// 			req.send('data=' + JSON.stringify(data));
+// 		}
+// 	}else{
+// 		window.location.href = '/login';
+// 	}
+// }
+
+window.onload = (function(){
+	replaceBr();
+})();
+=======
 function submit(problemid) {
 	init(); //初始化函数
     var req = getRequest();
@@ -186,6 +237,7 @@ function progressChange(statusid, planid, desc, usetime){
     status.innerHTML = arr[statusid];
     status.style.color = colors[statusid];
 }
+>>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
 
 //动画
 function animation(){

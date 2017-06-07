@@ -1,5 +1,6 @@
 package com.web.dao;
 
+import com.web.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

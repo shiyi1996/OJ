@@ -161,6 +161,7 @@ function submit(problemid) {
 
 }
 
+
 function insertRecord(record, title){
 	var tablebody = document.getElementById('tablebody');
 	var data = '<tr>'+
@@ -176,6 +177,10 @@ function insertRecord(record, title){
 
 
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
 // function submit(problemid, flag){
 // 	if (flag == false) {
 // 		var req = getRequest();
@@ -276,5 +281,8 @@ function progressChange(statusid, planid, desc, usetime){
 		spinner.stop();
 	}, 5000);
 }
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> a95c9b78b6a3bf8503a24043471472bff3b868d4
+>>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
