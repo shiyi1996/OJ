@@ -1,9 +1,10 @@
 var id = 1;
-
 var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/xcode"); //设置背景色为高亮
-    editor.session.setMode("ace/mode/java");  //设置默认语言为c/c++
-    editor.getSession().setTabSize(4);  //设置默认缩进大小
+window.onload = (function () {
+	editor.setTheme("ace/theme/xcode"); //设置背景色为高亮
+	editor.session.setMode("ace/mode/c_cpp");  //设置默认语言为c/c++
+	editor.getSession().setTabSize(4);  //设置默认缩进大小
+})();
 
 //动态切换选项卡
 function activeChange(){
@@ -47,7 +48,6 @@ function choiceBack(select){
 }
 
 function choiceSJ(select){
-	
 	editor.getSession().setTabSize(select.value);
 }
 
@@ -82,7 +82,8 @@ function submit(problemid, flag){
 		if (req != null) {
 			req.open('post', '/record/addSubmit', true);
 			req.setRequestHeader("Content-Type",
-				"application/x-www-form-urlencoded");
+				"text/plain"
+			);
 			req.onreadystatechange = function () {
 				if (req.readyState == 4) {
 					var result = req.responseText;
@@ -95,19 +96,65 @@ function submit(problemid, flag){
 				}
 			}
 
-			var code = editor.getValue();
-			var data = {"problemId": problemid, "language": id, "code": code};
+			var code = encodeURIComponent(editor.getValue());
+			var data = {"problemId": problemid, "language": id, 'code':code};
 
-			req.send('data=' + JSON.stringify(data));
+			req.send(JSON.stringify(data));
+
 		}
 	}else{
 		window.location.href = '/login';
 	}
 }
 
+
+function insertRecord(record, title){
+	var tablebody = document.getElementById('tablebody');
+	var data = '<tr>'+
+		'<td><a href="#">'+ title +'</a></td>'+
+		'<td><label class=\"status-answer running'+ record.result + '\"' +'>' +answerstatus[record.result]+'</label></td>'+
+		'<td>'+ record.accept_sum +'</td>'+
+		'<td>'+ record.running_time+'</td>'+
+		'<td>'+ lang[record.language - 1]+'</td>'+
+		'<td>'+ record.submit_time +'</td>'+
+		'</tr>';
+	tablebody.innerHTML += data;
+}
+
+
+
+// function submit(problemid, flag){
+// 	if (flag == false) {
+// 		var req = getRequest();
+// 		if (req != null) {
+// 			req.open('post', '/record/addSubmit', true);
+// 			req.setRequestHeader("Content-Type",
+// 				"application/x-www-form-urlencoded");
+// 			req.onreadystatechange = function () {
+// 				if (req.readyState == 4) {
+// 					var result = req.responseText;
+// 					alert(result);
+// 					if (result == 'succeed') {
+// 						activeChange();
+// 						animation();
+// 					} else {
+// 						alert(result);
+// 					}
+// 				}
+// 			}
+//
+// 			var code = editor.getValue();
+// 			var data = {"problemId": problemid, "language": id, "code": code};
+//
+// 			req.send('data=' + JSON.stringify(data));
+// 		}
+// 	}else{
+// 		window.location.href = '/login';
+// 	}
+// }
+
 window.onload = (function(){
 	replaceBr();
-
 })();
 
 //动画

@@ -12,6 +12,8 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
 
+<!--输出,条件,迭代标签库-->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -38,6 +40,9 @@
     <section class="mainbody">
         <div class="classify-nav">
             <ul class="list-nav">
+                <li>
+                   <input type="text" class="form-control" id="proname" placeholder="请输入题目名称" autofocus />
+                </li>
                 <li>按算法分类&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
                     <ul>
                         <a href="/p?algorithm=&difficulty=${difficulty eq 'nulltwo'?'':difficulty}&structure=${structure eq 'nullthree'?'':structure}"><li id="1"><span>所有</span></li></a>
@@ -101,12 +106,13 @@
 
                 </script>
         </div>
+
         <% String error = (String)request.getAttribute("error");
             if (error == null)
             {
         %>
-        <div class="ti-list">
-            <table class="table table-strip table-responsive table-border">
+        <div class="ti-list" id="list">
+            <table class="table table-strip table-responsive table-border" id="table">
                 <thead>
                 <tr>
                     <th>题目编号</th>
@@ -116,7 +122,7 @@
                     <th>通过率</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                 <%
                     List<BasicVo> basicVoArrayList=(ArrayList<BasicVo>) request.getAttribute("problemList");
                     for(BasicVo basicVo:basicVoArrayList){

@@ -1,11 +1,13 @@
 package com.web.service;
 
+import com.web.dao.SubmitDAO;
 import com.web.dao.UserDAO;
 import com.web.entity.BasicVo;
 import com.web.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +18,8 @@ public class UserService {
 
     @Autowired
     private UserDAO userDAO;
+
+    private SubmitDAO submitDAO;
 
     public int login(String email, String username, String password){
         User user = new User();
@@ -108,6 +112,16 @@ public class UserService {
         return user;
 
     }
+    public User getUserByUserId(int userid)
+    {
+        User user =null;
+        if(userid!=0) {
+            return (User)userDAO.getEntityById(userid);
+        }
+        return null;
+
+
+    }
     public User getUserMessByUserId(int userid)
     {
         User user=null;
@@ -154,9 +168,12 @@ public class UserService {
         return 0;
     }
 
+
     public List<Integer> SortAc_num()
     {
-        return userDAO.getIdByAc_num();
+        List<Integer> list = userDAO.getIdByAc_num();
+        return list;
     }
+
 
 }

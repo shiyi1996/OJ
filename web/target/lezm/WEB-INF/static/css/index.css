@@ -20,7 +20,7 @@ nav{
 	box-sizing: border-box;
 	align-items: center;
 	text-align: center;
-	z-index: 2;
+	z-index: 999;
 }
 
 .nav-title{
@@ -96,7 +96,8 @@ nav{
 
 .nav-user{
 	transition: 1s ease-in-out;
-	display: block;
+	display: flex;
+	align-items: center;
 	width:20%;
 }
 
@@ -104,6 +105,20 @@ nav{
 	width: 60px;
 	height:60px;
 	border-radius: 50%
+}
+
+.quit{
+	margin-left: 10%;
+}
+
+.quit a{
+	text-decoration: none;
+	color:#F2F7FF;
+}
+
+.quit a:hover{
+	text-decoration: none;
+	color:#fff;
 }
 
 .shadow{
@@ -309,6 +324,9 @@ footer div{
 		border-radius: 50%
 	}
 
+	.quit{
+		margin-left: 2%;
+	}
 
 }
 

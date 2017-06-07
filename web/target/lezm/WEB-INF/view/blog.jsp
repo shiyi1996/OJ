@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>论坛</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
     <link href="/css/blog.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -123,7 +124,7 @@
     </div>
 
     <div class="text-center">
-        <nav>
+        <div>
             <ul class="pagination">
                 <li><a href="/blog?nowpage=1">首页</a></li>
                 <li><a href="/blog?nowpage=${NowPage-1>=1?NowPage-1:1}">上一页</a></li>
@@ -131,7 +132,7 @@
                     下一页</a></li>
                 <li><a href="/blog?nowpage=${MaxPage}">末页</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
 </div>
 

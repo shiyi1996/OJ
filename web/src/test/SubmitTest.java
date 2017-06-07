@@ -114,5 +114,11 @@ public class SubmitTest {
         int count=submitDAO.countAll();
         System.out.println(count);
     }
+    @Test
+    public void countSubmitnum()
+    {
+        int sum = submitDAO.countSubmitNum(1);
+        System.out.println(sum);
+    }
 
 }

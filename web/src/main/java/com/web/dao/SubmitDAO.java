@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("SubmitDAO")
 public interface SubmitDAO extends BasicDao {
+    public int countSubmitNum(int user_id);
 }
