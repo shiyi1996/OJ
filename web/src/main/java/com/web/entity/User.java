@@ -14,21 +14,11 @@ public class User extends BasicVo {
     private int age; //年龄
     private int sex;//性别
     private String school; //学校
+    private int ac_num; //通过题目数量
 
     public User() {}
 
-    public User(String username, String nickname, String email, String password, String picture, int age, int sex, String school) {
-        this.username = username;
-        this.nickname = nickname;
-        this.email = email;
-        this.password = password;
-        this.picture = picture;
-        this.age = age;
-        this.sex = sex;
-        this.school = school;
-    }
-
-    public User(int user_id, String username, String nickname, String email, String password, String picture, int age, int sex, String school) {
+    public User(int user_id, String username, String nickname, String email, String password, String picture, int age, int sex, String school, int ac_num) {
         this.user_id = user_id;
         this.username = username;
         this.nickname = nickname;
@@ -38,6 +28,19 @@ public class User extends BasicVo {
         this.age = age;
         this.sex = sex;
         this.school = school;
+        this.ac_num = ac_num;
+    }
+
+    public User(String username, String nickname, String email, String password, String picture, int age, int sex, String school, int ac_num) {
+        this.username = username;
+        this.nickname = nickname;
+        this.email = email;
+        this.password = password;
+        this.picture = picture;
+        this.age = age;
+        this.sex = sex;
+        this.school = school;
+        this.ac_num = ac_num;
     }
 
     public int getUser_id() {
@@ -110,5 +113,13 @@ public class User extends BasicVo {
 
     public void setSchool(String school) {
         this.school = school;
+    }
+
+    public int getAc_num() {
+        return ac_num;
+    }
+
+    public void setAc_num(int ac_num) {
+        this.ac_num = ac_num;
     }
 }
