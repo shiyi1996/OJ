@@ -105,10 +105,10 @@ function submit(problemid, flag){
 	}
 }
 
-window.onload = function(){
+window.onload = (function(){
 	replaceBr();
 
-}
+})();
 
 //动画
 function animation(){
