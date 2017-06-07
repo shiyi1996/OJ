@@ -78,6 +78,13 @@ function getRequest(){
 	return req;
 }
 
+function init(){
+	activeChange(); //跳到提交状态显示页面；
+	animation() //加载转圈动画
+	progressChange(0, 0, ""); //显示等待上传
+	document.getElementById('run-errormess').innerHTML = "";
+}
+
 function getStatus(submitId) {
     var req = getRequest();
     if (req != null) {
@@ -128,7 +135,7 @@ function startAnimal(submitId) {
 }
 
 function submit(problemid) {
-    activeChange();
+	init(); //初始化函数
     var req = getRequest();
     if (req != null) {
         req.open('post', '/record/addSubmit', true);
@@ -146,34 +153,39 @@ function submit(problemid) {
                 }
             }
         };
-
-        progressChange(0, 0, "");
-
         var code = encodeURIComponent(editor.getValue());
         var data = {"problemId": problemid, "language": id, 'code': code};
-
-        //init
-        document.getElementById('run-errormess').innerHTML = "";
-
-        req.send(JSON.stringify(data));
-
+		
+		req.send(JSON.stringify(data));
     }
-
 }
 
-function insertRecord(record, title){
-	var tablebody = document.getElementById('tablebody');
-	var data = '<tr>'+
-		'<td><a href="#">'+ title +'</a></td>'+
-		'<td><label class=\"status-answer running'+ record.result + '\"' +'>' +answerstatus[record.result]+'</label></td>'+
-		'<td>'+ record.accept_sum +'</td>'+
-		'<td>'+ record.running_time+'</td>'+
-		'<td>'+ lang[record.language - 1]+'</td>'+
-		'<td>'+ record.submit_time +'</td>'+
-		'</tr>';
-	tablebody.innerHTML += data;
-}
+function progressChange(statusid, planid, desc, usetime){
+    //进度条的变化
+    var arr = ['正在上传Uploading','等待测试Pending','开始测试Judging','正在编译Compiling','正在评测Running','编译错误CompilieError','时间超限TimeLimit','错误WrongAnwser','测试通过Accepted'];
+    var colors = ['black', '#bbb', '#FC8A15', '#4FC1E9', '#4FC1E9', '#4FC1E9','orange', 'red', 'rgb(39, 194, 76)'];
+    var progress = document.getElementById('progress');
+    var status = document.getElementById('status');
 
+    if (desc != ''){
+        spinner.stop();
+        $(progress).addClass('progress-bar-danger');
+        progress.style.width = '100%';
+        progress.innerHTML = '100%';
+        document.getElementById('run-errormess').innerHTML = desc;
+        clearInterval(timer)
+    }else{
+        progress.style.width = planid + '%';
+        progress.innerHTML = planid + '%';
+        if (planid == 100){
+            spinner.stop();
+			document.getElementById('usetime').innerHTML = usetime;
+            clearInterval(timer)
+		}
+	}
+    status.innerHTML = arr[statusid];
+    status.style.color = colors[statusid];
+}
 
 //动画
 function animation(){
@@ -201,34 +213,6 @@ function animation(){
 	spinner = new Spinner(opts).spin(target);
 }
 
-
-function progressChange(statusid, planid, desc, usetime){
-    //进度条的变化
-    var arr = ['正在上传Uploading','等待测试Pending','开始测试Judging','正在编译Compiling','正在评测Running','编译错误CompilieError','时间超限TimeLimit','错误WrongAnwser','测试通过Accepted'];
-    var colors = ['black', '#bbb', '#FC8A15', '#4FC1E9', '#4FC1E9', '#4FC1E9','orange', 'red', 'rgb(39, 194, 76)'];
-    var progress = document.getElementById('progress');
-    var status = document.getElementById('status');
-
-    if (desc != ''){
-        //spinner.stop();
-        $(progress).addClass('progress-bar-error');
-        progress.style.width = '100%';
-        progress.innerHTML = '100%';
-        document.getElementById('run-errormess').innerHTML = desc;
-
-        clearInterval(timer)
-    }else{
-        progress.style.width = planid + '%';
-        progress.innerHTML = planid + '%';
-        if (planid == 100){
-           // spinner.stop();
-			document.getElementById('usetime').innerHTML = usetime;
-            clearInterval(timer)
-		}
-	}
-    status.innerHTML = arr[statusid];
-    status.style.color = colors[statusid];
-}
 
 
 

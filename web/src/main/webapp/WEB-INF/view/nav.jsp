@@ -26,9 +26,9 @@
         <ul>
             <a href="/"><li>首页</li></a>
             <a href="/p"><li>题库</li></a>
+            <a href="#"><li>排行榜</li></a>
             <a href="/blog"><li>论坛</li></a>
-
-            <a href="/record"><li>关于</li></a>
+            <a href="/record"><li>测评</li></a>
         </ul>
     </div>
     <c:choose>
@@ -43,7 +43,11 @@
                 <div class="user-img">
                     <a href="#"><img src="/images/${user.picture}" /></a>
                 </div>
-                <div class="quit"><a href="#">退出登录</a></div>
+                <div class="quit">
+                    <ul>
+                        <a href="#"><li>${user.username}</li></a>
+                        <li></li>
+                    </ul></div>
             </div>
         </c:otherwise>
     </c:choose>

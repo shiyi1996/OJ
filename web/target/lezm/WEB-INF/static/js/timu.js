@@ -175,6 +175,43 @@ function insertRecord(record, title){
 }
 
 
+<<<<<<< HEAD
+// function submit(problemid, flag){
+// 	if (flag == false) {
+// 		var req = getRequest();
+// 		if (req != null) {
+// 			req.open('post', '/record/addSubmit', true);
+// 			req.setRequestHeader("Content-Type",
+// 				"application/x-www-form-urlencoded");
+// 			req.onreadystatechange = function () {
+// 				if (req.readyState == 4) {
+// 					var result = req.responseText;
+// 					alert(result);
+// 					if (result == 'succeed') {
+// 						activeChange();
+// 						animation();
+// 					} else {
+// 						alert(result);
+// 					}
+// 				}
+// 			}
+//
+// 			var code = editor.getValue();
+// 			var data = {"problemId": problemid, "language": id, "code": code};
+//
+// 			req.send('data=' + JSON.stringify(data));
+// 		}
+// 	}else{
+// 		window.location.href = '/login';
+// 	}
+// }
+
+window.onload = (function(){
+	replaceBr();
+})();
+
+=======
+>>>>>>> a95c9b78b6a3bf8503a24043471472bff3b868d4
 //动画
 function animation(){
 	//加载转圈
@@ -233,3 +270,11 @@ function progressChange(statusid, planid, desc, usetime){
 
 
 
+<<<<<<< HEAD
+	//5s后停止旋转
+	setTimeout(function (){
+		spinner.stop();
+	}, 5000);
+}
+=======
+>>>>>>> a95c9b78b6a3bf8503a24043471472bff3b868d4
