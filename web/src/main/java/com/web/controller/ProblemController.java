@@ -5,14 +5,21 @@ import com.web.entity.Problem;
 import com.web.entity.User;
 import com.web.service.ProblemService;
 import com.web.service.SubmitService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller("ProblemController")
 @RequestMapping("/p")
@@ -20,9 +27,6 @@ public class ProblemController {
 
     @Autowired
     private ProblemService problemService;
-
-    @Autowired
-    private SubmitService submitService;
 
     @RequestMapping("")
     public ModelAndView listProblem(HttpServletRequest request)
@@ -115,6 +119,18 @@ public class ProblemController {
         }
         mdv.addObject("problem",problem);
         return mdv;
+    }
+
+    @RequestMapping("findProblem")
+    @ResponseBody
+    public Map findProblem(HttpServletRequest request){
+        String problem_name = (String) request.getParameter("data");
+        List<BasicVo> list = problemService.listProblemBytitle(problem_name,0,6);
+        if(list!=null)
+            System.out.println("size"+list.size());
+        Map map =new HashMap();
+        map.put("mess",list);
+        return map;
     }
 
 }

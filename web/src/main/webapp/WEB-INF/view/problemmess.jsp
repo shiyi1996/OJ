@@ -94,7 +94,7 @@
                     <% if (session.getAttribute("user") != null)
                     {
                     %>
-                    <div class="tab-pane fade" id="evaluating">
+                    <div class="tab-pane fade" id="evaluating" style="display: block">
                         <div class="status-change">
                             <div><span id="status"></span></div>
                             <div id="foo"></div>
@@ -103,12 +103,14 @@
                             <div class="progress-bar progress-bar-success" role="progressbar"
                                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                                  style="width: 0%;" id="progress">
-                                <span class="sr-only">40% 完成</span>
                             </div>
                         </div>
                         <div class="evaluating-footer">
-                            <div id="data-success">30%数据通过测试</div>
-                            <div id="data-time">总耗时：1ms</div>
+                            <%--<div id="data-success">30%数据通过测试</div>--%>
+                            <div id="data-time" style="display: none">总耗时：<span id="usetime"></span>-</div>
+                        </div>
+                        <div class="run-errormess" id="run-errormess">
+
                         </div>
                     </div>
                     <%
@@ -143,7 +145,7 @@
                 </form>
                 <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
-                <button class="btn btn-primary" onclick="submit(${problem.problem_id}, ${empty sessionScope.user})">提交</button>
+                <button class="btn btn-primary" onclick="submit(${problem.problem_id})">提交</button>
             </div>
         </div>
     </section>

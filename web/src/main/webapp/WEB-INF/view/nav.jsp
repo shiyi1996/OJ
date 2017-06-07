@@ -26,9 +26,14 @@
         <ul>
             <a href="/"><li>首页</li></a>
             <a href="/p"><li>题库</li></a>
+            <a href="#"><li>排行榜</li></a>
             <a href="/blog"><li>论坛</li></a>
+<<<<<<< HEAD
             <a href="/sort"><li>排行榜</li></a>
             <a href="/record"><li>关于</li></a>
+=======
+            <a href="/record"><li>测评</li></a>
+>>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
         </ul>
     </div>
     <c:choose>
@@ -43,7 +48,15 @@
                 <div class="user-img">
                     <a href="#"><img src="/images/${user.picture}" /></a>
                 </div>
+<<<<<<< HEAD
                 <div class="quit"><a href="/quit">退出登录</a></div>
+=======
+                <div class="quit">
+                    <ul>
+                        <a href="#"><li>${user.username}</li></a>
+                        <li></li>
+                    </ul></div>
+>>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
             </div>
         </c:otherwise>
     </c:choose>

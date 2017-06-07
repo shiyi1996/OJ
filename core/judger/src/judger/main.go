@@ -1,8 +1,6 @@
 package main
 
 import (
-)
-import (
 	"db"
 	"fmt"
 	"log"
@@ -10,70 +8,95 @@ import (
 	"strconv"
 	"time"
 	"syscall"
+	"os"
 )
 
-func listener(){
-	sub_list, err := db.Query()
-	if err != nil{
-		log.Fatal(err)
-	}
+var codepath = "/Users/shiyi/git/OJ/web/target/lezm/code/"
+var datapath = "/Users/shiyi/git/OJ/data/"
 
-	for _, sub := range sub_list{
-		fmt.Println(sub.Submit_id)
-		//判题中
-		db.Update(sub.Submit_id, 1, "")
-		solve(sub)
+func listener(){
+	for {
+		//fmt.Println("... ... ...")
+		sub_list, err := db.Query()
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		for _, sub := range sub_list {
+			//fmt.Println(sub.Submit_id)
+			//判题中
+			db.Update(sub.Submit_id, 1, "")
+			fmt.Println("judging")
+
+			solve(sub)
+		}
+
+		time.Sleep(100000000)
 	}
 
 }
 
 func solve(sub *db.Submit) {
+	fmt.Println("compiling")
+	db.Update(sub.Submit_id, 2, "")
 	out, err := compile(sub)
 	if err != nil{
 		//编译错误
-		db.Update(sub.Submit_id, 2, out)
-		fmt.Println(out)
+		fmt.Println("compile err", out)
+		db.Update(sub.Submit_id, 4, out)
 		return
 	}
+
+	fmt.Println("running")
+	db.Update(sub.Submit_id, 3, "")
 
 	usetime := run(sub)
 	if usetime == -1{
 		//超时
-		db.Update(sub.Submit_id, 3, "")
+		fmt.Println("timelimit")
+		db.Update(sub.Submit_id, 5, "")
 		return
 	}
 
-	mess := check(sub)
-	if len(mess) != 0{
+	out = check(sub)
+	if len(out) != 0{
 		//错误
-		db.Update(sub.Submit_id, 4, string(mess))
+		fmt.Println("wrong", out)
+		db.Update(sub.Submit_id, 6, out)
+		return
 	}
 
-	db.Update(sub.Submit_id, 5, "")
+	fmt.Println("ac")
+	db.Update(sub.Submit_id, 7, "")
 }
 
-func check(sub *db.Submit) []byte{
-	pre_outfile := "/Users/shiyi/" + strconv.Itoa(sub.Submit_id) + ".out"
-	now_outfile := strconv.Itoa(sub.Submit_id) + ".out"
+func check(sub *db.Submit) string{
+	pre_outfile := datapath + strconv.Itoa(sub.Problem_id) + ".out"
+	now_outfile := sub.Code + ".out"
 
 	cmd := exec.Command("diff", now_outfile, pre_outfile)
 	fmt.Println(cmd.Args)
-	out, err := cmd.CombinedOutput()
-	if err != nil{
-		log.Fatal(err)
-	}
+	out, _ := cmd.CombinedOutput()
 
-	return out
+	defer os.Remove(now_outfile)
+
+	return string(out)
 }
 
 func compile(sub *db.Submit) (string, error){
-	var cmd *exec.Cmd
-	//switch sub.Language {
-	//case 0:
-	infile := "/Users/shiyi/" + sub.Code
-	outfile := sub.Code + ".out"
 
-	cmd = exec.Command("gcc", infile, "-o", outfile)
+	infile := codepath + sub.Code
+	outfile := sub.Code + ".bin"
+
+	var cmd *exec.Cmd
+	switch sub.Language {
+	case 1:
+		cmd = exec.Command("g++", infile, "-o", outfile)
+		break
+	case 2:
+		cmd = exec.Command("g++", infile, "-o", outfile)
+		break
+	}
 
 	out, err := cmd.CombinedOutput()
 
@@ -83,14 +106,17 @@ func compile(sub *db.Submit) (string, error){
 func run(sub *db.Submit) int64 {
 	var cmd *exec.Cmd
 
-	infile := "/Users/shiyi/" + strconv.Itoa(sub.Submit_id) + ".in"
-	outfile := strconv.Itoa(sub.Submit_id) + ".out"
-	runbin := "./" + sub.Code + ".out"
+	infile := datapath + strconv.Itoa(sub.Problem_id) + ".in"
+	outfile := sub.Code + ".out"
+	runbin := sub.Code + ".bin"
 
-	cmd = exec.Command("bash", "-c", runbin+" < " + infile+" > "+outfile)
+	cmd = exec.Command("bash", "-c", "./" + runbin+" < " + infile+" > "+outfile)
 	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
 
+	defer os.Remove(runbin)
+
 	fmt.Println(cmd.Args)
+
 
 	ch := make (chan bool, 1)
 
@@ -107,8 +133,6 @@ func run(sub *db.Submit) int64 {
 		//fmt.Println("end:", usetime, time.Since(time_start))
 		return usetime
 	case <- time.After(1e9):
-		fmt.Println("timeout!")
-		fmt.Println(cmd.Process.Pid)
 		syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL)
 
 		return -1
