@@ -1,4 +1,0 @@
-upload
-panding
-compile
-running

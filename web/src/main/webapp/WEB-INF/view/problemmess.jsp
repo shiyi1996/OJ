@@ -107,8 +107,11 @@
                             </div>
                         </div>
                         <div class="evaluating-footer">
-                            <div id="data-success">30%数据通过测试</div>
-                            <div id="data-time">总耗时：1ms</div>
+                            <%--<div id="data-success">30%数据通过测试</div>--%>
+                            <div id="data-time" style="display: none">总耗时：<span id="usetime"></span>-</div>
+                        </div>
+                        <div class="run-errormess" id="run-errormess">
+
                         </div>
                     </div>
                     <%
@@ -143,7 +146,7 @@
                 </form>
                 <pre id="editor" style="height:400px"></pre>
                 <a class="btn btn-default" href="#" style="margin-left:80%">查看题解</a>
-                <button class="btn btn-primary" onclick="submit(${problem.problem_id}, ${empty sessionScope.user})">提交</button>
+                <button class="btn btn-primary" onclick="submit(${problem.problem_id})">提交</button>
             </div>
         </div>
     </section>

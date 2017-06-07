@@ -38,7 +38,7 @@ public class SubmitService {
             submit.setUser_id(user_id);
             submit.setSubmit_time(date);
             submit.setLanguage(language);
-            submit.setResult_description("暂无");
+//            submit.setResult_description("");
             String name = ""+user_id+"_"+System.currentTimeMillis();
             switch (language){
                 case 1:
@@ -55,8 +55,11 @@ public class SubmitService {
 
             submit.setCode(name);
 
-            submitDAO.save(submit);
-            id = submit.getSubmit_id();
+            int flag = submitDAO.save(submit);
+            if(flag >= 1)
+                id = submit.getSubmit_id();
+            else
+                id = -1;
         }
         return id;
     }
