@@ -1,0 +1,4 @@
+upload
+panding
+compile
+running

@@ -94,7 +94,7 @@
                     <% if (session.getAttribute("user") != null)
                     {
                     %>
-                    <div class="tab-pane fade" id="evaluating">
+                    <div class="tab-pane fade" id="evaluating" style="display: block">
                         <div class="status-change">
                             <div><span id="status"></span></div>
                             <div id="foo"></div>

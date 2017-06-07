@@ -101,7 +101,7 @@ CREATE TABLE `submit` (
   `running_time` int(10) unsigned NOT NULL default '0' COMMENT '耗时(ms)',
   `running_memory` int(10) unsigned NOT NULL default '0' COMMENT '所占空间',
   `result` smallint(5) unsigned NOT NULL default '0' COMMENT '结果(pending,judging,Accept,ComplieError,RuntimeErroe)',
-  `result_description` varchar(200) NOT NULL default '' COMMENT '结果描述',
+  `result_description` text COMMENT '结果描述',
   `language` int(10) unsigned NOT NULL default '0' COMMENT '提交语言',
   `code` text NOT NULL  COMMENT '提交代码',
   `accept_sum` int(10) unsigned NOT NULL default '0' COMMENT '通过用例数',
