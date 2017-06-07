@@ -82,7 +82,8 @@ function submit(problemid, flag){
 		if (req != null) {
 			req.open('post', '/record/addSubmit', true);
 			req.setRequestHeader("Content-Type",
-				"application/x-www-form-urlencoded");
+				"text/plain"
+			);
 			req.onreadystatechange = function () {
 				if (req.readyState == 4) {
 					var result = req.responseText;
@@ -95,10 +96,11 @@ function submit(problemid, flag){
 				}
 			}
 
-			var code = editor.getValue();
-			var data = {"problemId": problemid, "language": id, "code": code};
+			var code = encodeURIComponent(editor.getValue());
+			var data = {"problemId": problemid, "language": id, 'code':code};
 
-			req.send('data=' + JSON.stringify(data));
+			req.send(JSON.stringify(data));
+
 		}
 	}else{
 		window.location.href = '/login';
