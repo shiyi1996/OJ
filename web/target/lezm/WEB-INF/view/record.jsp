@@ -164,7 +164,7 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/Chart.js/2.6.0/Chart.min.js"></script>
+<script type="text/javascript" src="/js/Chart.js/2.6.0/Chart.min.js"></script>
 <script type="text/javascript" src="/js/excanvas.js"></script>
 <script type="text/javascript" src="/js/record.js"></script>
 
