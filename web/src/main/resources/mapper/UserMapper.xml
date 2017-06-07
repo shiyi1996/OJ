@@ -117,6 +117,12 @@
 
 
     <!-- select语句 -->
+
+    <select id="getIdByAc_num"  resultType="int">
+        SELECT user_id FROM user ORDER BY ac_num DESC
+    </select>
+
+
     <select id="getEntityById" parameterType="int" resultType="User">
         select * from user
         where user_id=#{user_id}
