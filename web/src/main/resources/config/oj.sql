@@ -128,7 +128,7 @@ CREATE TABLE `user` (
   `school` varchar(50) DEFAULT '' COMMENT '学校',
   `ac_num` int(10) NOT NULL DEFAULT '0' COMMENT '通过题目数目',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `blog_main`;
