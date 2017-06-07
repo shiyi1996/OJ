@@ -13,7 +13,7 @@ public class Submit extends BasicVo {
     private String submit_time;         //提交时间
     private int running_time;           //耗时(ms)
     private int running_memory;         //所占空间
-    private int result;                 //结果(submit=0,pending,judging,Accept,ComplieError,RuntimeErroe)
+    private int result;                 //结果(pending=0,judging=1,Compling=2,Runnuing=3,ComplieError=4,RuntimeErroe=5,TimeOut=6,Accept=7)
     private String result_description;  //结果描述
     private int language;               //提交语言(1:c/c++;2:java;3:javascript)
     private String code;                //提交代码

@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -65,5 +66,16 @@ public class RecordController {
             }
         }
         return res;
+    }
+
+    @RequestMapping("submitStatus")
+    @ResponseBody
+    public Submit submitStatus(HttpServletRequest request){
+        Submit submit = null;
+        if(request.getParameter("")!=null && request.getParameter("")!=""){
+            int id = Integer.parseInt(request.getParameter(""));
+            submit = submitService.getSubmitById(id);
+        }
+        return submit;
     }
 }
