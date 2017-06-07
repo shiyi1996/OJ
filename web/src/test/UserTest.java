@@ -26,19 +26,19 @@ public class UserTest {
     @Test
     public void saveTest() {
 
-        User user = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
+        User user = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",1);
         int pos = userDAO.save(user);
         System.out.println(pos);
     }
     @Test
     public void saveBatchTest() {
 
-        User user1 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
-        User user2 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
-        User user3 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
-        User user4 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
-        User user5 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
-        User user6 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
+        User user1 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",2);
+        User user2 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",1);
+        User user3 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",3);
+        User user4 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",6);
+        User user5 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",7);
+        User user6 = new User("as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",3);
         List<BasicVo> users = new ArrayList<BasicVo>();
         users.add(user1);
         users.add(user2);
@@ -66,7 +66,7 @@ public class UserTest {
 
     @Test
     public void update(){
-        User user1 = new User(5,"as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt");
+        User user1 = new User(5,"as","sa","123@qq.com","weweq","2.jpg",12,2,"xupt",2);
         int pos = userDAO.update(user1);
         System.out.println(pos);
     }
@@ -94,5 +94,13 @@ public class UserTest {
     {
         int count=userDAO.countAll();
         System.out.println(count);
+    }
+    @Test
+    public void ac_num()
+    {
+        List<Integer>  lists= userDAO.getIdByAc_num();
+        for (int  a:lists) {
+            System.out.print(a+" ");
+        }
     }
 }

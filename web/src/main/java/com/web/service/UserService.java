@@ -154,4 +154,9 @@ public class UserService {
         return 0;
     }
 
+    public List<Integer> SortAc_num()
+    {
+        return userDAO.getIdByAc_num();
+    }
+
 }

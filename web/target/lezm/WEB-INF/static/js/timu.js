@@ -1,5 +1,3 @@
-var answerstatus = ['submit failed', 'pending', 'judging', 'Accept', 'ComplieError', 'RuntimeError'];
-var lang = ['C/C++', 'Java', 'JavaScript'];
 var id = 1;
 var editor = ace.edit("editor");
 window.onload = (function () {
@@ -13,7 +11,7 @@ function activeChange(){
 	var mytab = $('#myTab').children();
 	var tabpane = document.querySelectorAll('.tab-pane');
 	for (var i = 0; i < mytab.length; i++) {
-		if (i != 2){
+		if (i != 1){
 			$(mytab[i]).removeClass('active');
 			$(tabpane[i]).removeClass('active');
 			$(tabpane[i]).removeClass('in');
@@ -78,29 +76,31 @@ function getRequest(){
 	return req;
 }
 
-function submit(problemid, flag, title){
+function submit(problemid, flag){
 	if (flag == false) {
 		var req = getRequest();
 		if (req != null) {
 			req.open('post', '/record/addSubmit', true);
 			req.setRequestHeader("Content-Type",
-				"application/x-www-form-urlencoded");
+				"text/plain"
+			);
 			req.onreadystatechange = function () {
 				if (req.readyState == 4) {
 					var result = req.responseText;
-					if (result != null) {
+					if (result == 'true') {
 						activeChange();
 						animation();
-						insertRecord(JSON.parse(result), title);
 					} else {
-						alert(result);
+						alert("失败，请尝试重新提交");
 					}
 				}
 			}
-			var code = editor.getValue();
-			var data = {"problemId": problemid, "language": id, "code": code};
 
-			req.send('data=' + JSON.stringify(data));
+			var code = encodeURIComponent(editor.getValue());
+			var data = {"problemId": problemid, "language": id, 'code':code};
+
+			req.send(JSON.stringify(data));
+
 		}
 	}else{
 		window.location.href = '/login';
@@ -151,7 +151,7 @@ function insertRecord(record, title){
 // 	}
 // }
 
-window.onload = (function(){
+window.onload = function(){
 	replaceBr();
 })();
 

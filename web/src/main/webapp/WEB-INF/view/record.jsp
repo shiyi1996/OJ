@@ -133,7 +133,7 @@
             </div>
         </div>
         <div class="chart">
-            <canvas id="canvas" style="height:50vh; width:30vw"></canvas>
+            <canvas id="canvas" style="height:40vh; width:30vw"></canvas>
             <div>
                 <div><label>总通过题数：</label><span class="ac-num">890</span></div>
                 <div><label>总提交次数：</label><span class="allsub-num">435</span></div>

@@ -110,15 +110,9 @@ public class ProblemController {
 
         ModelAndView mdv = new ModelAndView("problemmess");
         Problem problem = null;
-        List<BasicVo> list = null;
         if(problemId > 0){
             problem = problemService.getProblemById(problemId);
-            if(request.getSession().getAttribute("user")!=null) {
-                int user_id = ((User) request.getSession().getAttribute("user")).getUser_id();
-                list = submitService.getSubmit(problemId, user_id);
-            }
         }
-        mdv.addObject("submit",list);
         mdv.addObject("problem",problem);
         return mdv;
     }
