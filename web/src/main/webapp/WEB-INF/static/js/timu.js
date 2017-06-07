@@ -10,7 +10,7 @@ function activeChange(){
 	var mytab = $('#myTab').children();
 	var tabpane = document.querySelectorAll('.tab-pane');
 	for (var i = 0; i < mytab.length; i++) {
-		if (i != 2){
+		if (i != 1){
 			$(mytab[i]).removeClass('active');
 			$(tabpane[i]).removeClass('active');
 			$(tabpane[i]).removeClass('in');
@@ -76,8 +76,8 @@ function getRequest(){
 	return req;
 }
 
-function submit(problemid, user){
-	if (user != null) {
+function submit(problemid, flag){
+	if (flag == false) {
 		var req = getRequest();
 		if (req != null) {
 			req.open('post', '/record/addSubmit', true);
@@ -86,11 +86,11 @@ function submit(problemid, user){
 			req.onreadystatechange = function () {
 				if (req.readyState == 4) {
 					var result = req.responseText;
-					if (result == 'succeed') {
+					if (result == 'true') {
 						activeChange();
 						animation();
 					} else {
-						alert(result);
+						alert("失败，请尝试重新提交");
 					}
 				}
 			}
@@ -102,27 +102,6 @@ function submit(problemid, user){
 		}
 	}else{
 		window.location.href = '/login';
-	}
-}
-
-function getSubmit(problemid){
-	var req=null;
-	if (window.XMLHttpRequest){
-		req = new XMLHttpRequest();
-	}else{
-		req = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	if(req!=null){
-		req.open('post','/record/getPersonSubmit',true);
-		req.setRequestHeader("Content-Type",
-			"application/x-www-form-urlencoded");
-		req.onreadystatechange = function () {
-			if(req.readyState==4){
-				var result = req.responseText;
-				alert(result);
-			}
-		}
-		req.send('problemId='+problemid);
 	}
 }
 

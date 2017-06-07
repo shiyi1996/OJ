@@ -174,5 +174,36 @@ table tbody tr td{
 	}
 }
 
+/*pending灰色*/
+.running1{
+	background: #bbb;
+}
+
+/*judging蓝色*/
+.running2{
+	background: #4797B1;
+}
+
+/*accepted绿色*/
+.running3{
+	background: rgb(39, 194, 76);
+}
+
+/*ComplieError黄色*/
+.running4{
+	background: #FC8A15;
+}
+
+/*RuntimeError粉红*/
+.running5{
+	background: #FF847C;
+}
+
+/*submit failed红色*/
+.running0{
+	background: red;
+}
+
+
 
 

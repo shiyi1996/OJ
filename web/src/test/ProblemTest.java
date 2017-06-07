@@ -23,7 +23,7 @@ public class ProblemTest {
     @Test
     public void saveTest() {
         Date date = new Date();
-        Problem problem = new Problem(0,0,"贪心","树结构","简单","字符串统计","Bat是一个淘气的小朋友，有一天他得到了一个字符串，他想统计一下字符串中的小写字母(‘a’-’z’)的个数，快来帮帮他吧。","输入一个字符串",
+        Problem problem = new Problem(0,0,"贪心","树结构","简单","符字串统计","Bat是一个淘气的小朋友，有一天他得到了一个字符串，他想统计一下字符串中的小写字母(‘a’-’z’)的个数，快来帮帮他吧。","输入一个字符串",
                 "输出一个整数，代表小写字母的个数。",
                 "AabcBB",
                 "3",
@@ -87,10 +87,11 @@ public class ProblemTest {
     public void listBatch()
     {
         Problem problem = new Problem();
-        problem.setProblem_type(0);
-        problem.setAlgorithm("贪心");
-        problem.setData_structure("树结构");
-        problem.setDifficulty("超难");
+        problem.setTitle("符");
+//        problem.setProblem_type(0);
+//        problem.setAlgorithm("贪心");
+//        problem.setData_structure("树结构");
+//        problem.setDifficulty("超难");
         List<BasicVo> problemList=problemDAO.listBatch(problem,0,3);
         for(BasicVo b:problemList){
             System.out.println(((Problem)b).getProblem_id());

@@ -186,6 +186,9 @@
         SELECT * from problem
         <where>
             problem_type=#{param1.problem_type}
+            <if test="param1.title!=null and param1.title!='' ">
+                AND problem.title LIKE CONCAT(#{param1.title},'%')
+            </if>
             <if test="param1.algorithm!=null and param1.algorithm!='' ">
                 AND problem.algorithm=#{param1.algorithm}
             </if>
@@ -204,6 +207,9 @@
         select count(*) from problem
         <where>
             problem_type=#{problem_type}
+            <if test="title!=null and title!='' ">
+                AND problem.title LIKE CONCAT(#{title},'%')
+            </if>
             <if test="algorithm!=null and algorithm!='' ">
                 AND problem.algorithm=#{algorithm}
             </if>

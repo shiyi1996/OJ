@@ -39,14 +39,13 @@ public class SubmitService {
         return res;
     }
 
-    public List<BasicVo> getSubmit(int problem_id, int user_id){
+    public List<BasicVo> getSubmit(int language,int result){
         List<BasicVo> submitList = null;
-        if(problem_id>0 && user_id>0){
+        if(language >= 0 && result >= 0){
             Submit submit = new Submit();
-            submit.setProblem_id(problem_id);
-            submit.setUser_id(user_id);
-
-            submitList = submitDAO.listBatch(submit,0,3);
+            submit.setLanguage(language);
+            submit.setResult(result);
+            submitList = submitDAO.listBatch(submit,0,6);
         }
         return submitList;
     }

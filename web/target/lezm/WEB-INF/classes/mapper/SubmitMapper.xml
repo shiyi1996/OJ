@@ -155,12 +155,18 @@
             <if test="param1.user_id!=0">
                 AND submit.user_id=#{param1.user_id}
             </if>
+            <if test="param1.language!=0">
+                AND submit.language=#{param1.language}
+            </if>
+            <if test="param1.result!=0">
+                AND submit.result=#{param1.result}
+            </if>
         </where>
         limit #{param2},#{param3}
     </select>
 
     <!-- select语句 -->
-    <select id="getEntityById" parameterType="int" resultType="Problem">
+    <select id="getEntityById" parameterType="int" resultType="Submit">
         select * from submit
         where submit_id=#{submit_id}
     </select>

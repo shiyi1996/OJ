@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="GO_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/out/production/judger" />
+    <output-test url="file://$MODULE_DIR$/out/test/judger" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="Go 1.8.1" jdkType="Go SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
