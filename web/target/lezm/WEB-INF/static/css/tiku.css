@@ -16,9 +16,10 @@ nav{
 	display: flex;
 	background: #5bc0de;
 	border-radius: 5px;
-	padding: 10px 0;
+	padding: 5px 0;
 	justify-content: space-around;
 	color: #fff;
+	align-items: center;
 }
 
 .list-nav li{

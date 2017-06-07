@@ -43,6 +43,7 @@
                 <div class="user-img">
                     <a href="#"><img src="/images/${user.picture}" /></a>
                 </div>
+                <div class="quit"><a href="#">退出登录</a></div>
             </div>
         </c:otherwise>
     </c:choose>

@@ -39,6 +39,11 @@ nav{
     width: 70%;
 }
 
+.recordlist{
+    width: 80%;
+    margin: 0 auto;
+}
+
 .ti-list, .classify-nav{
     width:100%;
 }

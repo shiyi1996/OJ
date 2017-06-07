@@ -12,7 +12,7 @@ function showlist(){
 		if (login){
 			login.style.display = 'flex';
 		}else{
-			user.style.display = 'block';
+			user.style.display = 'flex';
 		}
 	}else{
 		list.style.display = '';

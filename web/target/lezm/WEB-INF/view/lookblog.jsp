@@ -14,6 +14,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>个人主页</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
     <link href="/css/blog.css" rel="stylesheet">
     <link href="/css/publishblog.css" rel="stylesheet">
     <link href="/css/lookblog.css" rel="stylesheet">
@@ -23,10 +25,10 @@
     <![endif]-->
 
     <style>
-        .househost-user-pic{
-            width:100px;
-            height:100px;
-        }
+        /*.househost-user-pic{*/
+            /*width:100px;*/
+            /*height:100px;*/
+        /*}*/
     </style>
 
 </head>
@@ -178,7 +180,7 @@
                 </div>
                 <div class="reply-dialog">
                     <img src="/images/101.gif"  class="emotion<%=i%>" >
-                    <textarea rows="2" id="<%=i%>"></textarea>
+                    <textarea rows="2" id="<%=i%>" class="form-control"></textarea>
                     <button class="btn btn-sm btn-primary" style="margin-top:10px"
                             onclick="publish(<%=blogleaveList.get(i).getId()%>,'<%=i%>', 'div<%=i%>')">发表</button>
                 </div>
@@ -191,7 +193,7 @@
     %>
 
     <div class="text-center">
-        <nav>
+        <div>
             <ul class="pagination">
                 <li><a href="/blog/showblog/${Blogmain.id}?nowpage=1">首页</a></li>
                 <li><a href="/blog/showblog/${Blogmain.id}?nowpage=${NowPage-1>=1?NowPage-1:1}">上一页</a></li>
@@ -199,7 +201,7 @@
                     下一页</a></li>
                 <li><a href="/blog/showblog/${Blogmain.id}?nowpage=${MaxPage}">末页</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
 
     <!--发表框-->
@@ -209,7 +211,7 @@
                 <img src="/images/101.gif"  class="emotion" style="margin: 5px;cursor: pointer">
             </div>
             <textarea rows="6" type="text" id="write-mess" name="write-mess"
-                      placeholder="写下你想说的吧……">
+                      placeholder="写下你想说的吧……" class="form-control" autofocus>
             </textarea>
             <div class="btngroup">
                 <div class="btn-padding">

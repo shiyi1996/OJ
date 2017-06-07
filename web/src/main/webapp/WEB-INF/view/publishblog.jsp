@@ -13,6 +13,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>个人主页</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
     <link href="/css/blog.css" rel="stylesheet">
     <link href="/css/publishblog.css" rel="stylesheet">
 
@@ -45,7 +47,7 @@
             <div class="content-title">
                 <label for="blogtitle">标题</label><br>
                 <input type="text" name="blogtitle" id="blogtitle" placeholder="请填写标题"
-                       autofocus class="blogtitle">
+                       autofocus class="form-control blogtitle">
             </div>
             <label for="write-mess">内容</label><br>
             <div class="qqface" style="font-size:14px;">
@@ -53,7 +55,7 @@
                 最多1000字
             </div>
             <textarea rows="10" type="text" id="write-mess" name="write-mess"
-                 placeholder="写下你想说的吧……" autofocus maxlength="1000">
+                 placeholder="写下你想说的吧……" autofocus maxlength="1000" class="form-control">
             </textarea>
             <%--<div class="addphotos" id="addphotos">--%>
                 <%--<div class="file-style photo-margin" align="center">--%>
