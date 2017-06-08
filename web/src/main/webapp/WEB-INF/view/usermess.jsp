@@ -29,26 +29,26 @@
 <article>
     <section class="mainwarp">
         <div class="allrecord">
-            <form role="form" method="post" action="#" style="width: 70%;margin:0 auto">
+            <form role="form" method="post" action="/usermess" style="width: 70%;margin:0 auto">
                 <div class="form-group">
                     <label for="username">用户图像：</label>
                     <div><img src="/images/${user.picture}" style="width: 80px; height: 80px"></div>
                 </div>
                 <div class="form-group">
                     <label for="username">用户名：</label>
-                    <input type="text" class="form-control" id="username" placeholder="请输入用户名" value="${user.username}">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" value="${user.username}">
                 </div>
                 <div class="form-group">
                     <label for="userpass">昵称：</label>
-                    <input type="text" class="form-control" id="userpass" placeholder="请输入昵称" value="${user.nickname}">
+                    <input type="text" class="form-control" id="userpass" name="userpass" placeholder="请输入昵称" value="${user.nickname}">
                 </div>
                 <div class="form-group">
                     <label for="useremail">邮箱：</label>
-                    <input type="text" class="form-control" id="useremail" placeholder="请输入昵称" value="${user.email}">
+                    <input type="text" class="form-control" id="useremail" name="useremail" placeholder="请输入昵称" value="${user.email}">
                 </div>
                 <div class="form-group">
                     <label for="userdesc">个人描述：</label>
-                    <input type="text" class="form-control" id="userdesc" placeholder="请输入个人描述" value="">
+                    <input type="text" class="form-control" id="userdesc" name="userdesc" placeholder="请输入个人描述" value="${user.school}">
                 </div>
                 <button type="submit" class="btn btn-primary">提交</button>
             </form>

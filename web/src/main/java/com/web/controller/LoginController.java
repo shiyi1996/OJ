@@ -2,6 +2,7 @@ package com.web.controller;
 
 import com.web.entity.BasicVo;
 import com.web.entity.Problem;
+import com.web.entity.User;
 import com.web.service.ProblemService;
 import com.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +17,14 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller("LoginController")
-@RequestMapping("/login")
+@RequestMapping("")
 public class LoginController {
 
     @Autowired
     private UserService userService;
 
 
-    @RequestMapping("")
+    @RequestMapping("/login")
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
         ModelAndView mav = new ModelAndView("/login");
@@ -54,6 +55,40 @@ public class LoginController {
         }
         return mav;
     }
+    @RequestMapping("/usermess")
+    public ModelAndView jumpUsermess(HttpServletRequest request)
+    {
+        ModelAndView mav = mav = new ModelAndView("/usermess");
+        String username = request.getParameter("username");
+        String userpass = request.getParameter("userpass");
+        String useremail = request.getParameter("useremail");
+        String userdesc = request.getParameter("userdesc");
+        User user= (User) request.getSession().getAttribute("user");
+        if(user.getUsername()!=username && username!=null && username!="")
+        {
+            user.setUsername(username);
+        }
+        if(user.getNickname()!=userpass && userpass!=null && userpass!="")
+        {
+            user.setNickname(userpass);
+        }
+        if(user.getEmail()!=useremail && useremail!=null && useremail!="")
+        {
+            user.setEmail(useremail);
+        }
+        if(user.getSchool()!=userdesc && userdesc!=null && userdesc!="")
+        {
+            user.setSchool(userdesc);
+        }
 
+        if(1==userService.updataUser(user))
+        {
+            System.out.println("更新成功");
+        }
+
+        request.getSession().setAttribute("user",user);
+//        mav.addObject("user",user);
+        return mav;
+    }
 
 }

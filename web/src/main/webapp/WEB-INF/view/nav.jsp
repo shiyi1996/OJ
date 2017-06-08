@@ -26,7 +26,6 @@
         <ul>
             <a href="/"><li>首页</li></a>
             <a href="/p"><li>题库</li></a>
-            <a href="#"><li>排行榜</li></a>
             <a href="/blog"><li>论坛</li></a>
 
             <a href="/sort"><li>排行榜</li></a>
@@ -44,7 +43,7 @@
         <c:otherwise>
             <div class="nav-user">
                 <div class="user-img">
-                    <a href="#"><img src="/images/${user.picture}" /></a>
+                    <a href="/usermess"><img src="/images/${user.picture}" /></a>
                 </div>
 
                 <div class="quit"><a href="/quit">退出登录</a></div>

@@ -175,5 +175,10 @@ public class UserService {
         return list;
     }
 
+    public int updataUser(User user)
+    {
+        int flag = userDAO.update(user);
+        return flag;
+    }
 
 }

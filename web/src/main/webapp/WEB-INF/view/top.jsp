@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 <%@ page import="java.util.List" %>
 <%@ page import="com.web.entity.User" %>
 <%@ page import="com.web.service.UserService" %><%--
-=======
-<%--
->>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
+
   Created by IntelliJ IDEA.
   User: LuWenjing
   Date: 2017/6/7
@@ -12,18 +9,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>XuptOJ——测评</title>
-=======
-<!DOCTYPE html>
-<html>
-<head>
     <title>XuptOJ——排行榜</title>
->>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
+
     <meta charset="utf-8">
     <meta name="viewpost" content="width=device-width, initial-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +51,7 @@
                     </tr>
                     </thead>
                     <tbody id="tbody">
-<<<<<<< HEAD
+
                     <%
                         List<User> lists=(List<User>)request.getAttribute("sortAc_num");
                         List<Integer> sums = (List<Integer>)request.getAttribute("submitnum");
@@ -79,181 +70,19 @@
                             <div class="progress" style="width:80%; margin: 0">
                                 <div class="progress-bar progress-bar-info" role="progressbar"
                                      style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/sums.get(i))%>
-=======
-                    <tr>
-                        <td class="top">1</td>
-                        <td><a href="#">ssss</a></td>
-                        <td><a href="#">小二郎</a></td>
-                        <td>背上书包上学堂</td>
-                        <td style="color: rgb(39, 194, 76)">89</td>
-                        <td style="color: #BE3144">139</td>
-                        <td>
-                            <div class="progress" style="width:80%; margin: 0">
-                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                     style="width: 30%;">30%
+
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="top">1</td>
-                        <td><a href="#">ssss</a></td>
-                        <td><a href="#">小二郎</a></td>
-                        <td>背上书包上学堂</td>
-                        <td>89</td>
-                        <td>139</td>
-                        <td>
-                            <div class="progress" style="width:80%; margin: 0">
-                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                     style="width: 30%;">30%
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="top">1</td>
-                        <td><a href="#">ssss</a></td>
-                        <td><a href="#">小二郎</a></td>
-                        <td>背上书包上学堂</td>
-                        <td>89</td>
-                        <td>139</td>
-                        <td>
-                            <div class="progress" style="width:80%; margin: 0">
-                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                     style="width: 30%;">30%
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="#">ssss</a></td>
-                        <td><a href="#">小二郎</a></td>
-                        <td>背上书包上学堂</td>
-                        <td>89</td>
-                        <td>139</td>
-                        <td>
-                            <div class="progress" style="width:80%; margin: 0">
-                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                     style="width: 30%;">30%
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="top">1</td>
-                        <td><a href="#">ssss</a></td>
-                        <td><a href="#">小二郎</a></td>
-                        <td>背上书包上学堂</td>
-                        <td>89</td>
-                        <td>139</td>
-                        <td>
-                            <div class="progress" style="width:80%; margin: 0">
-                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                     style="width: 30%;">30%
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="top">1</td>
-                        <td><a href="#">ssss</a></td>
-                        <td><a href="#">小二郎</a></td>
-                        <td>背上书包上学堂</td>
-                        <td>89</td>
-                        <td>139</td>
-                        <td>
-                            <div class="progress" style="width:80%; margin: 0">
-                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                     style="width: 30%;">30%
->>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-<<<<<<< HEAD
+
                     <%
                         }
 
                     %>
 
-                    <%--<tr>--%>
-                        <%--<td class="top">1</td>--%>
-                        <%--<td><a href="#">ssss</a></td>--%>
-                        <%--<td><a href="#">小二郎</a></td>--%>
-                        <%--<td>背上书包上学堂</td>--%>
-                        <%--<td>89</td>--%>
-                        <%--<td>139</td>--%>
-                        <%--<td>--%>
-                            <%--<div class="progress" style="width:80%; margin: 0">--%>
-                                <%--<div class="progress-bar progress-bar-info" role="progressbar"--%>
-                                     <%--style="width: 30%;">30%--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td class="top">1</td>--%>
-                        <%--<td><a href="#">ssss</a></td>--%>
-                        <%--<td><a href="#">小二郎</a></td>--%>
-                        <%--<td>背上书包上学堂</td>--%>
-                        <%--<td>89</td>--%>
-                        <%--<td>139</td>--%>
-                        <%--<td>--%>
-                            <%--<div class="progress" style="width:80%; margin: 0">--%>
-                                <%--<div class="progress-bar progress-bar-info" role="progressbar"--%>
-                                     <%--style="width: 30%;">30%--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>1</td>--%>
-                        <%--<td><a href="#">ssss</a></td>--%>
-                        <%--<td><a href="#">小二郎</a></td>--%>
-                        <%--<td>背上书包上学堂</td>--%>
-                        <%--<td>89</td>--%>
-                        <%--<td>139</td>--%>
-                        <%--<td>--%>
-                            <%--<div class="progress" style="width:80%; margin: 0">--%>
-                                <%--<div class="progress-bar progress-bar-info" role="progressbar"--%>
-                                     <%--style="width: 30%;">30%--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td class="top">1</td>--%>
-                        <%--<td><a href="#">ssss</a></td>--%>
-                        <%--<td><a href="#">小二郎</a></td>--%>
-                        <%--<td>背上书包上学堂</td>--%>
-                        <%--<td>89</td>--%>
-                        <%--<td>139</td>--%>
-                        <%--<td>--%>
-                            <%--<div class="progress" style="width:80%; margin: 0">--%>
-                                <%--<div class="progress-bar progress-bar-info" role="progressbar"--%>
-                                     <%--style="width: 30%;">30%--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td class="top">1</td>--%>
-                        <%--<td><a href="#">ssss</a></td>--%>
-                        <%--<td><a href="#">小二郎</a></td>--%>
-                        <%--<td>背上书包上学堂</td>--%>
-                        <%--<td>89</td>--%>
-                        <%--<td>139</td>--%>
-                        <%--<td>--%>
-                            <%--<div class="progress" style="width:80%; margin: 0">--%>
-                                <%--<div class="progress-bar progress-bar-info" role="progressbar"--%>
-                                     <%--style="width: 30%;">30%--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</td>--%>
-                    <%--</tr>--%>
-=======
->>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
+
+
                     </tbody>
                 </table>
             </div>
