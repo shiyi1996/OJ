@@ -19,14 +19,7 @@ function changeColor(){
 //给输入框添加事件
 document.getElementById("proname").addEventListener('keyup', function (){
     var name = this.value;
-<<<<<<< HEAD
-    if (name != ''){
-        // search(name);
-        console.log(name);
-    }
-=======
-   search(name);
->>>>>>> a95c9b78b6a3bf8503a24043471472bff3b868d4
+    search(name);
 }, true);
 
 function getRequest(){

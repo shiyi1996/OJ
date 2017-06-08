@@ -26,11 +26,9 @@
         <ul>
             <a href="/"><li>首页</li></a>
             <a href="/p"><li>题库</li></a>
-            <a href="#"><li>排行榜</li></a>
-            <a href="/blog"><li>论坛</li></a>
-
+            <a href="/record"><li>评测</li></a>
             <a href="/sort"><li>排行榜</li></a>
-            <a href="/record"><li>关于</li></a>
+            <a href="/blog"><li>论坛</li></a>
 
         </ul>
     </div>
