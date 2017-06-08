@@ -134,6 +134,7 @@ function startAnimal(submitId) {
     }, 300);
 }
 
+<<<<<<< HEAD
 // <<<<<<< HEAD
 //
 // function insertRecord(record, title){
@@ -185,6 +186,9 @@ function startAnimal(submitId) {
 // 	replaceBr();
 // })();
 // =======
+=======
+
+>>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
 function submit(problemid) {
 	init(); //初始化函数
     var req = getRequest();
@@ -237,7 +241,10 @@ function progressChange(statusid, planid, desc, usetime){
     status.innerHTML = arr[statusid];
     status.style.color = colors[statusid];
 }
+<<<<<<< HEAD
 // >>>>>>> 52cb173da53a131890d25e4568f2c4bd4ab3e781
+=======
+>>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
 
 //动画
 function animation(){

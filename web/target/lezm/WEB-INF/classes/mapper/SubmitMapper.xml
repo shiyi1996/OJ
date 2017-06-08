@@ -172,6 +172,22 @@
     </select>
 
     <!-- count语句 -->
+    <select id="count" parameterType="Submit" resultType="int">
+        select count(*) from submit
+        <where>
+            <if test="user_id!=0">
+                AND submit.user_id=#{user_id}
+            </if>
+            <if test="language!=0">
+                AND submit.language=#{language}
+            </if>
+            <if test="result!=0">
+                AND submit.result=#{result}
+            </if>
+        </where>
+    </select>
+
+    <!-- count语句 -->
     <select id="countAll" parameterType="int" resultType="int">
         select count(*) from submit
     </select>

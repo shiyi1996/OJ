@@ -30,7 +30,7 @@
     <section class="mainwarp">
         <div class="recordlist">
             <div class="search-container">
-                <form class="form-inline" role="form">
+                <form class="form-inline" method="post" action="" role="form">
                     <div class="form-group">
                         <div class="col-md-3 col-sm-12">
                             <select class="form-control" name="lang" id="lang" onchange="selectLang(this)">

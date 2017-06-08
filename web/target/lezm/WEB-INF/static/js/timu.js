@@ -134,6 +134,7 @@ function startAnimal(submitId) {
     }, 300);
 }
 
+<<<<<<< HEAD
 // <<<<<<< HEAD
 //
 // function insertRecord(record, title){
@@ -185,6 +186,9 @@ function startAnimal(submitId) {
 // 	replaceBr();
 // })();
 // =======
+=======
+
+>>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
 function submit(problemid) {
 	init(); //初始化函数
     var req = getRequest();
@@ -267,5 +271,10 @@ function animation(){
 
 
 
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f

@@ -4,6 +4,7 @@ import com.alibaba.druid.filter.FilterManager;
 import com.web.dao.SubmitDAO;
 import com.web.dao.UserDAO;
 import com.web.entity.BasicVo;
+import com.web.entity.Problem;
 import com.web.entity.Submit;
 import com.web.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,8 +76,29 @@ public class SubmitService {
         return submit;
     }
 
-    public void saveCode(String path, String name,String code)
-    {
+    public List<BasicVo> listSubmit(int id,int language,int result,int start, int size){
+        List<BasicVo> list = null;
+        Submit submit = new Submit();
+        if(id>=0 && language>=0 && result>=0) {
+            submit.setUser_id(id);
+            submit.setLanguage(language);
+            submit.setResult(result);
+            list = submitDAO.listBatch(submit,start,size);
+
+        }
+        return list;
+    }
+
+    public int countSubmit(int id,int language,int result){
+        Submit submit = new Submit();
+        submit.setUser_id(id);
+        submit.setLanguage(language);
+        submit.setResult(result);
+
+        return submitDAO.count(submit);
+    }
+
+    public void saveCode(String path, String name,String code) {
         try
         {
             File codeFilm = new File(path + "code" +File.separator + name);

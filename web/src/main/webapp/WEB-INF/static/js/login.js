@@ -24,7 +24,7 @@ function checkEmail(){
     if (useremail.value == "") {
         error.innerHTML = "邮箱不能为空";
         return false;
-    }else if (reg.test(useremail)){
+    }else if (!reg.test(useremail.value)){
         error.innerHTML = "邮箱格式错误";
         return false;
     }else
