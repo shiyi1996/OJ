@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: TongYiMing
-=======
-Built-By: Administrator
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
 Created-By: IntelliJ IDEA
-Build-Jdk: 1.8.0_45
+Build-Jdk: 1.8.0_60
 

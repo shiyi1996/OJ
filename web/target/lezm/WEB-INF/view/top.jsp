@@ -1,11 +1,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.web.entity.User" %>
 <%@ page import="com.web.service.UserService" %><%--
-<<<<<<< HEAD
 
-=======
 <%--
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
+
   Created by IntelliJ IDEA.
   User: LuWenjing
   Date: 2017/6/7
@@ -13,18 +11,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<<<<<< HEAD
 
-=======
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
 <!DOCTYPE html>
 <html>
 <head>
     <title>XuptOJ——排行榜</title>
-<<<<<<< HEAD
-
-=======
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
     <meta charset="utf-8">
     <meta name="viewpost" content="width=device-width, initial-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -61,10 +52,7 @@
                     </tr>
                     </thead>
                     <tbody id="tbody">
-<<<<<<< HEAD
 
-=======
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
                     <%
                         List<User> lists=(List<User>)request.getAttribute("sortAc_num");
                         List<Integer> sums = (List<Integer>)request.getAttribute("submitnum");
@@ -82,30 +70,22 @@
                         <td>
                             <div class="progress" style="width:80%; margin: 0">
                                 <div class="progress-bar progress-bar-info" role="progressbar"
-<<<<<<< HEAD
-                                     style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/sums.get(i))%>
 
-=======
+                                     <%--style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/sums.get(i))%>--%>
+
+
                                      style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/(sums.get(i)+1))%>
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
+
                                 </div>
                             </div>
                         </td>
                     </tr>
-<<<<<<< HEAD
 
-=======
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
                     <%
                         }
 
                     %>
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 479bee99020c69b0c5d217e92e4d427b9de1c01f
                     </tbody>
                 </table>
             </div>
