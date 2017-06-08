@@ -114,25 +114,31 @@ function insertRecord(recordlist){
 function changeColor(){
     var runStatus = document.querySelectorAll('.run-status');
     for (var i = 0; i < runStatus.length; i++){
-        if (runStatus[i].innerHTML == '0'){
-            $(runStatus[i]).addClass('submit-failed');
-            runStatus[i].innerHTML = 'Submit failed';
-        }else if(runStatus[i].innerHTML == '1'){
+        if(runStatus[i].innerHTML == '0'){
             $(runStatus[i]).addClass('pending');
             runStatus[i].innerHTML = 'Pending Error';
-        }else if (runStatus[i].innerHTML == '2'){
+        }else if (runStatus[i].innerHTML == '1'){
             $(runStatus[i]).addClass('judging');
-            runStatus[i].innerHTML = 'Judging Error';
-        }else if(runStatus[i].innerHTML == '3'){
-            $(runStatus[i]).addClass('accepted');
-            runStatus[i].innerHTML = 'Accept';
-        }else if(runStatus[i].innerHTML == '4'){
+            runStatus[i].innerHTML = 'Judging';
+        }else if(runStatus[i].innerHTML == '2'){
+            $(runStatus[i]).addClass('complie');
+            runStatus[i].innerHTML = 'Compiling';
+        }
+        else if(runStatus[i].innerHTML == '4'){
             $(runStatus[i]).addClass('complie');
             runStatus[i].innerHTML = 'Compile Error';
         }
-        else {
+        else if (runStatus[i].innerHTML == '5'){
+            $(runStatus[i]).addClass('submit-failed');
+            runStatus[i].innerHTML = 'TimeLimit';
+        }
+        else if(runStatus[i].innerHTML == '6'){
             $(runStatus[i]).addClass('runtime');
-            runStatus[i].innerHTML = 'Runtime Error';
+            runStatus[i].innerHTML = 'Wrong Answer';
+        }
+        else if(runStatus[i].innerHTML == '7'){
+            $(runStatus[i]).addClass('accepted');
+            runStatus[i].innerHTML = 'Accept';
         }
     }
 }

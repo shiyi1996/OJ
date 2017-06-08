@@ -86,7 +86,7 @@ function insertProblem(problemlist){
             problemlist.forEach(function (problem) {
                 str += '<tr>'+
                     '<td><span class="status accepted"></span>'+ problem.problem_id+'</td>'+
-                    '<td><a href="/p/'+ problem.problem_id + '\">'+problem.title+'</a></td>'+
+                    '<td><a href="/p/'+ problem.problem_id + '">'+problem.title+'</a></td>'+
                     '<td><span class="easy-hard">' +problem.difficulty+ '</span></td>'+
                     '<td>2345</td>'+
                     '<td>'+
