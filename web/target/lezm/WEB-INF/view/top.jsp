@@ -1,7 +1,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.web.entity.User" %>
 <%@ page import="com.web.service.UserService" %><%--
+
 <%--
+
   Created by IntelliJ IDEA.
   User: LuWenjing
   Date: 2017/6/7
@@ -9,6 +11,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +52,7 @@
                     </tr>
                     </thead>
                     <tbody id="tbody">
+
                     <%
                         List<User> lists=(List<User>)request.getAttribute("sortAc_num");
                         List<Integer> sums = (List<Integer>)request.getAttribute("submitnum");
@@ -66,15 +70,22 @@
                         <td>
                             <div class="progress" style="width:80%; margin: 0">
                                 <div class="progress-bar progress-bar-info" role="progressbar"
+
+                                     <%--style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/sums.get(i))%>--%>
+
+
                                      style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/(sums.get(i)+1))%>
+
                                 </div>
                             </div>
                         </td>
                     </tr>
+
                     <%
                         }
 
                     %>
+
                     </tbody>
                 </table>
             </div>

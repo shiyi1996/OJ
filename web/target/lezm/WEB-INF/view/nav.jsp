@@ -42,7 +42,7 @@
         <c:otherwise>
             <div class="nav-user">
                 <div class="user-img">
-                    <a href="#"><img src="/images/${user.picture}" /></a>
+                    <a href="/usermess"><img src="/images/${user.picture}" /></a>
                 </div>
 
                 <div class="quit"><a href="/quit">退出登录</a></div>
