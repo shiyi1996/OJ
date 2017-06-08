@@ -1,7 +1,10 @@
 package com.web.controller;
 
+import com.web.entity.BasicVo;
+import com.web.entity.Problem;
 import com.web.entity.Submit;
 import com.web.entity.User;
+import com.web.service.ProblemService;
 import com.web.service.SubmitService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,10 +33,55 @@ public class RecordController {
     @Autowired
     private SubmitService submitService;
 
+    @Autowired
+    private ProblemService problemService;
+
     @RequestMapping("")
     public ModelAndView listProblem(HttpServletRequest request)
     {
+        int thenstart=1;
+        int num=6;
+        int lang=0;
+        int result=0;
+        if(request.getParameter("thenstart")!=null
+                && request.getParameter("thenstart")!="")
+        {
+            thenstart = Integer.parseInt(request.getParameter("thenstart"));
+        }
+        if(request.getParameter("lang")!=null
+                && request.getParameter("lang")!="")
+        {
+            lang = Integer.parseInt(request.getParameter("lang"));
+        }
+        if(request.getParameter("teststatus")!=null
+                && request.getParameter("teststatus")!="")
+        {
+            result = Integer.parseInt(request.getParameter("teststatus"));
+        }
+        int user_id=0;
+        if(request.getSession().getAttribute("user")!=null) {
+            user_id = ((User) request.getSession().getAttribute("user")).getUser_id();
+        }
+        List<BasicVo> list = submitService.listSubmit(user_id,lang,result,(thenstart-1)*num, num);
+        List<Problem> prolist= new ArrayList<Problem>();
+        if(list!=null && list.size()!=0) {
+            for (BasicVo basicVo : list) {
+                Problem problem = problemService.getProblemById(((Submit) basicVo).getProblem_id());
+                prolist.add(problem);
+            }
+        }
+        int SubmitNum = submitService.countSubmit(user_id,lang,result);
+        int pageNum = (SubmitNum%num==0)?SubmitNum/num:SubmitNum/num+1;
+
+
+        System.out.println("listtttttt::"+list.size());
         ModelAndView mav = new ModelAndView("record");
+        mav.addObject("problem",prolist);
+        mav.addObject("submit",list);
+        mav.addObject("pagemax", pageNum);
+        mav.addObject("pagenow", thenstart);
+        mav.addObject("language",lang);
+        mav.addObject("result",result);
         return mav;
     }
 
@@ -70,10 +119,8 @@ public class RecordController {
     @ResponseBody
     public Submit submitStatus(HttpServletRequest request){
         Submit submit = null;
-        System.out.println(request.getParameter("id"));
         if(request.getParameter("id")!=null && request.getParameter("id")!=""){
             int id = Integer.parseInt(request.getParameter("id"));
-            System.out.println("idddddddd:"+id);
             submit = submitService.getSubmitById(id);
         }
         return submit;

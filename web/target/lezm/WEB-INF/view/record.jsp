@@ -1,4 +1,8 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.web.entity.BasicVo" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.web.entity.Submit" %>
+<%@ page import="com.web.entity.Problem" %><%--
   Created by IntelliJ IDEA.
   User: LuWenjing
   Date: 2017/6/2
@@ -31,7 +35,7 @@
     <section class="mainwarp">
         <div class="allrecord">
             <div class="search-container">
-                <form class="form-inline" role="form">
+                <form class="form-inline" role="form" action="/record?thenstart=1" method="post">
                     <div class="form-group">
                         <div class="col-md-3 col-sm-12">
                             <select class="form-control" name="lang" id="lang" onchange="selectLang(this)">
@@ -55,7 +59,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-3 col-sm-12">
-                            <input type="button" name="submit" id="submit" class="btn btn-primary" value="筛选">
+                            <input type="submit" name="submit" id="submit" class="btn btn-primary" value="筛选">
                         </div>
                     </div>
                 </form>
@@ -74,60 +78,26 @@
                     </tr>
                     </thead>
                     <tbody id="tbody">
+                    <%
+                        List<Problem> problems=(List<Problem>)request.getAttribute("problem");
+                        List<BasicVo> records = (List<BasicVo>) request.getAttribute("submit");
+                        if(records!=null && records.size()!=0){
+                            for (BasicVo basicVo:records){
+                                Submit submit = (Submit)basicVo;
+                    %>
                     <tr>
-                        <td>002</td>
-                        <td><a href="#">A+B问题</a></td>
-                        <td><label class="run-status submit-failed">Submit failed</label></td>
-                        <td>1200ms</td>
-                        <td>12kb</td>
-                        <td>Java</td>
-                        <td>2017-09-08&nbsp;12:12:23</td>
+                        <td><%=submit.getProblem_id()%></td>
+                        <td><a href="/p/<%=submit.getProblem_id()%>">A+B问题</a></td>
+                        <td><label class="run-status"><%=submit.getResult()%></label></td>
+                        <td><%=submit.getRunning_time()%></td>
+                        <td><%=submit.getRunning_memory()%></td>
+                        <td><%=submit.getLanguage()%></td>
+                        <td><%=submit.getSubmit_time()%></td>
                     </tr>
-                    <tr>
-                        <td>002</td>
-                        <td><a href="#">A+B问题</a></td>
-                        <td><label class="run-status accepted">Accepted</label></td>
-                        <td>1200ms</td>
-                        <td>12kb</td>
-                        <td>Java</td>
-                        <td>2017-09-08&nbsp;12:12:23</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td><a href="#">A+B问题</a></td>
-                        <td><label class="run-status pending">Pending Error</label></td>
-                        <td>1200ms</td>
-                        <td>12kb</td>
-                        <td>Java</td>
-                        <td>2017-09-08&nbsp;12:12:23</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td><a href="#">A+B问题</a></td>
-                        <td><label class="run-status complie">Compile Error</label></td>
-                        <td>1200ms</td>
-                        <td>12kb</td>
-                        <td>Java</td>
-                        <td>2017-09-08&nbsp;12:12:23</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td><a href="#">A+B问题</a></td>
-                        <td><label class="run-status runtime">Runtime Error</label></td>
-                        <td>1200ms</td>
-                        <td>12kb</td>
-                        <td>Java</td>
-                        <td>2017-09-08&nbsp;12:12:23</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td><a href="#">A+B问题</a></td>
-                        <td><label class="run-status judging">Judging Error</label></td>
-                        <td>1200ms</td>
-                        <td>12kb</td>
-                        <td>Java</td>
-                        <td>2017-09-08&nbsp;12:12:23</td>
-                    </tr>
+                    <%
+                            }
+                        }
+                    %>
                     </tbody>
                 </table>
             </div>

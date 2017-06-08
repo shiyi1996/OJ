@@ -69,11 +69,22 @@ public class SubmitTest {
     @Test
     public void list(){
         Submit submit = new Submit();
-        submit.setProblem_id(3);
+        submit.setUser_id(0);
+        submit.setLanguage(0);
+        submit.setResult(0);
         List<BasicVo> listBatch = submitDAO.listBatch(submit,0,6);
         for(BasicVo basicVo:listBatch) {
             System.out.println(((Submit)basicVo).getSubmit_id());
         }
+    }
+
+    @Test
+    public void Count(){
+        Submit submit = new Submit();
+        submit.setUser_id(1);
+        //submit.setLanguage();
+        //submit.setResult();
+        System.out.println(submitDAO.count(submit));
     }
 
     @Test
