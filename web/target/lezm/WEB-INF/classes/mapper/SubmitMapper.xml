@@ -162,6 +162,7 @@
                 AND submit.result=#{param1.result}
             </if>
         </where>
+        order by submit.submit_time desc
         limit #{param2},#{param3}
     </select>
 

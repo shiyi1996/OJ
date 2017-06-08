@@ -71,10 +71,10 @@
                             <div class="progress" style="width:80%; margin: 0">
                                 <div class="progress-bar progress-bar-info" role="progressbar"
 
-                                     style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/sums.get(i))%>
+                                     <%--style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/sums.get(i))%>--%>
 
 
-                                     <%--style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/(sums.get(i)+1))%>--%>
+                                     style="width: 30%;"><%=(float)(lists.get(i).getAc_num()/(sums.get(i)+1))%>
 
                                 </div>
                             </div>

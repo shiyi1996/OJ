@@ -34,13 +34,13 @@
         <div style="font-size:2rem">敢挑战新的难度吗？敢，就来</div>
         <div style="font-size:1.5rem">加入社区，发现不一样的自己</div>
         <div>
-            <button class="btn btn-primary btn-lg">进入社区</button>
+            <a href="/p" class="btn btn-primary btn-lg">进入社区</a>
         </div>
     </section>
     <section class="mainbody-second">
         <a href="/p" class="item item1"><div>题库</div></a>
-        <a href="#dir2" class="item item2"><div>天梯</div></a>
-        <a href="#dir3" class="item item3"><div>论坛</div></a>
+        <a href="/record" class="item item2"><div>评测</div></a>
+        <a href="/blog" class="item item3"><div>论坛</div></a>
     </section>
     <section class="mainbody-third">
         <div class="row-dir" id="dir1">

@@ -50,10 +50,10 @@
                         <div class="col-md-3 col-sm-12">
                             <select class="form-control" name="teststatus" id="teststatus" onchange="selectStatus(this)">
                                 <option value="0">测评状态</option>
-                                <option value="1">Accepted</option>
-                                <option value="2">Wrong Answer</option>
-                                <option value="3">Compiling</option>
-                                <option value="4">Runtime Error</option>
+                                <option value="7">Accepted</option>
+                                <option value="6">Wrong Answer</option>
+                                <option value="5">TimeoutLimit</option>
+                                <option value="4">Compile Error</option>
                             </select>
                         </div>
                     </div>
