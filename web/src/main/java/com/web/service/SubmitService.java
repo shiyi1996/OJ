@@ -2,9 +2,11 @@ package com.web.service;
 
 import com.alibaba.druid.filter.FilterManager;
 import com.web.dao.SubmitDAO;
+import com.web.dao.UserDAO;
 import com.web.entity.BasicVo;
 import com.web.entity.Problem;
 import com.web.entity.Submit;
+import com.web.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -26,6 +28,8 @@ public class SubmitService {
 
     @Autowired
     private SubmitDAO submitDAO;
+    @Autowired
+    private UserDAO userDAO;
 
     public int addSubmit(int problem_id,int user_id,int language, String code){
         int id = -1;
@@ -110,5 +114,30 @@ public class SubmitService {
             e.printStackTrace();
         }
         return;
+    }
+
+    public int countSubmitFromUser(User user)
+    {
+        int sum = 0 ;
+        if(user.getUser_id() != 0)
+        {
+            sum = submitDAO.countSubmitNum(user.getUser_id());
+        }
+        else if(user.getUsername()!=null)
+        {
+            User user0 = new User();
+            user0.setUsername(user.getUsername());
+            int user_id = userDAO.save(user0);
+            sum = submitDAO.countSubmitNum(user_id);
+        }
+        else if(user.getNickname()!=null)
+        {
+            User user0 = new User();
+            user0.setNickname(user.getNickname());
+            int user_id = userDAO.save(user0);
+            sum = submitDAO.countSubmitNum(user_id);
+        }
+
+        return sum;
     }
 }
